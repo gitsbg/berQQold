@@ -1,16 +1,19 @@
 # makefile for Lua hierarchy
 # see INSTALL for installation instructions
 # see config for customization instructions
-
 LUA= .
 
 include $(LUA)/config
 
+default:
+	@clear
+	@echo -e "\033[35mLibLua\033[0m\t\033[31mInvalid usage !!!\033[0m"
+	@echo -e ""
 # primary targets ("co" and "klean" are used for making the distribution)
-all clean co klean:	dirs
-	cd include; $(MAKE) $@
-	cd src; $(MAKE) $@
-	cd src/lib; $(MAKE) $@
+berqq berqq_c clean_bin all clean co klean:
+	@cd include; $(MAKE) --no-print-directory $@
+	@cd src; $(MAKE) --no-print-directory $@
+	@cd src/lib; $(MAKE) --no-print-directory $@
 
 # in case they were not created during unpacking
 dirs:	lib
