@@ -1,7 +1,7 @@
 #include <string.h>
 #include <stdio.h>
-#include "../../libthecore/include/memcpy.h"
-#include "../../common/stl.h"
+#include "../../LibTheCore/Srcs/stdafx.h"
+#include "../../Common/stl.h"
 #include "grid.h"
 
 CGrid::CGrid(int w, int h) : m_iWidth(w), m_iHeight(h)
@@ -29,7 +29,7 @@ void CGrid::Clear()
 
 int CGrid::FindBlank(int w, int h)
 {
-    // Å©±â°¡ ´õ Å©´Ù¸é È®ÀÎÇÒ ÇÊ¿ä ¾øÀÌ ±×³É ¸®ÅÏ
+    // Å©ï¿½â°¡ ï¿½ï¿½ Å©ï¿½Ù¸ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×³ï¿½ ï¿½ï¿½ï¿½ï¿½
     if (w > m_iWidth || h > m_iHeight)
 	return -1;
 
@@ -90,7 +90,7 @@ bool CGrid::IsEmpty(int iPos, int w, int h)
 
     int iRow = iPos / m_iWidth;
 
-    // Grid ¾ÈÂÊÀÎ°¡¸¦ ¸ÕÀú °Ë»ç
+    // Grid ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
     if (iRow + h > m_iHeight)
 	return false;
 

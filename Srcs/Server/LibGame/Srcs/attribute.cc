@@ -1,4 +1,4 @@
-#include "../../libthecore/include/stdafx.h"
+#include "../../LibTheCore/Srcs/stdafx.h"
 #include "attribute.h"
 
 #define SET_BIT(var,bit)                ((var) |= (bit))
@@ -85,13 +85,13 @@ void CAttribute::Alloc()
     }
 }
 
-CAttribute::CAttribute(DWORD width, DWORD height) // dword Å¸ÀÙÀ¸·Î ¸ðµÎ 0À» Ã¤¿î´Ù.
+CAttribute::CAttribute(DWORD width, DWORD height) // dword Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 0ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½.
 {
     Initialize(width, height);
     Alloc();
 }
 
-CAttribute::CAttribute(DWORD * attr, DWORD width, DWORD height) // attrÀ» ÀÐ¾î¼­ smartÇÏ°Ô ¼Ó¼ºÀ» ÀÐ¾î¿Â´Ù.
+CAttribute::CAttribute(DWORD * attr, DWORD width, DWORD height) // attrï¿½ï¿½ ï¿½Ð¾î¼­ smartï¿½Ï°ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½Â´ï¿½.
 {
     Initialize(width, height);
 
@@ -102,7 +102,7 @@ CAttribute::CAttribute(DWORD * attr, DWORD width, DWORD height) // attrÀ» ÀÐ¾î¼­
 	if (attr[0] != attr[i])
 	    break;
 
-    // ¼Ó¼ºÀÌ ÀüºÎ °°À¸¸é ´ÜÁö defaultAttr¸¸ ¼³Á¤ÇÑ´Ù.
+    // ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ defaultAttrï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
     if (i == size)
 	defaultAttr = attr[0];
     else
@@ -112,22 +112,22 @@ CAttribute::CAttribute(DWORD * attr, DWORD width, DWORD height) // attrÀ» ÀÐ¾î¼­
 	for (i = 0; i < size; ++i)
 	    allAttr |= attr[i];
 
-	// ÇÏÀ§ 8ºñÆ®¸¸ »ç¿ëÇÒ °æ¿ì D_BYTE
+	// ï¿½ï¿½ï¿½ï¿½ 8ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ D_BYTE
 	if (!(allAttr & 0xffffff00))
 	    dataType = D_BYTE;
-	// ÇÏÀ§ 16ºñÆ®¸¸ »ç¿ëÇÒ °æ¿ì D_WORD
+	// ï¿½ï¿½ï¿½ï¿½ 16ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ D_WORD
 	else if (!(allAttr & 0xffff0000))
 	    dataType = D_WORD;
-	else // ±× ÀÌ¿Ü¿¡´Â D_DWORD
+	else // ï¿½ï¿½ ï¿½Ì¿Ü¿ï¿½ï¿½ï¿½ D_DWORD
 	    dataType = D_DWORD;
 
 	Alloc();
 
-	if (dataType == D_DWORD) // D_DWORDÀÏ ¶§´Â ¿øº» ¼Ó¼º°ú °°À¸¹Ç·Î ´ÜÁö º¹»ç.
+	if (dataType == D_DWORD) // D_DWORDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	    thecore_memcpy(data, attr, sizeof(DWORD) * width * height);
 	else
 	{
-	    // ¾Æ´Ï¸é ÄÁ¹öÆ® ÇØ¾ß ÇÑ´Ù.
+	    // ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ø¾ï¿½ ï¿½Ñ´ï¿½.
 	    DWORD * pdw = (DWORD *) attr;
 
 	    if (dataType == D_BYTE)
@@ -199,7 +199,7 @@ void CAttribute::Remove(DWORD x, DWORD y, DWORD attr)
     if (x > width || y > height)
 	return;
 
-    if (!data) // ¼Ó¼ºÀ» »èÁ¦ÇÒ ¶§ ¸¸¾à µ¥ÀÌÅÍ°¡ ¾øÀ¸¸é ±×³É ¸®ÅÏÇÑ´Ù.
+    if (!data) // ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	return;
 
     if (bytePtr)
