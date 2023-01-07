@@ -20,7 +20,7 @@ FLAGS	=	-w
 FLAGS	+=	-Wall
 FLAGS	+=	-O2
 FLAGS	+=	-pipe
-FLAGS	+=	-m32
+FLAGS	+=	-m64
 FLAGS	+=	-mtune=i686
 FLAGS	+=	-fstack-protector
 FLAGS	+=	-std=c++2a
