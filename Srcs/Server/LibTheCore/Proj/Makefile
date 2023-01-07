@@ -1,43 +1,80 @@
-@@ -0,0 +1,42 @@
-CC	= g++
-BIN_DIR = ../lib
-BIN     = $(BIN_DIR)/libthecore.a
-INCLUDE = ../include
-
-GCC_VERSION = $(shell $(CC) --version 2>&1 | grep "(GCC)" | cut -d' ' -f3  | cut -d'.' -f1)
-
-ifeq ($(GCC_VERSION), 4)
-CFLAGS  = -Wall -O2 -pipe -mtune=i686 -g -I$(INCLUDE)
+CC		=	clang++-devel
+#------------------------------------------------------------------------------
+ARCHITECTURE	=	$(shell uname -m)
+ifeq ($(ARCHITECTURE), i386)
+ARCHITECTURE	=	x86
 else
-CFLAGS  = -Wall -O2 -pipe -mcpu=i686 -g -I$(INCLUDE)
+ARCHITECTURE	=	x64
 endif
-
-LIBS    = 
-
-OBJFILES = socket.o fdwatch.o buffer.o signal.o log.o utils.o \
-	kstbl.o hangul.o heart.o main.o tea.o des.o gost.o memcpy.o
-
+FREEBSD_VERSION	=	$(shell uname -v 2>&1 | cut -d' ' -f2 | cut -d'-' -f1)
+#------------------------------------------------------------------------------
+BIN_DIR =	./lib/FreeBSD_$(FREEBSD_VERSION)/$(ARCHITECTURE)
+BIN		=	$(BIN_DIR)/libthecore.a
+SRC_DIR	=	../Srcs
+OBJ_DIR =	Objs
+#------------------------------------------------------------------------------
+$(shell if [ ! -d $(BIN_DIR) ]; then mkdir -p $(BIN_DIR); fi)
+$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi)
+#------------------------------------------------------------------------------
+FLAGS	=	-w
+FLAGS	+=	-Wall
+FLAGS	+=	-O2
+FLAGS	+=	-pipe
+FLAGS	+=	-m32
+FLAGS	+=	-mtune=i686
+FLAGS	+=	-std=c++2a
+#------------------------------------------------------------------------------
+SRCS	=	\
+				socket.c	\
+				fdwatch.c	\
+				buffer.c	\
+				signal.c	\
+				log.c		\
+				utils.c		\
+				kstbl.c		\
+				hangul.c	\
+				heart.c		\
+				main.c		\
+				tea.c		\
+				des.c		\
+				gost.c		\
+				memcpy.c
+#------------------------------------------------------------------------------
+OBJS		=	$(SRCS:%.c=$(OBJ_DIR)/%.o)
+#------------------------------------------------------------------------------
+SRCS_DIR	=	$(SRCS:%.c=$(SRC_DIR)/%.c)
+#------------------------------------------------------------------------------
 default:
-	$(MAKE) $(BIN)
-
-$(BIN): $(OBJFILES)
-	if [ ! -d $(BIN_DIR) ]; then mkdir $(BIN_DIR); fi
-	ar cru $(BIN) $(OBJFILES) $(LIBS)
-	ranlib $(BIN)
-	chmod 700 $(BIN)
-
+	@clear
+	@echo -e "\033[35mLibTheCore\033[0m\t\033[31m- Invalid usage !!!\033[0m"
+	@echo -e ""
+#------------------------------------------------------------------------------
+berqq:	clean_bin dep $(BIN)
+#------------------------------------------------------------------------------
+berqq_c:	clean dep $(BIN)
+#------------------------------------------------------------------------------
+clean_bin:
+	@rm -f $(BIN)
+	@echo -e "\033[35mLibTheCore\t\033[0m\033[33m- Binary file deleted...\033[0m"
+#------------------------------------------------------------------------------
+$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c
+	@echo -e "\033[35mLibTheCore\033[0m\t\033[1m- Compiling...\033[0m\t\t\033[32m$(<F)\033[0m"
+	@$(CC) $(FLAGS) -c $< -o $@
+#------------------------------------------------------------------------------
+$(BIN):	$(OBJS)
+	@echo -e "\033[35mLibTheCore\t\033[0m\033[1m- Linking...\033[0m\t\t\033[32m$(BIN)\033[0m"
+	@ar cru $(BIN) $(OBJS)
+	@ranlib $(BIN)
+	@chmod 700 $(BIN)
+#------------------------------------------------------------------------------
 clean:
-	rm -f *.o
-	rm -f $(BIN)
-
+	@rm -f $(OBJ_DIR)/*.o
+	@echo -e "\033[35mLibTheCore\t\033[0m\033[33m- Object files deleted...\033[0m"
+	@rm -f $(BIN)
+	@echo -e "\033[35mLibTheCore\t\033[0m\033[33m- Binary file deleted...\033[0m"
+#------------------------------------------------------------------------------
 dep:
-	$(CC) $(CFLAGS) -MM *.c > Depend
-
-$(OBJFILES):
-	$(CC) $(CFLAGS) -c $<
-
-memcpy: memcpy.o utils.o log.o
-	$(CC) $(CFLAGS) -c -D__MAIN__ memcpy.c
-	$(CC) $(CFLAGS) -o memcpy memcpy.o utils.o log.o
-
-include Depend
+	@$(CC) $(FLAGS) -MM $(SRC_DIR)/*.c > Depend
+	@echo -e "\033[35mLibTheCore\t\033[0m\033[33m- Dependencies updated...\033[0m"
+#------------------------------------------------------------------------------
+sinclude Depend
