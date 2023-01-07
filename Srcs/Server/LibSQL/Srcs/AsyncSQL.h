@@ -1,8 +1,8 @@
 #ifndef __INC_METIN_II_ASYNCSQL_H__
 #define __INC_METIN_II_ASYNCSQL_H__
 
-#include "../LibTheCore/stdafx.h"
-#include "../LibTheCore/log.h"
+#include "../../LibTheCore/Srcs/stdafx.h"
+#include "../../LibTheCore/Srcs/log.h"
 
 #include <string>
 #include <queue>

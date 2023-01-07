@@ -1,43 +1,79 @@
-#CXX	= distcc i386-obrien-freebsd5-g++
-CXX	= g++
-
-PLATFORM = $(shell file /bin/ls | cut -d' ' -f3 | cut -d'-' -f1)
-
-GCC_VERSION = $(shell $(CC) --version 2>&1 | grep "(GCC)" | cut -d' ' -f3  | cut -d'.' -f1)
-BSD_VERSION = $(shell uname -v 2>&1 | cut -d' ' -f2 | cut -d'.' -f1)
-SVN_VERSION = $(shell svnversion -n -c . | cut -d':' -f2)
-
-BIN     = ./libsql.a
-
-ifeq ($(GCC_VERSION), 4)
-IFLAGS = -I../libmysql/7.x-5.1.35
-CFLAGS  = $(IFLAGS) -Wall -O2 -pipe -mtune=i686 -D_THREAD_SAFE -fno-exceptions 
+CXX		=	clang++-devel
+#------------------------------------------------------------------------------
+ARCHITECTURE	=	$(shell uname -m)
+ifeq ($(ARCHITECTURE), i386)
+ARCHITECTURE	=	x86
 else
-IFLAGS = -I../libmysql/5.x-5.1.35
-CFLAGS  = $(IFLAGS) -Wall -O2 -pipe -mcpu=i686 -D_THREAD_SAFE -fno-exceptions 
+ARCHITECTURE	=	x64
 endif
-
-LIBS =
-
-OBJFILES = AsyncSQL.o Semaphore.o Tellwait.o Statement.o
-
+FREEBSD_VERSION	=	$(shell uname -v 2>&1 | cut -d' ' -f2 | cut -d'-' -f1)
+#------------------------------------------------------------------------------
+BIN_DIR =	./lib/FreeBSD_$(FREEBSD_VERSION)/$(ARCHITECTURE)
+BIN		=	$(BIN_DIR)/libsql.a
+SRC_DIR	=	../Srcs
+OBJ_DIR =	Objs
+#------------------------------------------------------------------------------
+$(shell if [ ! -d $(BIN_DIR) ]; then mkdir -p $(BIN_DIR); fi)
+$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi)
+#------------------------------------------------------------------------------
+FLAGS	=	-w
+FLAGS	+=	-Wall
+FLAGS	+=	-O2
+FLAGS	+=	-pipe
+FLAGS	+=	-D_GLIBCXX_USE_CXX11_ABI=1
+FLAGS	+=	-D_THREAD_SAFE
+FLAGS	+=	-m32
+FLAGS	+=	-mtune=i686
+FLAGS	+=	-fno-exceptions
+FLAGS	+=	-std=c++2a
+#------------------------------------------------------------------------------
+INC_DIR = -I../../../Extern/FreeBSD_$(FREEBSD_VERSION)/$(ARCHITECTURE)/MySQL_5.6.51/Include
+#------------------------------------------------------------------------------
+SRCS	=		\
+			AsyncSQL.cpp	\
+			Semaphore.cpp	\
+			Tellwait.cpp	\
+			Statement.cpp
+#------------------------------------------------------------------------------
+OBJS		=	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)
+#------------------------------------------------------------------------------
+SRCS_DIR	=	$(SRCS:%.cpp=$(SRC_DIR)/%.cpp)
+#------------------------------------------------------------------------------
 default:
-	$(MAKE) $(BIN)
-
-$(BIN): $(OBJFILES)
-	ar cru $(BIN) $(OBJFILES) $(LIBS)
-	ranlib $(BIN)
-	chmod 700 $(BIN)
-
+	@clear
+	@echo -e "\033[35mLibSQL\033[0m\t\033[31m- Invalid usage !!!\033[0m"
+	@echo -e ""
+#------------------------------------------------------------------------------
+berqq:	clean_bin dep $(BIN)
+#------------------------------------------------------------------------------
+berqq_c:	clean dep $(BIN)
+#------------------------------------------------------------------------------
 clean:
-	rm -f *.o
-	rm -f $(BIN)
-
+	@rm -f $(OBJ_DIR)/*.o
+	@sleep 2
+	@echo -e "\033[35mLibSQL\t\033[0m\033[33m- Object files deleted...\033[0m"
+	@rm -f $(BIN)
+	@sleep 3
+	@echo -e "\033[35mLibSQL\t\033[0m\033[33m- Binary file deleted...\033[0m"
+#------------------------------------------------------------------------------
+clean_bin:
+	@rm -f $(BIN)
+	@sleep 2
+	@echo -e "\033[35mLibSQL\t\033[0m\033[33m- Binary file deleted...\033[0m"
+#------------------------------------------------------------------------------
+$(BIN):	$(OBJS)
+	@echo -e "\033[35mLibSQL\t\033[0m\033[32m- Linking...\033[0m\t\t\033[32m$(BIN)\033[0m"
+	@ar cru $(BIN) $(OBJS)
+	@ranlib $(BIN)
+	@chmod 700 $(BIN)
+#------------------------------------------------------------------------------
+$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.cpp
+	@echo -e "\033[35mLibSQL\033[0m\t\033[1mCompiling...\033[0m\t\t\033[32m$(<F)\033[0m"
+	@$(CXX) $(FLAGS) $(INC_DIR) -c $< -o $@
+#------------------------------------------------------------------------------
 dep:
-	touch Depend
-	$(CXX) $(CFLAGS) -MM *.cpp > Depend
-
-$(OBJFILES):
-	$(CXX) $(CFLAGS) -c $<
-
+	@$(CXX) $(FLAGS) $(INC_DIR) -MM $(SRC_DIR)/*.cpp > Depend
+	@sleep 2
+	@echo -e "\033[35mLibSQL\t\033[0m\033[33m- Dependencies updated...\033[0m"
+#------------------------------------------------------------------------------
 sinclude Depend
