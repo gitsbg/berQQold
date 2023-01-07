@@ -22,7 +22,7 @@ FLAGS	+=	-O2
 FLAGS	+=	-pipe
 FLAGS	+=	-D_GLIBCXX_USE_CXX11_ABI=1
 FLAGS	+=	-D_THREAD_SAFE
-FLAGS	+=	-m32
+FLAGS	+=	-m64
 FLAGS	+=	-mtune=i686
 FLAGS	+=	-fno-exceptions
 FLAGS	+=	-std=c++2a
