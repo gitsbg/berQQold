@@ -20,7 +20,7 @@ CPrivManager::~CPrivManager()
 }
 
 //
-// @version 05/06/07	Bang2ni - Áßº¹ÀûÀ¸·Î º¸³Ê½º°¡ Àû¿ë µÈ ±æµå¿¡ ´ëÇÑ Ã³¸®
+// @version 05/06/07	Bang2ni - ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 //
 void CPrivManager::Update()
 {
@@ -34,11 +34,11 @@ void CPrivManager::Update()
 		if (p->value != 0 && !p->bRemoved)
 		{
 
-			typeof(m_aPrivGuild[p->type].begin()) it = m_aPrivGuild[p->type].find(p->guild_id);
+			__typeof(m_aPrivGuild[p->type].begin()) it = m_aPrivGuild[p->type].find(p->guild_id);
 
 			// ADD_GUILD_PRIV_TIME
-			// ±æµå¿¡ Áßº¹ÀûÀ¸·Î º¸³Ê½º°¡ ¼³Á¤µÇ¾úÀ» °æ¿ì map ÀÇ value °¡ °»½Å(¼öÁ¤) µÇ¾úÀ¸¹Ç·Î
-			// TPrivGuildData ÀÇ Æ÷ÀÎÅÍ°¡ °°À»¶§ ½ÇÁ¦·Î »èÁ¦ÇØ ÁÖ°í °ÔÀÓ¼­¹öµé¿¡°Ô cast ÇØ ÁØ´Ù.
+			// ï¿½ï¿½å¿¡ ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ map ï¿½ï¿½ value ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ç·ï¿½
+			// TPrivGuildData ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½é¿¡ï¿½ï¿½ cast ï¿½ï¿½ ï¿½Ø´ï¿½.
 			if (it != m_aPrivGuild[p->type].end() && it->second == p) {
 				m_aPrivGuild[p->type].erase(it);
 				SendChangeGuildPriv(p->guild_id, p->type, 0, 0);
@@ -72,7 +72,7 @@ void CPrivManager::Update()
 		{
 			// TODO send packet
 			SendChangeCharPriv(p->pid, p->type, 0);
-			typeof(m_aPrivChar[p->type].begin()) it = m_aPrivChar[p->type].find(p->pid);
+			__typeof(m_aPrivChar[p->type].begin()) it = m_aPrivChar[p->type].find(p->pid);
 			if (it != m_aPrivChar[p->type].end())
 				m_aPrivChar[p->type].erase(it);
 		}
@@ -88,7 +88,7 @@ void CPrivManager::AddCharPriv(DWORD pid, BYTE type, int value)
 		return;
 	}
 
-	typeof(m_aPrivChar[type].begin()) it = m_aPrivChar[type].find(pid);
+	__typeof(m_aPrivChar[type].begin()) it = m_aPrivChar[type].find(pid);
 
 	if (it != m_aPrivChar[type].end())
 		return;
@@ -113,7 +113,7 @@ void CPrivManager::AddCharPriv(DWORD pid, BYTE type, int value)
 }
 
 //
-// @version 05/06/07	Bang2ni - ÀÌ¹Ì º¸³Ê½º°¡ Àû¿ë µÈ ±æµå¿¡ º¸³Ê½º ¼³Á¤
+// @version 05/06/07	Bang2ni - ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½å¿¡ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //
 void CPrivManager::AddGuildPriv(DWORD guild_id, BYTE type, int value, time_t duration_sec)
 {
@@ -123,7 +123,7 @@ void CPrivManager::AddGuildPriv(DWORD guild_id, BYTE type, int value, time_t dur
 		return;
 	}
 
-	typeof(m_aPrivGuild[type].begin()) it = m_aPrivGuild[type].find(guild_id);
+	__typeof(m_aPrivGuild[type].begin()) it = m_aPrivGuild[type].find(guild_id);
 
 	time_t now = CClientManager::instance().GetCurrentTime();
 	time_t end = now + duration_sec;
@@ -131,8 +131,8 @@ void CPrivManager::AddGuildPriv(DWORD guild_id, BYTE type, int value, time_t dur
 	m_pqPrivGuild.push(std::make_pair(end, p));
 
 	// ADD_GUILD_PRIV_TIME
-	// ÀÌ¹Ì º¸³Ê½º°¡ ¼³Á¤µÇ ÀÖ´Ù¸é map ÀÇ value ¸¦ °»½ÅÇØ ÁØ´Ù.
-	// ÀÌÀü value ÀÇ Æ÷ÀÎÅÍ´Â priority queue ¿¡¼­ »èÁ¦µÉ ¶§ ÇØÁ¦µÈ´Ù.
+	// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ map ï¿½ï¿½ value ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½.
+	// ï¿½ï¿½ï¿½ï¿½ value ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½ priority queue ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½.
 	if (it != m_aPrivGuild[type].end())
 		it->second = p;
 	else
@@ -158,8 +158,8 @@ void CPrivManager::AddEmpirePriv(BYTE empire, BYTE type, int value, time_t durat
 	time_t now = CClientManager::instance().GetCurrentTime();
 	time_t end = now+duration_sec;
 
-	// ÀÌÀü ¼³Á¤°ª ¹«È¿È­
-	// priority_queue¿¡ µé¾îÀÖ´Â pointer == m_aaPrivEmpire[type][empire]
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¿È­
+	// priority_queueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ pointer == m_aaPrivEmpire[type][empire]
 	{
 		if (m_aaPrivEmpire[type][empire])
 			m_aaPrivEmpire[type][empire]->bRemoved = true;
@@ -177,7 +177,7 @@ void CPrivManager::AddEmpirePriv(BYTE empire, BYTE type, int value, time_t durat
 }
 
 /**
- * @version 05/06/08	Bang2ni - Áö¼Ó½Ã°£ Ãß°¡
+ * @version 05/06/08	Bang2ni - ï¿½ï¿½ï¿½Ó½Ã°ï¿½ ï¿½ß°ï¿½
  */
 struct FSendChangeGuildPriv
 {
@@ -277,13 +277,13 @@ void CPrivManager::SendPrivOnSetup(CPeer* peer)
 			// END_OF_ADD_EMPIRE_PRIV_TIME
 		}
 
-		for (typeof(m_aPrivGuild[i].begin()) it = m_aPrivGuild[i].begin(); it != m_aPrivGuild[i].end();++it)
+		for (__typeof(m_aPrivGuild[i].begin()) it = m_aPrivGuild[i].begin(); it != m_aPrivGuild[i].end();++it)
 		{
 			// ADD_GUILD_PRIV_TIME
 			FSendChangeGuildPriv(it->first, i, it->second->value, it->second->end_time_sec)(peer);
 			// END_OF_ADD_GUILD_PRIV_TIME
 		}
-		for (typeof(m_aPrivChar[i].begin()) it = m_aPrivChar[i].begin(); it != m_aPrivChar[i].end(); ++it)
+		for (__typeof(m_aPrivChar[i].begin()) it = m_aPrivChar[i].begin(); it != m_aPrivChar[i].end(); ++it)
 		{
 			FSendChangeCharPriv(it->first, i, it->second->value)(peer);
 		}

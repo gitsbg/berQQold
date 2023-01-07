@@ -19,7 +19,7 @@ bool PlayerHB::Initialize()
 	char szQuery[128];
 	snprintf(szQuery, sizeof(szQuery), "SHOW CREATE TABLE player%s", GetTablePostfix());
 
-	std::auto_ptr<SQLMsg> pMsg(CDBManager::instance().DirectQuery(szQuery));
+	std::unique_ptr<SQLMsg> pMsg(CDBManager::instance().DirectQuery(szQuery));
 
 	if (pMsg->Get()->uiNumRows == 0)
 		return false;
@@ -30,7 +30,7 @@ bool PlayerHB::Initialize()
 }
 
 //
-// @version	05/07/05 Bang2ni - id ¿¡ ÇØ´çÇÏ´Â data °¡ ¾øÀ» ¶§ Äõ¸®ÇÏ°í data ¸¦ insert  ÇÏ´ÂÄÚµå Ãß°¡.
+// @version	05/07/05 Bang2ni - id ï¿½ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ data ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ data ï¿½ï¿½ insert  ï¿½Ï´ï¿½ï¿½Úµï¿½ ï¿½ß°ï¿½.
 //
 void PlayerHB::Put(DWORD id)
 {
@@ -48,7 +48,7 @@ void PlayerHB::Put(DWORD id)
 }
 
 //
-// @version	05/07/05 Bang2ni - Query string ¹öÆÛ°¡ ÀÛ¾Æ¼­ ´Ã·ÁÁÜ.
+// @version	05/07/05 Bang2ni - Query string ï¿½ï¿½ï¿½Û°ï¿½ ï¿½Û¾Æ¼ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½.
 //
 bool PlayerHB::Query(DWORD id)
 {
@@ -75,7 +75,7 @@ bool PlayerHB::Query(DWORD id)
 
 		snprintf(szQuery, sizeof(szQuery), "CREATE TABLE IF NOT EXISTS %s%s", szTableName, m_stCreateTableQuery.c_str() + strlen(szFind));
 	//	sys_log(0, "%s", szQuery);
-		std::auto_ptr<SQLMsg> pMsg(CDBManager::instance().DirectQuery(szQuery, SQL_HOTBACKUP));
+		std::unique_ptr<SQLMsg> pMsg(CDBManager::instance().DirectQuery(szQuery, SQL_HOTBACKUP));
 		m_stTableName = szTableName;
 	}
 

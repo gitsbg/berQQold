@@ -180,7 +180,7 @@ void CClientManager::RESULT_LOGIN_BY_KEY(CPeer * peer, SQLMsg * msg)
 		DWORD account_id = info->pAccountTable->id;
 		char szQuery[QUERY_MAX_LEN];
 		snprintf(szQuery, sizeof(szQuery), "SELECT pid1, pid2, pid3, pid4, empire FROM player_index%s WHERE id=%u", GetTablePostfix(), account_id);
-		std::auto_ptr<SQLMsg> pMsg(CDBManager::instance().DirectQuery(szQuery, SQL_PLAYER));
+		std::unique_ptr<SQLMsg> pMsg(CDBManager::instance().DirectQuery(szQuery, SQL_PLAYER));
 		
 		sys_log(0, "RESULT_LOGIN_BY_KEY FAIL player_index's NULL : ID:%d", account_id);
 
@@ -249,7 +249,7 @@ TAccountTable * CreateAccountTableFromRes(MYSQL_RES * res)
 	TAccountTable * pkTab = new TAccountTable;
 	memset(pkTab, 0, sizeof(TAccountTable));
 
-	// Ã¹¹øÂ° ÄÃ·³ °Í¸¸ Âü°í ÇÑ´Ù (JOIN QUERY¸¦ À§ÇÑ °Í ÀÓ)
+	// Ã¹ï¿½ï¿½Â° ï¿½Ã·ï¿½ ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½ (JOIN QUERYï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½)
 	strlcpy(input_pwd, row[col++], sizeof(input_pwd));
 	str_to_number(pkTab->id, row[col++]);
 	strlcpy(pkTab->login, row[col++], sizeof(pkTab->login));
@@ -373,7 +373,7 @@ void CClientManager::RESULT_LOGIN(CPeer * peer, SQLMsg * msg)
 
 	if (info->account_index == 0)
 	{
-		// °èÁ¤ÀÌ ¾ø³×?
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½?
 		if (msg->Get()->uiNumRows == 0)
 		{
 			sys_log(0, "RESULT_LOGIN: no account");
@@ -415,14 +415,14 @@ void CClientManager::RESULT_LOGIN(CPeer * peer, SQLMsg * msg)
 	}
 	else
 	{
-		if (!info->pAccountTable) // ÀÌ·²¸®´Â ¾ø°ÚÁö¸¸;;
+		if (!info->pAccountTable) // ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½;;
 		{
 			peer->EncodeReturn(HEADER_DG_LOGIN_WRONG_PASSWD, info->dwHandle);
 			delete info;
 			return;
 		}
 
-		// ´Ù¸¥ ÄÁ³Ø¼ÇÀÌ ÀÌ¹Ì ·Î±×ÀÎ ÇØ¹ö·È´Ù¸é.. ÀÌ¹Ì Á¢¼ÓÇß´Ù°í º¸³»¾ß ÇÑ´Ù.
+		// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Ø¹ï¿½ï¿½È´Ù¸ï¿½.. ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 		if (!InsertLogonAccount(info->pAccountTable->login, peer->GetHandle(), info->ip))
 		{
 			sys_log(0, "RESULT_LOGIN: already logon %s", info->pAccountTable->login);
@@ -506,7 +506,7 @@ void CClientManager::QUERY_CHANGE_NAME(CPeer * peer, DWORD dwHandle, TPacketGDCh
 		snprintf(queryStr, sizeof(queryStr),
 			"SELECT COUNT(*) as count FROM player%s WHERE name='%s' AND id <> %u", GetTablePostfix(), p->name, p->pid);
 
-	std::auto_ptr<SQLMsg> pMsg(CDBManager::instance().DirectQuery(queryStr, SQL_PLAYER));
+	std::unique_ptr<SQLMsg> pMsg(CDBManager::instance().DirectQuery(queryStr, SQL_PLAYER));
 
 	if (pMsg->Get()->uiNumRows)
 	{
@@ -533,7 +533,7 @@ void CClientManager::QUERY_CHANGE_NAME(CPeer * peer, DWORD dwHandle, TPacketGDCh
 	snprintf(queryStr, sizeof(queryStr),
 			"UPDATE player%s SET name='%s',change_name=0 WHERE id=%u", GetTablePostfix(), p->name, p->pid);
 
-	std::auto_ptr<SQLMsg> pMsg0(CDBManager::instance().DirectQuery(queryStr, SQL_PLAYER));
+	std::unique_ptr<SQLMsg> pMsg0(CDBManager::instance().DirectQuery(queryStr, SQL_PLAYER));
 
 	TPacketDGChangeName pdg;
 	peer->EncodeHeader(HEADER_DG_CHANGE_NAME, dwHandle, sizeof(TPacketDGChangeName));

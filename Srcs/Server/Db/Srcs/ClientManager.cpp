@@ -1,10 +1,10 @@
 
 #include "stdafx.h"
 
-#include "../../common/billing.h"
-#include "../../common/building.h"
-#include "../../common/VnumHelper.h"
-#include "../../libgame/include/grid.h"
+#include "../../Common/billing.h"
+#include "../../Common/building.h"
+#include "../../Common/VnumHelper.h"
+#include "../../LibGame/Srcs/grid.h"
 
 #include "ClientManager.h"
 
@@ -166,7 +166,7 @@ bool CClientManager::Initialize()
 
 	LoadEventFlag();
 
-	// database character-setÀ» °­Á¦·Î ¸ÂÃã
+	// database character-setï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (g_stLocale == "big5" || g_stLocale == "sjis")
 	    CDBManager::instance().QueryLocaleSet();
 
@@ -179,7 +179,7 @@ void CClientManager::MainLoop()
 
 	sys_log(0, "ClientManager pointer is %p", this);
 
-	// ¸ÞÀÎ·çÇÁ
+	// ï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½
 	while (!m_bShutdowned)
 	{
 		while ((tmp = CDBManager::instance().PopResult()))
@@ -195,7 +195,7 @@ void CClientManager::MainLoop()
 	}
 
 	//
-	// ¸ÞÀÎ·çÇÁ Á¾·áÃ³¸®
+	// ï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 	//
 	sys_log(0, "MainLoop exited, Starting cache flushing");
 
@@ -203,7 +203,7 @@ void CClientManager::MainLoop()
 
 	itertype(m_map_playerCache) it = m_map_playerCache.begin();
 
-	//ÇÃ·¹ÀÌ¾î Å×ÀÌºí Ä³½¬ ÇÃ·¯½¬	
+	//ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ Ä³ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½	
 	while (it != m_map_playerCache.end())
 	{
 		CPlayerTableCache * c = (it++)->second;
@@ -215,7 +215,7 @@ void CClientManager::MainLoop()
 
 	
 	itertype(m_map_itemCache) it2 = m_map_itemCache.begin();
-	//¾ÆÀÌÅÛ ÇÃ·¯½¬
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½
 	while (it2 != m_map_itemCache.end())
 	{
 		CItemCache * c = (it2++)->second;
@@ -227,7 +227,7 @@ void CClientManager::MainLoop()
 
 	// MYSHOP_PRICE_LIST
 	//
-	// °³ÀÎ»óÁ¡ ¾ÆÀÌÅÛ °¡°Ý ¸®½ºÆ® Flush
+	// ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Flush
 	//
 	for (itertype(m_mapItemPriceListCache) itPriceList = m_mapItemPriceListCache.begin(); itPriceList != m_mapItemPriceListCache.end(); ++itPriceList)
 	{
@@ -247,7 +247,7 @@ void CClientManager::Quit()
 
 void CClientManager::QUERY_BOOT(CPeer* peer, TPacketGDBoot * p)
 {
-	const BYTE bPacketVersion = 6; // BOOT ÆÐÅ¶ÀÌ ¹Ù²ð¶§¸¶´Ù ¹øÈ£¸¦ ¿Ã¸®µµ·Ï ÇÑ´Ù.
+	const BYTE bPacketVersion = 6; // BOOT ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½Ù²ð¶§¸ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 
 	std::vector<tAdminInfo> vAdmin;
 	std::vector<std::string> vHost;
@@ -506,9 +506,9 @@ void CClientManager::RESULT_SAFEBOX_LOAD(CPeer * pkPeer, SQLMsg * msg)
 	ClientHandleInfo * pi = (ClientHandleInfo *) qi->pvData;
 	DWORD dwHandle = pi->dwHandle;
 
-	// ¿©±â¿¡¼­ »ç¿ëÇÏ´Â account_index´Â Äõ¸® ¼ø¼­¸¦ ¸»ÇÑ´Ù.
-	// Ã¹¹øÂ° ÆÐ½º¿öµå ¾Ë¾Æ³»±â À§ÇØ ÇÏ´Â Äõ¸®°¡ 0
-	// µÎ¹øÂ° ½ÇÁ¦ µ¥ÀÌÅÍ¸¦ ¾ò¾î³õ´Â Äõ¸®°¡ 1
+	// ï¿½ï¿½ï¿½â¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ account_indexï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
+	// Ã¹ï¿½ï¿½Â° ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾Æ³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0
+	// ï¿½Î¹ï¿½Â° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1
 
 	if (pi->account_index == 0)
 	{
@@ -533,7 +533,7 @@ void CClientManager::RESULT_SAFEBOX_LOAD(CPeer * pkPeer, SQLMsg * msg)
 		{
 			MYSQL_ROW row = mysql_fetch_row(res->pSQLResult);
 
-			// ºñ¹Ð¹øÈ£°¡ Æ²¸®¸é..
+			// ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ Æ²ï¿½ï¿½ï¿½ï¿½..
 			if (((!row[2] || !*row[2]) && strcmp("000000", szSafeboxPassword)) ||
 				((row[2] && *row[2]) && strcmp(row[2], szSafeboxPassword)))
 			{
@@ -599,8 +599,8 @@ void CClientManager::RESULT_SAFEBOX_LOAD(CPeer * pkPeer, SQLMsg * msg)
 		}
 
 
-		// Äõ¸®¿¡ ¿¡·¯°¡ ÀÖ¾úÀ¸¹Ç·Î ÀÀ´äÇÒ °æ¿ì Ã¢°í°¡ ºñ¾îÀÖ´Â °Í Ã³·³
-		// º¸ÀÌ±â ¶§¹®¿¡ Ã¢°í°¡ ¾Æ¾ê ¾È¿­¸®´Â°Ô ³ªÀ½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ Ã³ï¿½ï¿½
+		// ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¾ï¿½ ï¿½È¿ï¿½ï¿½ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if (!msg->Get()->pSQLResult)
 		{
 			sys_err("null safebox result");
@@ -639,7 +639,7 @@ void CClientManager::RESULT_SAFEBOX_LOAD(CPeer * pkPeer, SQLMsg * msg)
 			{
 				std::vector<std::pair<DWORD, DWORD> > vec_dwFinishedAwardID;
 
-				typeof(pSet->begin()) it = pSet->begin();
+				__typeof(pSet->begin()) it = pSet->begin();
 
 				char szQuery[512];
 
@@ -709,8 +709,8 @@ void CClientManager::RESULT_SAFEBOX_LOAD(CPeer * pkPeer, SQLMsg * msg)
 						{
 							case 72723: case 72724: case 72725: case 72726:
 							case 72727: case 72728: case 72729: case 72730:
-							// ¹«½Ã¹«½ÃÇÏÁö¸¸ ÀÌÀü¿¡ ÇÏ´ø °É °íÄ¡±â´Â ¹«¼·°í...
-							// ±×·¡¼­ ±×³É ÇÏµå ÄÚµù. ¼±¹° »óÀÚ¿ë ÀÚµ¿¹°¾à ¾ÆÀÌÅÛµé.
+							// ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
+							// ï¿½×·ï¿½ï¿½ï¿½ ï¿½×³ï¿½ ï¿½Ïµï¿½ ï¿½Úµï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ûµï¿½.
 							case 76004: case 76005: case 76021: case 76022:
 							case 79012: case 79013:
 								if (pItemAward->dwSocket2 == 0)
@@ -780,7 +780,7 @@ void CClientManager::RESULT_SAFEBOX_LOAD(CPeer * pkPeer, SQLMsg * msg)
 								pItemAward->dwVnum, pItemAward->dwCount, pItemAward->dwSocket0, pItemAward->dwSocket1, dwSocket2);
 					}
 
-					std::auto_ptr<SQLMsg> pmsg(CDBManager::instance().DirectQuery(szQuery));
+					std::unique_ptr<SQLMsg> pmsg(CDBManager::instance().DirectQuery(szQuery));
 					SQLResult * pRes = pmsg->Get();
 					sys_log(0, "SAFEBOX Query : [%s]", szQuery);
 
@@ -822,7 +822,7 @@ void CClientManager::RESULT_SAFEBOX_LOAD(CPeer * pkPeer, SQLMsg * msg)
 void CClientManager::QUERY_SAFEBOX_CHANGE_SIZE(CPeer * pkPeer, DWORD dwHandle, TSafeboxChangeSizePacket * p)
 {
 	ClientHandleInfo * pi = new ClientHandleInfo(dwHandle);
-	pi->account_index = p->bSize;	// account_index¸¦ »çÀÌÁî·Î ÀÓ½Ã·Î »ç¿ë
+	pi->account_index = p->bSize;	// account_indexï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ó½Ã·ï¿½ ï¿½ï¿½ï¿½
 
 	char szQuery[QUERY_MAX_LEN];
 
@@ -910,7 +910,7 @@ void CClientManager::RESULT_PRICELIST_LOAD(CPeer* peer, SQLMsg* pMsg)
 	TItemPricelistReqInfo* pReqInfo = (TItemPricelistReqInfo*)static_cast<CQueryInfo*>(pMsg->pvUserData)->pvData;
 
 	//
-	// DB ¿¡¼­ ·ÎµåÇÑ Á¤º¸¸¦ Cache ¿¡ ÀúÀå
+	// DB ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Cache ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//
 
 	TItemPriceListTable table;
@@ -929,7 +929,7 @@ void CClientManager::RESULT_PRICELIST_LOAD(CPeer* peer, SQLMsg* pMsg)
 	PutItemPriceListCache(&table);
 
 	//
-	// ·ÎµåÇÑ µ¥ÀÌÅÍ¸¦ Game server ¿¡ Àü¼Û
+	// ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ Game server ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//
 
 	TPacketMyshopPricelistHeader header;
@@ -953,7 +953,7 @@ void CClientManager::RESULT_PRICELIST_LOAD_FOR_UPDATE(SQLMsg* pMsg)
 	TItemPriceListTable* pUpdateTable = (TItemPriceListTable*)static_cast<CQueryInfo*>(pMsg->pvUserData)->pvData;
 
 	//
-	// DB ¿¡¼­ ·ÎµåÇÑ Á¤º¸¸¦ Cache ¿¡ ÀúÀå
+	// DB ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Cache ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//
 
 	TItemPriceListTable table;
@@ -1001,7 +1001,7 @@ void CClientManager::QUERY_EMPIRE_SELECT(CPeer * pkPeer, DWORD dwHandle, TEmpire
 		snprintf(szQuery, sizeof(szQuery),
 				"SELECT pid1, pid2, pid3, pid4 FROM player_index%s WHERE id=%u", GetTablePostfix(), p->dwAccountID);
 
-		std::auto_ptr<SQLMsg> pmsg(CDBManager::instance().DirectQuery(szQuery));
+		std::unique_ptr<SQLMsg> pmsg(CDBManager::instance().DirectQuery(szQuery));
 
 		SQLResult * pRes = pmsg->Get();
 
@@ -1015,18 +1015,18 @@ void CClientManager::QUERY_EMPIRE_SELECT(CPeer * pkPeer, DWORD dwHandle, TEmpire
 			UINT g_start_map[4] =
 			{
 				0,  // reserved
-				1,  // ½Å¼ö±¹
-				21, // ÃµÁ¶±¹
-				41  // Áø³ë±¹
+				1,  // ï¿½Å¼ï¿½ï¿½ï¿½
+				21, // Ãµï¿½ï¿½ï¿½ï¿½
+				41  // ï¿½ï¿½ï¿½ë±¹
 			};
 
 			// FIXME share with game
 			DWORD g_start_position[4][2]=
 			{
 				{      0,      0 },
-				{ 469300, 964200 }, // ½Å¼ö±¹
-				{  55700, 157900 }, // ÃµÁ¶±¹
-				{ 969600, 278400 }  // Áø³ë±¹
+				{ 469300, 964200 }, // ï¿½Å¼ï¿½ï¿½ï¿½
+				{  55700, 157900 }, // Ãµï¿½ï¿½ï¿½ï¿½
+				{ 969600, 278400 }  // ï¿½ï¿½ï¿½ë±¹
 			};
 
 			for (int i = 0; i < 3; ++i)
@@ -1046,7 +1046,7 @@ void CClientManager::QUERY_EMPIRE_SELECT(CPeer * pkPeer, DWORD dwHandle, TEmpire
 							g_start_position[p->bEmpire][1],
 							pids[i]);
 
-					std::auto_ptr<SQLMsg> pmsg2(CDBManager::instance().DirectQuery(szQuery));
+					std::unique_ptr<SQLMsg> pmsg2(CDBManager::instance().DirectQuery(szQuery));
 				}
 			}
 		}
@@ -1077,7 +1077,7 @@ void CClientManager::QUERY_SETUP(CPeer * peer, DWORD dwHandle, const char * c_pD
 	peer->SetMaps(p->alMaps);
 
 	//
-	// ¾î¶² ¸ÊÀÌ ¾î¶² ¼­¹ö¿¡ ÀÖ´ÂÁö º¸³»±â
+	// ï¿½î¶² ï¿½ï¿½ï¿½ï¿½ ï¿½î¶² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	//
 	TMapLocation kMapLocations;
 
@@ -1184,7 +1184,7 @@ void CClientManager::QUERY_SETUP(CPeer * peer, DWORD dwHandle, const char * c_pD
 	peer->Encode(&vec_kMapLocations[0], sizeof(TMapLocation) * vec_kMapLocations.size());
 
 	//
-	// ¼Â¾÷ : Á¢¼ÓÇÑ ÇÇ¾î¿¡ ´Ù¸¥ ÇÇ¾îµéÀÌ Á¢¼ÓÇÏ°Ô ¸¸µç´Ù. (P2P ÄÁ³Ø¼Ç »ý¼º)
+	// ï¿½Â¾ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾î¿¡ ï¿½Ù¸ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½. (P2P ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½)
 	// 
 	sys_log(0, "SETUP: channel %u listen %u p2p %u count %u", peer->GetChannel(), p->wListenPort, p->wP2PPort, bMapCount);
 
@@ -1200,7 +1200,7 @@ void CClientManager::QUERY_SETUP(CPeer * peer, DWORD dwHandle, const char * c_pD
 		if (tmp == peer)
 			continue;
 
-		// Ã¤³ÎÀÌ 0ÀÌ¶ó¸é ¾ÆÁ÷ SETUP ÆÐÅ¶ÀÌ ¿ÀÁö ¾ÊÀº ÇÇ¾î ¶Ç´Â auth¶ó°í °£ÁÖÇÒ ¼ö ÀÖÀ½
+		// Ã¤ï¿½ï¿½ï¿½ï¿½ 0ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ SETUP ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½Ç´ï¿½ authï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if (0 == tmp->GetChannel())
 			continue;
 
@@ -1209,7 +1209,7 @@ void CClientManager::QUERY_SETUP(CPeer * peer, DWORD dwHandle, const char * c_pD
 	}
 
 	//
-	// ·Î±×ÀÎ ¹× ºô¸µÁ¤º¸ º¸³»±â
+	// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	//
 	TPacketLoginOnSetup * pck = (TPacketLoginOnSetup *) c_pData;;
 	std::vector<TPacketBillingRepair> vec_repair;
@@ -1282,8 +1282,8 @@ void CClientManager::QUERY_ITEM_SAVE(CPeer * pkPeer, const char * c_pData)
 {
 	TPlayerItem * p = (TPlayerItem *) c_pData;
 
-	// Ã¢°í¸é Ä³½¬ÇÏÁö ¾Ê°í, Ä³½¬¿¡ ÀÖ´ø °Íµµ »©¹ö·Á¾ß ÇÑ´Ù.
-	// auctionÀº ÀÌ ·çÆ®¸¦ Å¸Áö ¾Ê¾Æ¾ß ÇÑ´Ù. EnrollInAuctionÀ» Å¸¾ßÇÑ´Ù.
+	// Ã¢ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½, Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
+	// auctionï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ê¾Æ¾ï¿½ ï¿½Ñ´ï¿½. EnrollInAuctionï¿½ï¿½ Å¸ï¿½ï¿½ï¿½Ñ´ï¿½.
 
 	if (p->window == SAFEBOX || p->window == MALL)
 	{
@@ -1422,7 +1422,7 @@ void CClientManager::PutItemCache(TPlayerItem * pNew, bool bSkipQuery)
 
 	c = GetItemCache(pNew->id);
 	
-	// ¾ÆÀÌÅÛ »õ·Î »ý¼º
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (!c)
 	{
 		if (g_log)
@@ -1431,15 +1431,15 @@ void CClientManager::PutItemCache(TPlayerItem * pNew, bool bSkipQuery)
 		c = new CItemCache;
 		m_map_itemCache.insert(TItemCacheMap::value_type(pNew->id, c));
 	}
-	// ÀÖÀ»½Ã
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	else
 	{
 		if (g_log)
 			sys_log(0, "ITEM_CACHE: PutItemCache ==> Have Cache");
-		// ¼ÒÀ¯ÀÚ°¡ Æ²¸®¸é
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ Æ²ï¿½ï¿½ï¿½ï¿½
 		if (pNew->owner != c->Get()->owner)
 		{
-			// ÀÌ¹Ì ÀÌ ¾ÆÀÌÅÛÀ» °¡Áö°í ÀÖ¾ú´ø À¯Àú·Î ºÎÅÍ ¾ÆÀÌÅÛÀ» »èÁ¦ÇÑ´Ù.
+			// ï¿½Ì¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			TItemCacheSetPtrMap::iterator it = m_map_pkItemCacheSetPtr.find(c->Get()->owner);
 
 			if (it != m_map_pkItemCacheSetPtr.end())
@@ -1451,7 +1451,7 @@ void CClientManager::PutItemCache(TPlayerItem * pNew, bool bSkipQuery)
 		}
 	}
 
-	// »õ·Î¿î Á¤º¸ ¾÷µ¥ÀÌÆ® 
+	// ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® 
 	c->Put(pNew, bSkipQuery);
 	
 	TItemCacheSetPtrMap::iterator it = m_map_pkItemCacheSetPtr.find(c->Get()->owner);
@@ -1466,8 +1466,8 @@ void CClientManager::PutItemCache(TPlayerItem * pNew, bool bSkipQuery)
 	}
 	else
 	{
-		// ÇöÀç ¼ÒÀ¯ÀÚ°¡ ¾øÀ¸¹Ç·Î ¹Ù·Î ÀúÀåÇØ¾ß ´ÙÀ½ Á¢¼ÓÀÌ ¿Ã ¶§ SQL¿¡ Äõ¸®ÇÏ¿©
-		// ¹ÞÀ» ¼ö ÀÖÀ¸¹Ç·Î ¹Ù·Î ÀúÀåÇÑ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ SQLï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		if (g_log)
 			sys_log(0, "ITEM_CACHE: direct save %u id %u", c->Get()->owner, c->Get()->id);
 		else
@@ -1527,7 +1527,7 @@ void CClientManager::UpdatePlayerCache()
 
 			c->Flush();
 
-			// Item Cacheµµ ¾÷µ¥ÀÌÆ®
+			// Item Cacheï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 			UpdateItemCacheSet(c->Get()->id);
 		}
 		else if (c->CheckFlushTimeout())
@@ -1553,7 +1553,7 @@ void CClientManager::UpdateItemCache()
 	{
 		CItemCache * c = (it++)->second;
 
-		// ¾ÆÀÌÅÛÀº Flush¸¸ ÇÑ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Flushï¿½ï¿½ ï¿½Ñ´ï¿½.
 		if (c->CheckFlushTimeout())
 		{
 			if (g_test_server)
@@ -1600,7 +1600,7 @@ void CClientManager::QUERY_ITEM_DESTROY(CPeer * pkPeer, const char * c_pData)
 		if (g_log)
 			sys_log(0, "HEADER_GD_ITEM_DESTROY: PID %u ID %u", dwPID, dwID);
 
-		if (dwPID == 0) // ¾Æ¹«µµ °¡Áø »ç¶÷ÀÌ ¾ø¾ú´Ù¸é, ºñµ¿±â Äõ¸®
+		if (dwPID == 0) // ï¿½Æ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ù¸ï¿½, ï¿½ñµ¿±ï¿½ ï¿½ï¿½ï¿½ï¿½
 			CDBManager::instance().AsyncQuery(szQuery);
 		else
 			CDBManager::instance().ReturnQuery(szQuery, QID_ITEM_DESTROY, pkPeer->GetHandle(), NULL);
@@ -1678,7 +1678,7 @@ void CClientManager::QUERY_RELOAD_PROTO()
 
 // ADD_GUILD_PRIV_TIME
 /**
- * @version	05/06/08 Bang2ni - Áö¼Ó½Ã°£ Ãß°¡
+ * @version	05/06/08 Bang2ni - ï¿½ï¿½ï¿½Ó½Ã°ï¿½ ï¿½ß°ï¿½
  */
 void CClientManager::AddGuildPriv(TPacketGiveGuildPriv* p)
 {
@@ -1985,7 +1985,7 @@ void CClientManager::CreateObject(TPacketGDCreateObject * p)
 			"INSERT INTO object%s (land_id, vnum, map_index, x, y, x_rot, y_rot, z_rot) VALUES(%u, %u, %d, %d, %d, %f, %f, %f)",
 			GetTablePostfix(), p->dwLandID, p->dwVnum, p->lMapIndex, p->x, p->y, p->xRot, p->yRot, p->zRot);
 
-	std::auto_ptr<SQLMsg> pmsg(CDBManager::instance().DirectQuery(szQuery));
+	std::unique_ptr<SQLMsg> pmsg(CDBManager::instance().DirectQuery(szQuery));
 
 	if (pmsg->Get()->uiInsertID == 0)
 	{
@@ -2019,7 +2019,7 @@ void CClientManager::DeleteObject(DWORD dwID)
 
 	snprintf(szQuery, sizeof(szQuery), "DELETE FROM object%s WHERE id=%u", GetTablePostfix(), dwID);
 
-	std::auto_ptr<SQLMsg> pmsg(CDBManager::instance().DirectQuery(szQuery));
+	std::unique_ptr<SQLMsg> pmsg(CDBManager::instance().DirectQuery(szQuery));
 
 	if (pmsg->Get()->uiAffectedRows == 0 || pmsg->Get()->uiAffectedRows == (uint32_t)-1)
 	{
@@ -2095,7 +2095,7 @@ void CClientManager::BlockChat(TPacketBlockChat* p)
 		snprintf(szQuery, sizeof(szQuery), "SELECT id FROM player%s WHERE name = '%s' collate sjis_japanese_ci", GetTablePostfix(), p->szName);
 	else
 		snprintf(szQuery, sizeof(szQuery), "SELECT id FROM player%s WHERE name = '%s'", GetTablePostfix(), p->szName);
-	std::auto_ptr<SQLMsg> pmsg(CDBManager::instance().DirectQuery(szQuery));
+	std::unique_ptr<SQLMsg> pmsg(CDBManager::instance().DirectQuery(szQuery));
 	SQLResult * pRes = pmsg->Get();
 
 	if (pRes->uiNumRows)
@@ -2159,8 +2159,8 @@ void CClientManager::WeddingEnd(TPacketWeddingEnd * p)
 }
 
 //
-// Ä³½Ã¿¡ °¡°ÝÁ¤º¸°¡ ÀÖÀ¸¸é Ä³½Ã¸¦ ¾÷µ¥ÀÌÆ® ÇÏ°í Ä³½Ã¿¡ °¡°ÝÁ¤º¸°¡ ¾ø´Ù¸é
-// ¿ì¼± ±âÁ¸ÀÇ µ¥ÀÌÅÍ¸¦ ·ÎµåÇÑ µÚ¿¡ ±âÁ¸ÀÇ Á¤º¸·Î Ä³½Ã¸¦ ¸¸µé°í »õ·Î ¹ÞÀº °¡°ÝÁ¤º¸¸¦ ¾÷µ¥ÀÌÆ® ÇÑ´Ù.
+// Ä³ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï°ï¿½ Ä³ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½
+// ï¿½ì¼± ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ñ´ï¿½.
 //
 void CClientManager::MyshopPricelistUpdate(const TPacketMyshopPricelistHeader* pPacket)
 {
@@ -2201,7 +2201,7 @@ void CClientManager::MyshopPricelistUpdate(const TPacketMyshopPricelistHeader* p
 }
 
 // MYSHOP_PRICE_LIST
-// Ä³½ÃµÈ °¡°ÝÁ¤º¸°¡ ÀÖÀ¸¸é Ä³½Ã¸¦ ÀÐ¾î ¹Ù·Î Àü¼ÛÇÏ°í Ä³½Ã¿¡ Á¤º¸°¡ ¾øÀ¸¸é DB ¿¡ Äõ¸®¸¦ ÇÑ´Ù.
+// Ä³ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½Ã¸ï¿½ ï¿½Ð¾ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ Ä³ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DB ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 //
 void CClientManager::MyshopPricelistRequest(CPeer* peer, DWORD dwHandle, DWORD dwPlayerID)
 {
@@ -2614,15 +2614,15 @@ void CClientManager::ProcessPackets(CPeer * peer)
 				ComeToVote(peer, dwHandle, data);
 				break;
 
-			case HEADER_GD_RMCANDIDACY:		//< ÈÄº¸ Á¦°Å (¿î¿µÀÚ)
+			case HEADER_GD_RMCANDIDACY:		//< ï¿½Äºï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½î¿µï¿½ï¿½)
 				RMCandidacy(peer, dwHandle, data);
 				break;
 
-			case HEADER_GD_SETMONARCH:		///<±ºÁÖ¼³Á¤ (¿î¿µÀÚ)
+			case HEADER_GD_SETMONARCH:		///<ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ (ï¿½î¿µï¿½ï¿½)
 				SetMonarch(peer, dwHandle, data);
 				break;
 
-			case HEADER_GD_RMMONARCH:		///<±ºÁÖ»èÁ¦
+			case HEADER_GD_RMMONARCH:		///<ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½
 				RMMonarch(peer, dwHandle, data);
 				break;
 			//END_MONARCH
@@ -2815,9 +2815,9 @@ CPeer * CClientManager::GetAnyPeer()
 	return m_peerList.front();
 }
 
-// DB ¸Å´ÏÀú·Î ºÎÅÍ ¹ÞÀº °á°ú¸¦ Ã³¸®ÇÑ´Ù.
+// DB ï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ñ´ï¿½.
 //
-// @version	05/06/10 Bang2ni - °¡°ÝÁ¤º¸ °ü·Ã Äõ¸®(QID_ITEMPRICE_XXX) Ãß°¡
+// @version	05/06/10 Bang2ni - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(QID_ITEMPRICE_XXX) ï¿½ß°ï¿½
 int CClientManager::AnalyzeQueryResult(SQLMsg * msg)
 {
 	CQueryInfo * qi = (CQueryInfo *) msg->pvUserData;
@@ -2935,7 +2935,7 @@ void UsageLog()
 	char        *time_s;
 	struct tm   lt;
 
-	int         avg = g_dwUsageAvg / 3600; // 60 ÃÊ * 60 ºÐ
+	int         avg = g_dwUsageAvg / 3600; // 60 ï¿½ï¿½ * 60 ï¿½ï¿½
 
 	fp = fopen("usage.txt", "a+");
 
@@ -2968,7 +2968,7 @@ int CClientManager::Process()
 		++thecore_heart->pulse;
 
 		/*
-		//30ºÐ¸¶´Ù º¯°æ
+		//30ï¿½Ð¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if (((thecore_pulse() % (60 * 30 * 10)) == 0))
 		{
 			g_iPlayerCacheFlushSeconds = MAX(60, rand() % 180);
@@ -3046,11 +3046,11 @@ int CClientManager::Process()
 			m_iCacheFlushCount = 0;
 
 
-			//ÇÃ·¹ÀÌ¾î ÇÃ·¯½¬
+			//ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½
 			UpdatePlayerCache();
-			//¾ÆÀÌÅÛ ÇÃ·¯½¬
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½
 			UpdateItemCache();
-			//·Î±×¾Æ¿ô½Ã Ã³¸®- Ä³½¬¼Â ÇÃ·¯½¬
+			//ï¿½Î±×¾Æ¿ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½- Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½
 			UpdateLogoutPlayer();
 
 			// MYSHOP_PRICE_LIST
@@ -3120,13 +3120,13 @@ int CClientManager::Process()
 			/////////////////////////////////////////////////////////////////
 		}
 
-		if (!(thecore_heart->pulse % (thecore_heart->passes_per_sec * 60)))	// 60ÃÊ¿¡ ÇÑ¹ø
+		if (!(thecore_heart->pulse % (thecore_heart->passes_per_sec * 60)))	// 60ï¿½Ê¿ï¿½ ï¿½Ñ¹ï¿½
 		{
-			// À¯´ÏÅ© ¾ÆÀÌÅÛÀ» À§ÇÑ ½Ã°£À» º¸³½´Ù.
+			// ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 			CClientManager::instance().SendTime();
 		}
 
-		if (!(thecore_heart->pulse % (thecore_heart->passes_per_sec * 3600)))	// ÇÑ½Ã°£¿¡ ÇÑ¹ø
+		if (!(thecore_heart->pulse % (thecore_heart->passes_per_sec * 3600)))	// ï¿½Ñ½Ã°ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½
 		{
 			CMoneyLog::instance().Save();
 		}
@@ -3136,7 +3136,7 @@ int CClientManager::Process()
 	int idx;
 	CPeer * peer;
 
-	for (idx = 0; idx < num_events; ++idx) // ÀÎÇ²
+	for (idx = 0; idx < num_events; ++idx) // ï¿½ï¿½Ç²
 	{
 		peer = (CPeer *) fdwatch_get_client_data(m_fdWatcher, idx);
 
@@ -3216,7 +3216,7 @@ int CClientManager::Process()
 
 DWORD CClientManager::GetUserCount()
 {
-	// ´Ü¼øÈ÷ ·Î±×ÀÎ Ä«¿îÆ®¸¦ ¼¾´Ù.. --;
+	// ï¿½Ü¼ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.. --;
 	return m_map_kLogonAccount.size();
 }
 
@@ -3276,7 +3276,7 @@ bool CClientManager::InitializeNowItemID()
 {
 	DWORD dwMin, dwMax;
 
-	//¾ÆÀÌÅÛ ID¸¦ ÃÊ±âÈ­ ÇÑ´Ù.
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IDï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ñ´ï¿½.
 	if (!CConfig::instance().GetTwoValue("ITEM_ID_RANGE", &dwMin, &dwMax))
 	{
 		sys_err("conf.txt: Cannot find ITEM_ID_RANGE [start_item_id] [end_item_id]");
@@ -3706,7 +3706,7 @@ bool CClientManager::InitializeLocalization()
 
 bool CClientManager::__GetAdminInfo(const char *szIP, std::vector<tAdminInfo> & rAdminVec)
 {
-	//szIP == NULL ÀÏ°æ¿ì  ¸ðµç¼­¹ö¿¡ ¿î¿µÀÚ ±ÇÇÑÀ» °®´Â´Ù.
+	//szIP == NULL ï¿½Ï°ï¿½ï¿½  ï¿½ï¿½ç¼­ï¿½ï¿½ï¿½ï¿½ ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 	char szQuery[512];
 	snprintf(szQuery, sizeof(szQuery),
 			"SELECT mID,mAccount,mName,mContactIP,mServerIP,mAuthority FROM gmlist WHERE mServerIP='ALL' or mServerIP='%s'",
@@ -4270,7 +4270,7 @@ void CClientManager::SendSpareItemIDRange(CPeer* peer)
 }
 
 //
-// Login Key¸¸ ¸Ê¿¡¼­ Áö¿î´Ù.
+// Login Keyï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 // 
 void CClientManager::DeleteLoginKey(TPacketDC *data)
 {
@@ -4383,7 +4383,7 @@ void CClientManager::EnrollInAuction (CPeer * peer, DWORD owner_id, AuctionEnrol
 		sys_err ("Player id %d doesn't have item %d.", owner_id, data->get_item_id());
 		return;
 	}
-	// ÇöÀç ½Ã°¢ + 24½Ã°£ ÈÄ.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ + 24ï¿½Ã°ï¿½ ï¿½ï¿½.
 	time_t expired_time = time(0) + 24 * 60 * 60;
 	TAuctionItemInfo auctioned_item_info (item->vnum, data->get_bid_price(), 
 		data->get_impur_price(), owner_id, "", expired_time, data->get_item_id(), 0, data->get_empire());
@@ -4402,7 +4402,7 @@ void CClientManager::EnrollInAuction (CPeer * peer, DWORD owner_id, AuctionEnrol
 	}
 	else
 	{
-		// ¾ÆÀÌÅÛ ÄÉ½Ã¸¦ Auction¿¡ µî·Ï ÇßÀ¸´Ï ClientManager¿¡¼­´Â »«´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É½Ã¸ï¿½ Auctionï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ClientManagerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		TItemCacheSetPtrMap::iterator it = m_map_pkItemCacheSetPtr.find(item->owner);
 
 		if (it != m_map_pkItemCacheSetPtr.end())
@@ -4455,7 +4455,7 @@ void CClientManager::EnrollInSale (CPeer * peer, DWORD owner_id, AuctionEnrollSa
 		sys_err ("Player id %d doesn't have item %d.", owner_id, data->get_item_id());
 		return;
 	}
-	// ÇöÀç ½Ã°¢ + 24½Ã°£ ÈÄ.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ + 24ï¿½Ã°ï¿½ ï¿½ï¿½.
 	time_t expired_time = time(0) + 24 * 60 * 60;
 	TSaleItemInfo sold_item_info (item->vnum, data->get_sale_price(), 
 		owner_id, player->name, data->get_item_id(), data->get_wisher_id());
@@ -4474,7 +4474,7 @@ void CClientManager::EnrollInSale (CPeer * peer, DWORD owner_id, AuctionEnrollSa
 	}
 	else
 	{
-		// ¾ÆÀÌÅÛ ÄÉ½Ã¸¦ Auction¿¡ µî·Ï ÇßÀ¸´Ï ClientManager¿¡¼­´Â »«´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É½Ã¸ï¿½ Auctionï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ClientManagerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		TItemCacheSetPtrMap::iterator it = m_map_pkItemCacheSetPtr.find(item->owner);
 
 		if (it != m_map_pkItemCacheSetPtr.end())
@@ -4514,7 +4514,7 @@ void CClientManager::EnrollInWish (CPeer * peer, DWORD wisher_id, AuctionEnrollW
 	CPlayerTableCache* player_cache = it->second;
 	TPlayerTable* player = player_cache->Get(false);
 
-	// ÇöÀç ½Ã°¢ + 24½Ã°£ ÈÄ.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ + 24ï¿½Ã°ï¿½ ï¿½ï¿½.
 	time_t expired_time = time(0) + 24 * 60 * 60;
 	TWishItemInfo wished_item_info (data->get_item_num(), data->get_wish_price(), wisher_id, player->name, expired_time, data->get_empire());
 
@@ -4881,11 +4881,11 @@ void CClientManager::AuctionDeleteSaleItem (CPeer * peer, DWORD actor_id, DWORD 
 	AuctionManager::instance().DeleteSaleItem (actor_id, item_id);
 }
 
-// ReBid´Â ÀÌÀü ÀÔÂû±Ý¾×¿¡ ´õÇØ¼­ ÀÔÂûÇÑ´Ù.
-// ReBid¿¡¼± data->bid_price°¡ ÀÌÀü ÀÔÂû°¡¿¡ ´õÇØÁ®¼­
-// ±× ±Ý¾×À¸·Î rebidÇÏ´Â °Í.
-// ÀÌ·¸°Ô ÇÑ ÀÌÀ¯´Â rebid¿¡ ½ÇÆÐ ÇßÀ» ¶§,
-// À¯ÀúÀÇ È£ÁÖ¸Ó´Ï¿¡¼­ »« µ·À» µ¹·ÁÁÖ±â ÆíÇÏ°Ô ÇÏ±â À§ÇÔÀÌ´Ù.
+// ReBidï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ý¾×¿ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+// ReBidï¿½ï¿½ï¿½ï¿½ data->bid_priceï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ ï¿½Ý¾ï¿½ï¿½ï¿½ï¿½ï¿½ rebidï¿½Ï´ï¿½ ï¿½ï¿½.
+// ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ rebidï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½,
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½Ö¸Ó´Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 
 void CClientManager::AuctionReBid (CPeer * peer, DWORD bidder_id, AuctionBidInfo* data)
 {
@@ -4910,14 +4910,14 @@ void CClientManager::AuctionReBid (CPeer * peer, DWORD bidder_id, AuctionBidInfo
 	{
 		sys_log(0, "ReBid Success. bidder_id item_id %d %d", bidder_id, data->get_item_id());
 	}
-	// ÀÌ°Ç FAILÀÌ ¶°¼­´Â ¾ÈµÅ.
-	// FAILÀÌ ¶ã ¼ö°¡ ¾ø´Â°Ô, MyBid¿¡ ÀÖ´Â bidder_id¿¡ ´ëÇÑ ÄÁÅÙÃ÷´Â bidder_id¸¸ÀÌ Á¢±Ù ÇÒ ¼ö ÀÖ°Åµç?
-	// ±×·¯¹Ç·Î ´Ù¸¥ °ÍÀÌ ´Ù Á¤»óÀûÀ¸·Î ÀÛµ¿ÇÑ´Ù°í °¡Á¤ ÇÑ´Ù¸é
-	// ÇÑ °ÔÀÓ ¼­¹ö ³»¿¡¼­ bidder_id·Î MyBid¸¦ ¼öÁ¤ÇÑ´Ù ÇÒ Áö¶óµµ, ±×°Ç µ¿±âÈ­ ¹®Á¦°¡ ¾ø¾î.
-	// ´Ù¸¥ °ÔÀÓ ¼­¹ö¿¡ ¶È°°Àº bidder_id¸¦ °¡Áø ³ðÀÌ ÀÖÀ» ¼ö°¡ ¾øÀ¸´Ï±î.
-	// ±×·¯¹Ç·Î ±× °ÔÀÓ ¼­¹ö¿¡¼­ BidCancel ¸í·ÉÀ» db¿¡ ³¯·È´Ù´Â °ÍÀº,
-	// ÀÌ¹Ì ±× ºÎºÐ¿¡ ´ëÇØ¼­´Â °Ë»ç°¡ ¿Ïº®ÇÏ´Ù´Â °ÍÀÌ¾ß.
-	// ±×·¡µµ È¤½Ã³ª ½Í¾î¼­, µð¹ö±ëÀ» À§ÇØ fail ÄÚµå¸¦ ³²°ÜµÐ´Ù.
+	// ï¿½Ì°ï¿½ FAILï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½.
+	// FAILï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½, MyBidï¿½ï¿½ ï¿½Ö´ï¿½ bidder_idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ bidder_idï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö°Åµï¿½?
+	// ï¿½×·ï¿½ï¿½Ç·ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ûµï¿½ï¿½Ñ´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´Ù¸ï¿½
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ bidder_idï¿½ï¿½ MyBidï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½×°ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È°ï¿½ï¿½ï¿½ bidder_idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½.
+	// ï¿½×·ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ BidCancel ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ dbï¿½ï¿½ ï¿½ï¿½ï¿½È´Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½,
+	// ï¿½Ì¹ï¿½ ï¿½ï¿½ ï¿½ÎºÐ¿ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ ï¿½Ë»ç°¡ ï¿½Ïºï¿½ï¿½Ï´Ù´ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½.
+	// ï¿½×·ï¿½ï¿½ï¿½ È¤ï¿½Ã³ï¿½ ï¿½Í¾î¼­, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ fail ï¿½Úµå¸¦ ï¿½ï¿½ï¿½ÜµÐ´ï¿½.
 	if (result <= AUCTION_FAIL)
 	{
 		TPacketDGResultAuction enroll_result;
@@ -4952,14 +4952,14 @@ void CClientManager::AuctionBidCancel (CPeer * peer, DWORD bidder_id, DWORD item
 {
 	AuctionResult result = AuctionManager::instance().BidCancel (bidder_id, item_id);
 	
-	// ÀÌ°Ç FAILÀÌ ¶°¼­´Â ¾ÈµÅ.
-	// FAILÀÌ ¶ã ¼ö°¡ ¾ø´Â°Ô, MyBid¿¡ ÀÖ´Â bidder_id¿¡ ´ëÇÑ ÄÁÅÙÃ÷´Â bidder_id¸¸ÀÌ Á¢±Ù ÇÒ ¼ö ÀÖ°Åµç?
-	// ±×·¯¹Ç·Î ´Ù¸¥ °ÍÀÌ ´Ù Á¤»óÀûÀ¸·Î ÀÛµ¿ÇÑ´Ù°í °¡Á¤ ÇÑ´Ù¸é
-	// ÇÑ °ÔÀÓ ¼­¹ö ³»¿¡¼­ bidder_id·Î MyBid¸¦ ¼öÁ¤ÇÑ´Ù ÇÒ Áö¶óµµ, ±×°Ç µ¿±âÈ­ ¹®Á¦°¡ ¾ø¾î.
-	// ´Ù¸¥ °ÔÀÓ ¼­¹ö¿¡ ¶È°°Àº bidder_id¸¦ °¡Áø ³ðÀÌ ÀÖÀ» ¼ö°¡ ¾øÀ¸´Ï±î.
-	// ±×·¯¹Ç·Î ±× °ÔÀÓ ¼­¹ö¿¡¼­ BidCancel ¸í·ÉÀ» db¿¡ ³¯·È´Ù´Â °ÍÀº,
-	// ÀÌ¹Ì ±× ºÎºÐ¿¡ ´ëÇØ¼­´Â °Ë»ç°¡ ¿Ïº®ÇÏ´Ù´Â °ÍÀÌ¾ß.
-	// ±×·¡µµ È¤½Ã³ª ½Í¾î¼­, µð¹ö±ëÀ» À§ÇØ fail ÄÚµå¸¦ ³²°ÜµÐ´Ù.
+	// ï¿½Ì°ï¿½ FAILï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½.
+	// FAILï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½, MyBidï¿½ï¿½ ï¿½Ö´ï¿½ bidder_idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ bidder_idï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö°Åµï¿½?
+	// ï¿½×·ï¿½ï¿½Ç·ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ûµï¿½ï¿½Ñ´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´Ù¸ï¿½
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ bidder_idï¿½ï¿½ MyBidï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½×°ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È°ï¿½ï¿½ï¿½ bidder_idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½.
+	// ï¿½×·ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ BidCancel ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ dbï¿½ï¿½ ï¿½ï¿½ï¿½È´Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½,
+	// ï¿½Ì¹ï¿½ ï¿½ï¿½ ï¿½ÎºÐ¿ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ ï¿½Ë»ç°¡ ï¿½Ïºï¿½ï¿½Ï´Ù´ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½.
+	// ï¿½×·ï¿½ï¿½ï¿½ È¤ï¿½Ã³ï¿½ ï¿½Í¾î¼­, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ fail ï¿½Úµå¸¦ ï¿½ï¿½ï¿½ÜµÐ´ï¿½.
 	if (result <= AUCTION_FAIL)
 	{
 		TPacketDGResultAuction enroll_result;

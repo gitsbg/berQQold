@@ -2,11 +2,11 @@
 #ifndef METIN2_MONARCH_H
 #define METIN2_MONARCH_H
 
-#include "../../libthecore/include/stdafx.h"
+#include "../../LibTheCore/Srcs/stdafx.h"
 #include <map>
 #include <vector>
-#include "../../common/singleton.h"
-#include "../../common/tables.h"
+#include "../../Common/singleton.h"
+#include "../../Common/tables.h"
 
 class CMonarch : public singleton<CMonarch>
 {

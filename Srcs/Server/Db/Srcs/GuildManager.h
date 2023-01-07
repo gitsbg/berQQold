@@ -5,8 +5,8 @@
 #include "Peer.h"
 #include <queue>
 #include <utility>
-#include "../../libsql/libsql.h"
-#include "../../libpoly/Poly.h"
+#include "../../LibSQL/Srcs/libsql.h"
+#include "../../LibPoly/Srcs/Poly.h"
 
 enum
 {
@@ -150,7 +150,7 @@ class CGuildWarReserve
 	void	SetLastNoticeMin(int iMin) { m_iLastNoticeMin = iMin; }
 
     private:
-	CGuildWarReserve();  // ±âº» »ý¼ºÀÚ¸¦ »ç¿ëÇÏÁö ¸øÇÏµµ·Ï ÀÇµµÀûÀ¸·Î ±¸ÇöÇÏÁö ¾ÊÀ½
+	CGuildWarReserve();  // ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	TGuildWarReserve				m_data;
 	// <login, <guild, gold>>
@@ -235,7 +235,7 @@ class CGuildManager : public singleton<CGuildManager>
 	std::map<DWORD, TGuild>					m_map_kGuild;
 	std::map<DWORD, std::map<DWORD, time_t> >		m_mapGuildWarEndTime;
 
-	std::set<TGuildDeclareInfo>				m_DeclareMap; // ¼±Àü Æ÷°í »óÅÂ¸¦ ÀúÀå
+	std::set<TGuildDeclareInfo>				m_DeclareMap; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	std::map<DWORD, std::map<DWORD, TGuildWarInfo> >	m_WarMap;
 
 	typedef std::pair<time_t, TGuildWarPQElement *>	stPairGuildWar;

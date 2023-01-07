@@ -1,74 +1,122 @@
-@@ -0,0 +1,73 @@
-MAKE = gmake
-CC = g++
-
-INCDIR =
-LIBDIR =
-BINDIR = ..
-OBJDIR = .obj
-
-GCC_VERSION = $(shell $(CC) --version 2>&1 | grep "(GCC)" | cut -d' ' -f3  | cut -d'.' -f1)
-BSD_VERSION = $(shell uname -v 2>&1 | cut -d' ' -f2 | cut -d'.' -f1)
-P4_VERSION = $(shell svnversion -n .)
-$(shell if [ ! -d $(OBJDIR) ]; then mkdir $(OBJDIR); fi)
-
-TARGET = $(BINDIR)/db_r$(P4_VERSION)
-
-CFLAGS = -g -Wall -O2 -pipe -fno-rtti -fno-exceptions -pthread -D_THREAD_SAFE
-
-ifeq ($(GCC_VERSION), 4)
-CFLAGS += -mtune=i686
+CC		=	clang++-devel
+#------------------------------------------------------------------------------
+ARCHITECTURE	=	$(shell uname -m)
+ifeq ($(ARCHITECTURE), i386)
+ARCHITECTURE	=	x86
 else
-CFLAGS += -mcpu=i686
+ARCHITECTURE	=	x64
 endif
+FREEBSD_VERSION	=	$(shell uname -v 2>&1 | cut -d' ' -f2 | cut -d'-' -f1)
+#------------------------------------------------------------------------------
+EXTERN_DIR	=	../../../Extern
+BIN_DIR = ../../../../Server/Share/Bin
+BIN		= $(BIN_DIR)/DB
+SRC_DIR	=	../Srcs
+OBJ_DIR = Objs
+#------------------------------------------------------------------------------
+$(shell if [ ! -d $(BIN_DIR) ]; then mkdir -p $(BIN_DIR); fi)
+$(shell if [ ! -d $(OBJ_DIR) ]; then mkdir -p $(OBJ_DIR); fi)
+#------------------------------------------------------------------------------
+FLAGS	+=	-g
+FLAGS	+=	-ggdb
+FLAGS	+=	-DNDEBUG
+FLAGS	+=	-w
+FLAGS	+=	-m64
+FLAGS	+=	-mtune=i686
+FLAGS	+=	-fstack-protector
+FLAGS	+=	-Wall
+FLAGS	+=	-O2
+FLAGS	+=	-fno-rtti
+FLAGS	+=	-pipe
+FLAGS	+=	-fno-exceptions
+FLAGS	+=	-pthread
+FLAGS	+=	-D_THREAD_SAFE
+FLAGS	+=	-std=c++2a
 
-# boost
-INCDIR += -I../../boost
+INC_DIR	+=	-I$(EXTERN_DIR)/Common/Boost_1.81.0
+INC_DIR	+=	-I$(EXTERN_DIR)/FreeBSD_$(FREEBSD_VERSION)/$(ARCHITECTURE)/MySQL_5.6.51/Include
 
-LIBDIR += -L../../libthecore/lib -L../../libsql -L../../libpoly -L../../libgame/lib
+LIB_DIR +=	-L../../LibTheCore/Proj/lib/FreeBSD_$(FREEBSD_VERSION)/$(ARCHITECTURE)
+LIB_DIR +=	-L../../LibSQL/Proj/lib/FreeBSD_$(FREEBSD_VERSION)/$(ARCHITECTURE)
+LIB_DIR +=	-L../../LibPoly/Proj/lib/FreeBSD_$(FREEBSD_VERSION)/$(ARCHITECTURE)
+LIB_DIR +=	-L../../LibGame/Proj/lib/FreeBSD_$(FREEBSD_VERSION)/$(ARCHITECTURE)
+LIB_DIR	+=	-L$(EXTERN_DIR)/FreeBSD_$(FREEBSD_VERSION)/$(ARCHITECTURE)/MySQL_5.6.51/Lib
 
-ifeq ($(BSD_VERSION), 7)
-INCDIR += -I../../libmysql/7.x-5.1.35
-LIBDIR += -L../../libmysql/7.x-5.1.35
-else
-INCDIR += -I../../libmysql/5.x-5.1.35
-LIBDIR += -L../../libmysql/5.x-5.1.35
-endif
+LIBS	+=	-lthecore
+LIBS	+=	-lmysqlclient
+LIBS	+=	-lsql
+LIBS	+=	-lpoly
+LIBS	+=	-lgame
 
-LIBS = -lthecore -lmysqlclient -lsql -lpoly -lgame -lm -lz
+#------------------------------------------------------------------------------
+SRCS	=	\
+			Config.cpp						\
+			NetBase.cpp						\
+			Peer.cpp						\
+			PeerBase.cpp					\
+			Main.cpp						\
+			Lock.cpp						\
+			DBManager.cpp					\
+			Cache.cpp						\
+			LoginData.cpp					\
+			ClientManager.cpp				\
+			ClientManagerPlayer.cpp			\
+			ClientManagerLogin.cpp			\
+			ClientManagerBoot.cpp			\
+			ClientManagerParty.cpp			\
+			ClientManagerGuild.cpp			\
+			GuildManager.cpp				\
+			HB.cpp							\
+			PrivManager.cpp					\
+			MoneyLog.cpp					\
+			ItemAwardManager.cpp			\
+			ClientManagerEventFlag.cpp		\
+			Marriage.cpp					\
+			Monarch.cpp						\
+			BlockCountry.cpp				\
+			ItemIDRangeManager.cpp			\
+			ClientManagerHorseName.cpp		\
+			AuctionManager.cpp				\
+			ProtoReader.cpp					\
+			CsvReader.cpp 					
+#------------------------------------------------------------------------------
+OBJS	=	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)
+#------------------------------------------------------------------------------
+SRCS_DIR	=	$(SRCS:%.cpp=$(SRC_DIR)/%.cpp)
+#------------------------------------------------------------------------------
+default:
+	@clear
+	@echo -e "\033[35mDB\033[0m\t\033[31m- Invalid usage !!!\033[0m"
+	@echo -e ""
+#------------------------------------------------------------------------------
+berqq:	clean_bin dep $(BIN)
+#------------------------------------------------------------------------------
+berqq_c:	clean dep $(BIN)
+#------------------------------------------------------------------------------
 
-SRCS =	Config.cpp NetBase.cpp Peer.cpp PeerBase.cpp Main.cpp Lock.cpp DBManager.cpp \
-		Cache.cpp LoginData.cpp ClientManager.cpp ClientManagerPlayer.cpp ClientManagerLogin.cpp \
-		ClientManagerBoot.cpp ClientManagerParty.cpp ClientManagerGuild.cpp GuildManager.cpp HB.cpp \
-		PrivManager.cpp MoneyLog.cpp ItemAwardManager.cpp ClientManagerEventFlag.cpp Marriage.cpp \
-		Monarch.cpp BlockCountry.cpp ItemIDRangeManager.cpp ClientManagerHorseName.cpp version.cpp \
-		AuctionManager.cpp ProtoReader.cpp CsvReader.cpp 
-
-OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
-
-default: $(TARGET)
-
-$(TARGET): $(OBJS)
-	@echo linking ...
-	@$(CC) $(CFLAGS) $(LIBDIR) $(OBJS) $(LIBS) -o $(TARGET)
-	@touch version.cpp
-
-$(OBJDIR)/%.o: %.cpp
-	@echo compile $<
-	@$(CC) $(CFLAGS) $(INCDIR) -c $< -o $@
-
-$(OBJDIR)/version.o: version.cpp
-	@$(CC) $(CFLAGS) -D__USER__=\"$(USER)\" -D__HOSTNAME__=\"$(HOSTNAME)\" -D__PWD__=\"$(PWD)\" -D__P4_VERSION__=\"$(P4_VERSION)\" -c $< -o $@
-	@echo compile $<
-
-$(OBJDIR):
-	@mkdir $(OBJDIR)
-
+$(BIN): $(OBJS)
+	@echo -e "\033[35mDB\t\033[0m\033[32m- Linking...\033[0m\t\t\033[32m$(BIN)\033[0m"
+	@$(CXX) $(FLAGS) $(LIB_DIR) $(OBJS) $(LIBS) -o $(BIN)
+#------------------------------------------------------------------------------
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@echo -e "\033[35mDB\033[0m\t\033[1m- Compiling...\033[0m\t\t\033[32m$(<F)\033[0m"
+	@$(CXX) $(FLAGS) $(INC_DIR) -c $< -o $@
+#------------------------------------------------------------------------------
 clean:
-	@rm -f $(OBJS) $(BINDIR)/db_r*
-
+	@rm -f $(OBJ_DIR)/*.o
+	@echo -e "\033[35mDB\t\033[0m\033[33m- Object files deleted...\033[0m"
+	@rm -f $(BIN)
+	@echo -e "\033[35mDB\t\033[0m\033[33m- Binary file deleted...\033[0m"
+	@sleep 3
+#------------------------------------------------------------------------------
+clean_bin:
+	@rm -f $(BIN)
+	@echo -e "\033[35mDB\t\033[0m\033[33m- Binary file deleted...\033[0m"
+	@sleep 3
+#------------------------------------------------------------------------------
 dep:
 	@touch Depend
-	makedepend -fDepend $(INCDIR) -I/usr/include/c++/3.3 -I/usr/include/c++/4.2 -p$(OBJDIR)/ $(SRCS) 2> /dev/null
-
+	@makedepend -fDepend $(INC_DIR) -I/usr/include/c++/3.3 -I/usr/include/c++/4.2 -p$(OBJDIR)/ $(SRCS) 2> /dev/null
+	@echo -e "\033[35mDB\t\033[0m\033[33m- Dependencies updated...\033[0m"
+#------------------------------------------------------------------------------
 sinclude Depend

@@ -10,7 +10,7 @@
 #include <set>
 
 #ifndef itertype
-#define itertype(v) typeof((v).begin())
+#define itertype(v) __typeof((v).begin())
 #endif
 
 inline void stl_lowers(std::string& rstRet)

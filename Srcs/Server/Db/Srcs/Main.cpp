@@ -16,7 +16,7 @@
 #include "AuctionManager.h"
 #endif
 #include <signal.h>
-
+#undef __FreeBSD__
 void SetPlayerDBName(const char* c_pszPlayerDBName);
 void SetTablePostfix(const char* c_pszTablePostfix);
 int Start();
@@ -30,11 +30,11 @@ std::string g_stPlayerDBName = "";
 bool g_bHotBackup = false;
 BOOL g_test_server = false;
 
-//´ÜÀ§ ÃÊ
+//ë‹¨ìœ„ ì´ˆ
 int g_iPlayerCacheFlushSeconds = 60*7;
 int g_iItemCacheFlushSeconds = 60*5;
 
-//g_iLogoutSeconds ¼öÄ¡´Â g_iPlayerCacheFlushSeconds ¿Í g_iItemCacheFlushSeconds º¸´Ù ±æ¾î¾ß ÇÑ´Ù.
+//g_iLogoutSeconds ìˆ˜ì¹˜ëŠ” g_iPlayerCacheFlushSeconds ì™€ g_iItemCacheFlushSeconds ë³´ë‹¤ ê¸¸ì–´ì•¼ í•œë‹¤.
 int g_iLogoutSeconds = 60*10;
 
 int g_log = 1;
@@ -48,7 +48,7 @@ int g_iItemPriceListTableCacheFlushSeconds = 540;
 extern const char * _malloc_options;
 #endif
 
-extern void WriteVersion();
+// extern void WriteVersion();
 
 void emergency_sig(int sig)
 {
@@ -63,7 +63,7 @@ void emergency_sig(int sig)
 
 int main()
 {
-	WriteVersion();
+//	WriteVersion();
 
 #ifdef __FreeBSD__
 	_malloc_options = "A";
@@ -123,13 +123,13 @@ int main()
 
 void emptybeat(LPHEART heart, int pulse)
 {
-	if (!(pulse % heart->passes_per_sec))	// 1ÃÊ¿¡ ÇÑ¹ø
+	if (!(pulse % heart->passes_per_sec))	// 1ì´ˆì— í•œë²ˆ
 	{
 	}
 }
 
 //
-// @version	05/06/13 Bang2ni - ¾ÆÀÌÅÛ °¡°İÁ¤º¸ Ä³½Ã flush timeout ¼³Á¤ Ãß°¡.
+// @version	05/06/13 Bang2ni - ì•„ì´í…œ ê°€ê²©ì •ë³´ ìºì‹œ flush timeout ì„¤ì • ì¶”ê°€.
 //
 int Start()
 {
@@ -427,4 +427,3 @@ const char * GetPlayerDBName()
 {
 	return g_stPlayerDBName.c_str();
 }
-
