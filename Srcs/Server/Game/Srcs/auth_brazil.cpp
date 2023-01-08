@@ -16,7 +16,7 @@
 #ifdef __FreeBSD__
 #include <md5.h>
 #else
-#include "../../libthecore/include/xmd5.h"
+#include "../../LibTheCore/Srcs/xmd5.h"
 #endif
 
 #include "auth_brazil.h"
@@ -133,7 +133,7 @@ int auth_brazil(const char *login, const char *pwd)
 	    return AUTH_BRAZIL_SERVER_ERR;
 	}
 
-	// ÀÀ´ä¹ÞÀº °æ¿ì¿¡¸¸ query count¸¦ ´Ã¸°´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ query countï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½.
 	auth_brazil_inc_query_count();
 
 	return FN_parse_reply(reply);

@@ -6,11 +6,11 @@
 
 #include "debug_allocator.h"
 
-#include "../../libthecore/include/stdafx.h"
+#include "../../LibTheCore/Srcs/stdafx.h"
 
-#include "../../common/singleton.h"
-#include "../../common/utils.h"
-#include "../../common/service.h"
+#include "../../Common/singleton.h"
+#include "../../Common/utils.h"
+#include "../../Common/service.h"
 
 #include <algorithm>
 #include <math.h>
@@ -23,12 +23,12 @@
 
 #ifdef __GNUC__
 #include <float.h>
-#include <tr1/unordered_map>
-#include <tr1/unordered_set>
+#include <unordered_map>
+#include <unordered_set>
 #define TR1_NS std::tr1
 #else
-#include <boost/unordered_map.hpp>
-#include <boost/unordered_set.hpp>
+#include <unordered_map>
+#include <unordered_set>
 #define TR1_NS boost
 #define isdigit iswdigit
 #define isspace iswspace

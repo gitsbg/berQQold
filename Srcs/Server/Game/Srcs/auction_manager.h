@@ -1,9 +1,9 @@
 #ifndef __INC_AUCTION_MANAGER_H
 #define __INC_AUCTION_MANAGER_H
 
-#include "../../libsql/AsyncSQL.h"
-#include "../../common/auction_table.h"
-#include <boost/unordered_map.hpp>
+#include "../../LibSQL/Srcs/AsyncSQL.h"
+#include "../../Common/auction_table.h"
+#include <unordered_map>
 #include <algorithm>
 
 #define GRADE_LOW 30
@@ -55,15 +55,15 @@ public:
 
 
 private:
-	typedef boost::unordered_map <DWORD, TAuctionItemInfo*> TItemInfoMap;
+	typedef std::unordered_map <DWORD, TAuctionItemInfo*> TItemInfoMap;
 	TItemInfoMap item_map;
 
 	typedef std::map <DWORD, TAuctionItemInfo*> TItemMap;
-	typedef boost::unordered_map <DWORD, TItemMap*> TPCMap;
+	typedef std::unordered_map <DWORD, TItemMap*> TPCMap;
 
 	TPCMap offer_map;
 
-	// sortingÀ» À§ÇÑ members
+	// sortingï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ members
 public:
 	typedef std::vector <TAuctionItemInfo*> TItemInfoVec;
 private:
@@ -76,18 +76,18 @@ private:
 public:
 	void SortedItemInfos (TItemInfoVec& vec, BYTE grade, BYTE category, int start_idx, BYTE size, BYTE order[5]);
 
-	// ³ªÀÇ °æ¸ÅÀåÀ» À§ÇÑ ÇÔ¼ö.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½.
 	void YourItemInfoList (TItemInfoVec& vec, DWORD player_id, int start_idx, BYTE size);
 
 };
 class SaleBoard
 {
 private:
-	typedef boost::unordered_map <DWORD, TSaleItemInfo*> TItemInfoMap;
+	typedef std::unordered_map <DWORD, TSaleItemInfo*> TItemInfoMap;
 	TItemInfoMap item_map;
 	
 	typedef std::map <DWORD, TSaleItemInfo*> TItemMap;
-	typedef boost::unordered_map <DWORD, TItemMap*> TPCMap;
+	typedef std::unordered_map <DWORD, TItemMap*> TPCMap;
 
 	TPCMap wisher_map;
 	TPCMap seller_map;
@@ -111,7 +111,7 @@ class WishBoard
 {
 private:
 	typedef std::map <DWORD, TWishItemInfo*> TItemMap;
-	typedef boost::unordered_map <DWORD, TItemMap*> TPCMap;
+	typedef std::unordered_map <DWORD, TItemMap*> TPCMap;
 	TPCMap wisher_map;
 
 public:
@@ -130,8 +130,8 @@ class MyBidBoard
 private:
 	typedef std::pair <int, bool> BidInfo;
 	typedef std::map <DWORD, BidInfo > TItemMap;
-	typedef boost::unordered_map <DWORD, TItemMap*> TMyBidBoard;
-	// bidder_id°¡ key
+	typedef std::unordered_map <DWORD, TItemMap*> TMyBidBoard;
+	// bidder_idï¿½ï¿½ key
 	TMyBidBoard pc_map;
 
 public:
@@ -144,7 +144,7 @@ public:
 
 	BidInfo GetMoney (DWORD player_id, DWORD item_id);
 	bool Delete (DWORD player_id, DWORD item_id);
-	// ÀÌ¹Ì ÀÖÀ¸¸é µ¤¾î ¾º¿î´Ù.
+	// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 	void Insert (DWORD player_id, DWORD item_id, int money);
 	void Lock (DWORD player_id, DWORD item_id);
 	void UnLock (DWORD player_id, DWORD item_id);
@@ -153,10 +153,10 @@ public:
 class AuctionManager : public singleton <AuctionManager> 
 {
 private :
-	typedef boost::unordered_map<DWORD, LPITEM> TItemMap;
+	typedef std::unordered_map<DWORD, LPITEM> TItemMap;
 	TItemMap auction_item_map;
 
-	// auction¿¡ µî·ÏµÈ Á¤º¸ Áß °¡°Ý, µîµî ¾ÆÀÌÅÛ Å×ÀÌºí¿¡ Æ÷ÇÔµÇÁö ¾Ê´Â Á¤º¸µéÀ» °ü¸®ÇÏ´Â °Íµé
+	// auctionï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Íµï¿½
 	AuctionBoard Auction;
 	SaleBoard Sale;
 	WishBoard Wish;

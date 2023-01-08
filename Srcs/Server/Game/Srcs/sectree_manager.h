@@ -165,16 +165,16 @@ class SECTREE_MANAGER : public singleton<SECTREE_MANAGER>
 		size_t		GetMonsterCountInMap(long lMapIndex);
 		size_t		GetMonsterCountInMap(long lMpaIndex, DWORD dwVnum);
 
-		/// ¿µ¿ª¿¡ ´ëÇØ Sectree ÀÇ Attribute ¿¡ ´ëÇØ Æ¯Á¤ÇÑ Ã³¸®¸¦ ¼öÇàÇÑ´Ù.
+		/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Sectree ï¿½ï¿½ Attribute ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		/**
-		 * @param [in]	lMapIndex Àû¿ëÇÒ Map index
-		 * @param [in]	lStartX »ç°¢Çü ¿µ¿ªÀÇ °¡Àå ¿ÞÂÊ ÁÂÇ¥
-		 * @param [in]	lStartY »ç°¢Çü ¿µ¿ªÀÇ °¡Àå À§ÂÊ ÁÂÇ¥
-		 * @param [in]	lEndX »ç°¢Çü ¿µ¿ªÀÇ °¡Àå ¿À¸¥ÂÊ ÁÂÇ¥
-		 * @param [in]	lEndY »ç°¢Çü ¿µ¿ªÀÇ °¡Àå ¾Æ·§ÂÊ ÁÂÇ¥
-		 * @param [in]	lRotate ¿µ¿ª¿¡ ´ëÇØ È¸ÀüÇÒ °¢
-		 * @param [in]	dwAttr Àû¿ëÇÒ Attribute
-		 * @param [in]	mode Attribute ¿¡ ´ëÇØ Ã³¸®ÇÒ type
+		 * @param [in]	lMapIndex ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Map index
+		 * @param [in]	lStartX ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥
+		 * @param [in]	lStartY ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥
+		 * @param [in]	lEndX ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥
+		 * @param [in]	lEndY ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥
+		 * @param [in]	lRotate ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+		 * @param [in]	dwAttr ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Attribute
+		 * @param [in]	mode Attribute ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ type
 		 */
 		bool		ForAttrRegion(long lMapIndex, long lStartX, long lStartY, long lEndX, long lEndY, long lRotate, DWORD dwAttr, EAttrRegionMode mode);
 
@@ -182,39 +182,39 @@ class SECTREE_MANAGER : public singleton<SECTREE_MANAGER>
 
 	private:
 
-		/// Á÷°¢ÀÇ »ç°¢Çü ¿µ¿ª¿¡ ´ëÇØ Sectree ÀÇ Attribute ¿¡ ´ëÇØ Æ¯Á¤ÇÑ Ã³¸®¸¦ ¼öÇàÇÑ´Ù.
+		/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Sectree ï¿½ï¿½ Attribute ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		/**
-		 * @param [in]	lMapIndex Àû¿ëÇÒ Map index
-		 * @param [in]	lCX »ç°¢Çü ¿µ¿ªÀÇ °¡Àå ¿ÞÂÊ Cell ÀÇ ÁÂÇ¥
-		 * @param [in]	lCY »ç°¢Çü ¿µ¿ªÀÇ °¡Àå À§ÂÊ Cell ÀÇ ÁÂÇ¥
-		 * @param [in]	lCW »ç°¢Çü ¿µ¿ªÀÇ Cell ´ÜÀ§ Æø
-		 * @param [in]	lCH »ç°¢Çü ¿µ¿ªÀÇ Cell ´ÜÀ§ ³ôÀÌ
-		 * @param [in]	lRotate È¸ÀüÇÒ °¢(Á÷°¢)
-		 * @param [in]	dwAttr Àû¿ëÇÒ Attribute
-		 * @param [in]	mode Attribute ¿¡ ´ëÇØ Ã³¸®ÇÒ type
+		 * @param [in]	lMapIndex ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Map index
+		 * @param [in]	lCX ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Cell ï¿½ï¿½ ï¿½ï¿½Ç¥
+		 * @param [in]	lCY ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Cell ï¿½ï¿½ ï¿½ï¿½Ç¥
+		 * @param [in]	lCW ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Cell ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+		 * @param [in]	lCH ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Cell ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		 * @param [in]	lRotate È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
+		 * @param [in]	dwAttr ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Attribute
+		 * @param [in]	mode Attribute ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ type
 		 */
 		bool		ForAttrRegionRightAngle( long lMapIndex, long lCX, long lCY, long lCW, long lCH, long lRotate, DWORD dwAttr, EAttrRegionMode mode );
 
-		/// Á÷°¢ ÀÌ¿ÜÀÇ »ç°¢Çü ¿µ¿ª¿¡ ´ëÇØ Sectree ÀÇ Attribute ¿¡ ´ëÇØ Æ¯Á¤ÇÑ Ã³¸®¸¦ ¼öÇàÇÑ´Ù.
+		/// ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Sectree ï¿½ï¿½ Attribute ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		/**
-		 * @param [in]	lMapIndex Àû¿ëÇÒ Map index
-		 * @param [in]	lCX »ç°¢Çü ¿µ¿ªÀÇ °¡Àå ¿ÞÂÊ Cell ÀÇ ÁÂÇ¥
-		 * @param [in]	lCY »ç°¢Çü ¿µ¿ªÀÇ °¡Àå À§ÂÊ Cell ÀÇ ÁÂÇ¥
-		 * @param [in]	lCW »ç°¢Çü ¿µ¿ªÀÇ Cell ´ÜÀ§ Æø
-		 * @param [in]	lCH »ç°¢Çü ¿µ¿ªÀÇ Cell ´ÜÀ§ ³ôÀÌ
-		 * @param [in]	lRotate È¸ÀüÇÒ °¢(Á÷°¢ ÀÌ¿ÜÀÇ °¢)
-		 * @param [in]	dwAttr Àû¿ëÇÒ Attribute
-		 * @param [in]	mode Attribute ¿¡ ´ëÇØ Ã³¸®ÇÒ type
+		 * @param [in]	lMapIndex ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Map index
+		 * @param [in]	lCX ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Cell ï¿½ï¿½ ï¿½ï¿½Ç¥
+		 * @param [in]	lCY ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Cell ï¿½ï¿½ ï¿½ï¿½Ç¥
+		 * @param [in]	lCW ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Cell ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+		 * @param [in]	lCH ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Cell ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		 * @param [in]	lRotate È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½)
+		 * @param [in]	dwAttr ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Attribute
+		 * @param [in]	mode Attribute ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ type
 		 */
 		bool		ForAttrRegionFreeAngle( long lMapIndex, long lCX, long lCY, long lCW, long lCH, long lRotate, DWORD dwAttr, EAttrRegionMode mode );
 
-		/// ÇÑ Cell ÀÇ Attribute ¿¡ ´ëÇØ Æ¯Á¤ÇÑ Ã³¸®¸¦ ¼öÇàÇÑ´Ù.
+		/// ï¿½ï¿½ Cell ï¿½ï¿½ Attribute ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		/**
-		 * @param [in]	lMapIndex Àû¿ëÇÒ Map index
-		 * @param [in]	lCX Àû¿ëÇÒ Cell ÀÇ X ÁÂÇ¥
-		 * @param [in]	lCY Àû¿ëÇÒ Cell ÀÇ Y ÁÂÇ¥
-		 * @param [in]	dwAttr Àû¿ëÇÒ Attribute
-		 * @param [in]	mode Attribute ¿¡ ´ëÇØ Ã³¸®ÇÒ type
+		 * @param [in]	lMapIndex ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Map index
+		 * @param [in]	lCX ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Cell ï¿½ï¿½ X ï¿½ï¿½Ç¥
+		 * @param [in]	lCY ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Cell ï¿½ï¿½ Y ï¿½ï¿½Ç¥
+		 * @param [in]	dwAttr ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Attribute
+		 * @param [in]	mode Attribute ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ type
 		 */
 		bool		ForAttrRegionCell( long lMapIndex, long lCX, long lCY, DWORD dwAttr, EAttrRegionMode mode );
 
@@ -225,7 +225,7 @@ class SECTREE_MANAGER : public singleton<SECTREE_MANAGER>
 		std::map<DWORD, std::vector<npc_info> > m_mapNPCPosition;
 
 		// <Factor> Circular private map indexing
-		typedef TR1_NS::unordered_map<long, int> PrivateIndexMapType;
+		typedef std::unordered_map<long, int> PrivateIndexMapType;
 		PrivateIndexMapType next_private_index_map_;
 };
 

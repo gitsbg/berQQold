@@ -6,7 +6,7 @@
 #include "char_manager.h"
 #include "mob_manager.h"
 #include "PetSystem.h"
-#include "../../common/VnumHelper.h"
+#include "../../Common/VnumHelper.h"
 #include "packet.h"
 #include "item_manager.h"
 #include "item.h"
@@ -18,13 +18,13 @@ EVENTINFO(petsystem_event_info)
 	CPetSystem* pPetSystem;
 };
 
-// PetSystemÀ» update ÇØÁÖ´Â event.
-// PetSystemÀº CHRACTER_MANAGER¿¡¼­ ±âÁ¸ FSMÀ¸·Î update ÇØÁÖ´Â ±âÁ¸ chracters¿Í ´Þ¸®,
-// OwnerÀÇ STATE¸¦ update ÇÒ ¶§ _UpdateFollowAI ÇÔ¼ö·Î update ÇØÁØ´Ù.
-// ±×·±µ¥ ownerÀÇ state¸¦ update¸¦ CHRACTER_MANAGER¿¡¼­ ÇØÁÖ±â ¶§¹®¿¡,
-// petsystemÀ» updateÇÏ´Ù°¡ petÀ» unsummonÇÏ´Â ºÎºÐ¿¡¼­ ¹®Á¦°¡ »ý°å´Ù.
-// (CHRACTER_MANAGER¿¡¼­ update ÇÏ¸é chracter destroy°¡ pendingµÇ¾î, CPetSystem¿¡¼­´Â dangling Æ÷ÀÎÅÍ¸¦ °¡Áö°í ÀÖ°Ô µÈ´Ù.)
-// µû¶ó¼­ PetSystem¸¸ ¾÷µ¥ÀÌÆ® ÇØÁÖ´Â event¸¦ ¹ß»ý½ÃÅ´.
+// PetSystemï¿½ï¿½ update ï¿½ï¿½ï¿½Ö´ï¿½ event.
+// PetSystemï¿½ï¿½ CHRACTER_MANAGERï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ FSMï¿½ï¿½ï¿½ï¿½ update ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ chractersï¿½ï¿½ ï¿½Þ¸ï¿½,
+// Ownerï¿½ï¿½ STATEï¿½ï¿½ update ï¿½ï¿½ ï¿½ï¿½ _UpdateFollowAI ï¿½Ô¼ï¿½ï¿½ï¿½ update ï¿½ï¿½ï¿½Ø´ï¿½.
+// ï¿½×·ï¿½ï¿½ï¿½ ownerï¿½ï¿½ stateï¿½ï¿½ updateï¿½ï¿½ CHRACTER_MANAGERï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,
+// petsystemï¿½ï¿½ updateï¿½Ï´Ù°ï¿½ petï¿½ï¿½ unsummonï¿½Ï´ï¿½ ï¿½ÎºÐ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+// (CHRACTER_MANAGERï¿½ï¿½ï¿½ï¿½ update ï¿½Ï¸ï¿½ chracter destroyï¿½ï¿½ pendingï¿½Ç¾ï¿½, CPetSystemï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ dangling ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½È´ï¿½.)
+// ï¿½ï¿½ï¿½ï¿½ PetSystemï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Ö´ï¿½ eventï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½Å´.
 EVENTFUNC(petsystem_update_event)
 {
 	petsystem_event_info* info = dynamic_cast<petsystem_event_info*>( event->info );
@@ -41,12 +41,12 @@ EVENTFUNC(petsystem_update_event)
 
 	
 	pPetSystem->Update(0);
-	// 0.25ÃÊ¸¶´Ù °»½Å.
+	// 0.25ï¿½Ê¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	return PASSES_PER_SEC(1) / 4;
 }
 
-/// NOTE: 1Ä³¸¯ÅÍ°¡ ¸î°³ÀÇ ÆêÀ» °¡Áú ¼ö ÀÖ´ÂÁö Á¦ÇÑ... Ä³¸¯ÅÍ¸¶´Ù °³¼ö¸¦ ´Ù¸£°Ô ÇÒ°Å¶ó¸é º¯¼ö·Î ³Öµî°¡... À½..
-/// °¡Áú ¼ö ÀÖ´Â °³¼ö¿Í µ¿½Ã¿¡ ¼ÒÈ¯ÇÒ ¼ö ÀÖ´Â °³¼ö°¡ Æ²¸± ¼ö ÀÖ´Âµ¥ ÀÌ·±°Ç ±âÈ¹ ¾øÀ¸´Ï ÀÏ´Ü ¹«½Ã
+/// NOTE: 1Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½î°³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½... Ä³ï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½Ò°Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Öµî°¡... ï¿½ï¿½..
+/// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´Âµï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½È¹ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
 const float PET_COUNT_LIMIT = 3;
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -119,7 +119,7 @@ void CPetActor::Unsummon()
 {
 	if (true == this->IsSummoned())
 	{
-		// ¹öÇÁ »èÁ¦
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		this->ClearBuff();
 		this->SetSummonItem(NULL);
 		if (NULL != m_pkOwner)
@@ -175,14 +175,14 @@ DWORD CPetActor::Summon(const char* petName, LPITEM pSummonItem, bool bSpawnFar)
 //	m_pkOwner->DetailLog();
 //	m_pkChar->DetailLog();
 
-	//ÆêÀÇ ±¹°¡¸¦ ÁÖÀÎÀÇ ±¹°¡·Î ¼³Á¤ÇÔ.
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	m_pkChar->SetEmpire(m_pkOwner->GetEmpire());
 
 	m_dwVID = m_pkChar->GetVID();
 
 	this->SetName(petName);
 
-	// SetSummonItem(pSummonItem)¸¦ ºÎ¸¥ ÈÄ¿¡ ComputePoints¸¦ ºÎ¸£¸é ¹öÇÁ Àû¿ëµÊ.
+	// SetSummonItem(pSummonItem)ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½Ä¿ï¿½ ComputePointsï¿½ï¿½ ï¿½Î¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 	this->SetSummonItem(pSummonItem);
 	m_pkOwner->ComputePoints();
 	m_pkChar->Show(m_pkOwner->GetMapIndex(), x, y, z);
@@ -197,11 +197,11 @@ bool CPetActor::_UpdatAloneActionAI(float fMinDist, float fMaxDist)
 	float dest_x = GetOwner()->GetX() + fDist * cos(r);
 	float dest_y = GetOwner()->GetY() + fDist * sin(r);
 
-	//m_pkChar->SetRotation(number(0, 359));        // ¹æÇâÀº ·£´ýÀ¸·Î ¼³Á¤
+	//m_pkChar->SetRotation(number(0, 359));        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	//GetDeltaByDegree(m_pkChar->GetRotation(), fDist, &fx, &fy);
 
-	// ´À½¼ÇÑ ¸ø°¨ ¼Ó¼º Ã¼Å©; ÃÖÁ¾ À§Ä¡¿Í Áß°£ À§Ä¡°¡ °¥¼ö¾ø´Ù¸é °¡Áö ¾Ê´Â´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ Ã¼Å©; ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 	//if (!(SECTREE_MANAGER::instance().IsMovablePosition(m_pkChar->GetMapIndex(), m_pkChar->GetX() + (int) fx, m_pkChar->GetY() + (int) fy) 
 	//			&& SECTREE_MANAGER::instance().IsMovablePosition(m_pkChar->GetMapIndex(), m_pkChar->GetX() + (int) fx/2, m_pkChar->GetY() + (int) fy/2)))
 	//	return true;
@@ -218,7 +218,7 @@ bool CPetActor::_UpdatAloneActionAI(float fMinDist, float fMaxDist)
 	return true;
 }
 
-// char_state.cpp StateHorseÇÔ¼ö ±×³É C&P -_-;
+// char_state.cpp StateHorseï¿½Ô¼ï¿½ ï¿½×³ï¿½ C&P -_-;
 bool CPetActor::_UpdateFollowAI()
 {
 	if (0 == m_pkChar->m_pkMobData)
@@ -227,9 +227,9 @@ bool CPetActor::_UpdateFollowAI()
 		return false;
 	}
 	
-	// NOTE: Ä³¸¯ÅÍ(Æê)ÀÇ ¿ø·¡ ÀÌµ¿ ¼Óµµ¸¦ ¾Ë¾Æ¾ß ÇÏ´Âµ¥, ÇØ´ç °ª(m_pkChar->m_pkMobData->m_table.sMovingSpeed)À» Á÷Á¢ÀûÀ¸·Î Á¢±ÙÇØ¼­ ¾Ë¾Æ³¾ ¼öµµ ÀÖÁö¸¸
-	// m_pkChar->m_pkMobData °ªÀÌ invalidÇÑ °æ¿ì°¡ ÀÚÁÖ ¹ß»ýÇÔ. ÇöÀç ½Ã°£°ü°è»ó ¿øÀÎÀº ´ÙÀ½¿¡ ÆÄ¾ÇÇÏ°í ÀÏ´ÜÀº m_pkChar->m_pkMobData °ªÀ» ¾Æ¿¹ »ç¿ëÇÏÁö ¾Êµµ·Ï ÇÔ.
-	// ¿©±â¼­ ¸Å¹ø °Ë»çÇÏ´Â ÀÌÀ¯´Â ÃÖÃÊ ÃÊ±âÈ­ ÇÒ ¶§ Á¤»ó °ªÀ» Á¦´ë·Î ¸ø¾ò¾î¿À´Â °æ¿ìµµ ÀÖÀ½.. -_-;; ¤Ð¤Ð¤Ð¤Ð¤Ð¤Ð¤Ð¤Ð¤Ð
+	// NOTE: Ä³ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½Ë¾Æ¾ï¿½ ï¿½Ï´Âµï¿½, ï¿½Ø´ï¿½ ï¿½ï¿½(m_pkChar->m_pkMobData->m_table.sMovingSpeed)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Ë¾Æ³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// m_pkChar->m_pkMobData ï¿½ï¿½ï¿½ï¿½ invalidï¿½ï¿½ ï¿½ï¿½ì°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¾ï¿½ï¿½Ï°ï¿½ ï¿½Ï´ï¿½ï¿½ï¿½ m_pkChar->m_pkMobData ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½.
+	// ï¿½ï¿½ï¿½â¼­ ï¿½Å¹ï¿½ ï¿½Ë»ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ìµµ ï¿½ï¿½ï¿½ï¿½.. -_-;; ï¿½Ð¤Ð¤Ð¤Ð¤Ð¤Ð¤Ð¤Ð¤ï¿½
 	if (0 == m_originalMoveSpeed)
 	{
 		const CMob* mobData = CMobManager::Instance().Get(m_dwVnum);
@@ -237,14 +237,14 @@ bool CPetActor::_UpdateFollowAI()
 		if (0 != mobData)
 			m_originalMoveSpeed = mobData->m_table.sMovingSpeed;
 	}
-	float	START_FOLLOW_DISTANCE = 300.0f;		// ÀÌ °Å¸® ÀÌ»ó ¶³¾îÁö¸é ÂÑ¾Æ°¡±â ½ÃÀÛÇÔ
-	float	START_RUN_DISTANCE = 900.0f;		// ÀÌ °Å¸® ÀÌ»ó ¶³¾îÁö¸é ¶Ù¾î¼­ ÂÑ¾Æ°¨.
+	float	START_FOLLOW_DISTANCE = 300.0f;		// ï¿½ï¿½ ï¿½Å¸ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾Æ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	float	START_RUN_DISTANCE = 900.0f;		// ï¿½ï¿½ ï¿½Å¸ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¾î¼­ ï¿½Ñ¾Æ°ï¿½.
 
-	float	RESPAWN_DISTANCE = 4500.f;			// ÀÌ °Å¸® ÀÌ»ó ¸Ö¾îÁö¸é ÁÖÀÎ ¿·À¸·Î ¼ÒÈ¯ÇÔ.
-	int		APPROACH = 200;						// Á¢±Ù °Å¸®
+	float	RESPAWN_DISTANCE = 4500.f;			// ï¿½ï¿½ ï¿½Å¸ï¿½ ï¿½Ì»ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½.
+	int		APPROACH = 200;						// ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
 
-	bool bDoMoveAlone = true;					// Ä³¸¯ÅÍ¿Í °¡±îÀÌ ÀÖÀ» ¶§ È¥ÀÚ ¿©±âÀú±â ¿òÁ÷ÀÏ°ÇÁö ¿©ºÎ -_-;
-	bool bRun = false;							// ¶Ù¾î¾ß ÇÏ³ª?
+	bool bDoMoveAlone = true;					// Ä³ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -_-;
+	bool bRun = false;							// ï¿½Ù¾ï¿½ï¿½ ï¿½Ï³ï¿½?
 
 	DWORD currentTime = get_dword_time();
 
@@ -272,7 +272,7 @@ bool CPetActor::_UpdateFollowAI()
 			bRun = true;
 		}
 
-		m_pkChar->SetNowWalking(!bRun);		// NOTE: ÇÔ¼ö ÀÌ¸§º¸°í ¸ØÃß´Â°ÇÁÙ ¾Ë¾Ò´Âµ¥ SetNowWalking(false) ÇÏ¸é ¶Ù´Â°ÅÀÓ.. -_-;
+		m_pkChar->SetNowWalking(!bRun);		// NOTE: ï¿½Ô¼ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß´Â°ï¿½ï¿½ï¿½ ï¿½Ë¾Ò´Âµï¿½ SetNowWalking(false) ï¿½Ï¸ï¿½ ï¿½Ù´Â°ï¿½ï¿½ï¿½.. -_-;
 		
 		Follow(APPROACH);
 
@@ -288,7 +288,7 @@ bool CPetActor::_UpdateFollowAI()
 	//		m_dwLastActionTime = currentTime;
 	//	}
 	//}
-	// Follow ÁßÀÌÁö¸¸ ÁÖÀÎ°ú ÀÏÁ¤ °Å¸® ÀÌ³»·Î °¡±î¿öÁ³´Ù¸é ¸ØÃã
+	// Follow ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ ï¿½Ì³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	else 
 		m_pkChar->SendMovePacket(FUNC_WAIT, 0, 0, 0, 0);
 	//else if (currentTime - m_dwLastActionTime > number(5000, 12000))
@@ -303,8 +303,8 @@ bool CPetActor::Update(DWORD deltaTime)
 {
 	bool bResult = true;
 
-	// Æê ÁÖÀÎÀÌ Á×¾ú°Å³ª, ¼ÒÈ¯µÈ ÆêÀÇ »óÅÂ°¡ ÀÌ»óÇÏ´Ù¸é ÆêÀ» ¾ø¾Ú. (NOTE: °¡²û°¡´Ù ÀÌ·± Àú·± ÀÌÀ¯·Î ¼ÒÈ¯µÈ ÆêÀÌ DEAD »óÅÂ¿¡ ºüÁö´Â °æ¿ì°¡ ÀÖÀ½-_-;)
-	// ÆêÀ» ¼ÒÈ¯ÇÑ ¾ÆÀÌÅÛÀÌ ¾ø°Å³ª, ³»°¡ °¡Áø »óÅÂ°¡ ¾Æ´Ï¶ó¸é ÆêÀ» ¾ø¾Ú.
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ï¿½Å³ï¿½, ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Ì»ï¿½ï¿½Ï´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. (NOTE: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ DEAD ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì°¡ ï¿½ï¿½ï¿½ï¿½-_-;)
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if (m_pkOwner->IsDead() || (IsSummoned() && m_pkChar->IsDead()) 
 		|| NULL == ITEM_MANAGER::instance().FindByVID(this->GetSummonItemVID())
 		|| ITEM_MANAGER::instance().FindByVID(this->GetSummonItemVID())->GetOwner() != this->GetOwner()
@@ -320,10 +320,10 @@ bool CPetActor::Update(DWORD deltaTime)
 	return bResult;
 }
 
-//NOTE : ÁÖÀÇ!!! MinDistance¸¦ Å©°Ô ÀâÀ¸¸é ±× º¯À§¸¸Å­ÀÇ º¯È­µ¿¾ÈÀº followÇÏÁö ¾Ê´Â´Ù,
+//NOTE : ï¿½ï¿½ï¿½ï¿½!!! MinDistanceï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å­ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ followï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½,
 bool CPetActor::Follow(float fMinDistance)
 {
-	// °¡·Á´Â À§Ä¡¸¦ ¹Ù¶óºÁ¾ß ÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ù¶ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 	if( !m_pkOwner || !m_pkChar) 
 		return false;
 
@@ -367,7 +367,7 @@ void CPetActor::SetSummonItem (LPITEM pItem)
 
 void CPetActor::GiveBuff()
 {
-	// ÆÄÈ² Æê ¹öÇÁ´Â ´øÀü¿¡¼­¸¸ ¹ß»ýÇÔ.
+	// ï¿½ï¿½È² ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½.
 	if (34004 == m_dwVnum || 34009 == m_dwVnum)
 	{
 		if (NULL == m_pkOwner->GetDungeon())
@@ -432,15 +432,15 @@ void CPetSystem::Destroy()
 	m_petActorMap.clear();
 }
 
-/// Æê ½Ã½ºÅÛ ¾÷µ¥ÀÌÆ®. µî·ÏµÈ ÆêµéÀÇ AI Ã³¸® µîÀ» ÇÔ.
+/// ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®. ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ AI Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
 bool CPetSystem::Update(DWORD deltaTime)
 {
 	bool bResult = true;
 
 	DWORD currentTime = get_dword_time();
 
-	// CHARACTER_MANAGER¿¡¼­ Ä³¸¯ÅÍ·ù UpdateÇÒ ¶§ ¸Å°³º¯¼ö·Î ÁÖ´Â (Pulse¶ó°í µÇ¾îÀÖ´Â)°ªÀÌ ÀÌÀü ÇÁ·¹ÀÓ°úÀÇ ½Ã°£Â÷ÀÌÀÎÁÙ ¾Ë¾Ò´Âµ¥
-	// ÀüÇô ´Ù¸¥ °ªÀÌ¶ó¼­-_-; ¿©±â¿¡ ÀÔ·ÂÀ¸·Î µé¾î¿À´Â deltaTimeÀº ÀÇ¹Ì°¡ ¾øÀ½¤Ð¤Ð	
+	// CHARACTER_MANAGERï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í·ï¿½ Updateï¿½ï¿½ ï¿½ï¿½ ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ (Pulseï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½Ö´ï¿½)ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾Ò´Âµï¿½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½-_-; ï¿½ï¿½ï¿½â¿¡ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ deltaTimeï¿½ï¿½ ï¿½Ç¹Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ð¤ï¿½	
 	
 	if (m_dwUpdatePeriod > currentTime - m_dwLastUpdateTime)
 		return true;
@@ -473,7 +473,7 @@ bool CPetSystem::Update(DWORD deltaTime)
 	return bResult;
 }
 
-/// °ü¸® ¸ñ·Ï¿¡¼­ ÆêÀ» Áö¿ò
+/// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CPetSystem::DeletePet(DWORD mobVnum)
 {
 	TPetActorMap::iterator iter = m_petActorMap.find(mobVnum);
@@ -494,7 +494,7 @@ void CPetSystem::DeletePet(DWORD mobVnum)
 	m_petActorMap.erase(iter);	
 }
 
-/// °ü¸® ¸ñ·Ï¿¡¼­ ÆêÀ» Áö¿ò
+/// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CPetSystem::DeletePet(CPetActor* petActor)
 {
 	for (TPetActorMap::iterator iter = m_petActorMap.begin(); iter != m_petActorMap.end(); ++iter)
@@ -542,7 +542,7 @@ CPetActor* CPetSystem::Summon(DWORD mobVnum, LPITEM pSummonItem, const char* pet
 {
 	CPetActor* petActor = this->GetByVnum(mobVnum);
 
-	// µî·ÏµÈ ÆêÀÌ ¾Æ´Ï¶ó¸é »õ·Î »ý¼º ÈÄ °ü¸® ¸ñ·Ï¿¡ µî·ÏÇÔ.
+	// ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 	if (0 == petActor)
 	{
 		petActor = M2_NEW CPetActor(m_pkOwner, mobVnum, options);
@@ -557,7 +557,7 @@ CPetActor* CPetSystem::Summon(DWORD mobVnum, LPITEM pSummonItem, const char* pet
 
 		info->pPetSystem = this;
 
-		m_pkPetSystemUpdateEvent = event_create(petsystem_update_event, info, PASSES_PER_SEC(1) / 4);	// 0.25ÃÊ	
+		m_pkPetSystemUpdateEvent = event_create(petsystem_update_event, info, PASSES_PER_SEC(1) / 4);	// 0.25ï¿½ï¿½	
 	}
 
 	return petActor;
@@ -589,7 +589,7 @@ CPetActor* CPetSystem::GetByVID(DWORD vid) const
 	return bFound ? petActor : 0;
 }
 
-/// µî·Ï µÈ Æê Áß¿¡¼­ ÁÖ¾îÁø ¸÷ VNUMÀ» °¡Áø ¾×ÅÍ¸¦ ¹ÝÈ¯ÇÏ´Â ÇÔ¼ö.
+/// ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ ï¿½ï¿½ VNUMï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½.
 CPetActor* CPetSystem::GetByVnum(DWORD vnum) const
 {
 	CPetActor* petActor = 0;

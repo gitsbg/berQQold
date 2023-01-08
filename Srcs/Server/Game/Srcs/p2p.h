@@ -2,10 +2,10 @@
 #ifndef P2P_MANAGER_H_
 #define P2P_MANAGER_H_
 
-#include <boost/unordered_map.hpp>
+#include <unordered_map>
 
 #include "input.h"
-#include "../../common/stl.h"
+#include "../../Common/stl.h"
 
 typedef struct _CCI
 {
@@ -24,19 +24,19 @@ class P2P_MANAGER : public singleton<P2P_MANAGER>
 		P2P_MANAGER();
 		~P2P_MANAGER();
 
-		// ¾Æ·¡ Register* Unregister* pairµéÀº ³»ºÎÀûÀ¸·Î »ç½Ç °°Àº ·çÆ¾À» »ç¿ëÇÑ´Ù.
-		// ´ÜÁö ¸í½ÃÀûÀ¸·Î Ç¥½ÃÇÏ±â À§ÇÑ °Í
+		// ï¿½Æ·ï¿½ Register* Unregister* pairï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 		void			RegisterAcceptor(LPDESC d);
 		void			UnregisterAcceptor(LPDESC d);
 
 		void			RegisterConnector(LPDESC d);
 		void			UnregisterConnector(LPDESC d);
 
-		void			EraseUserByDesc(LPDESC d);	// ÇØ´ç desc¿¡ ÀÖ´Â À¯ÀúµéÀ» Áö¿î´Ù.
+		void			EraseUserByDesc(LPDESC d);	// ï¿½Ø´ï¿½ descï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 
 		void			FlushOutput();
 
-		void			Boot(LPDESC d);	// p2p Ã³¸®¿¡ ÇÊ¿äÇÑ Á¤º¸¸¦ º¸³»ÁØ´Ù. (Àü Ä³¸¯ÅÍÀÇ ·Î±×ÀÎ Á¤º¸ µî)
+		void			Boot(LPDESC d);	// p2p Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½. (ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
 
 		void			Send(const void * c_pvData, int iSize, LPDESC except = NULL);
 
@@ -57,10 +57,10 @@ class P2P_MANAGER : public singleton<P2P_MANAGER>
 		CInputProcessor *	m_pkInputProcessor;
 		int			m_iHandleCount;
 
-		typedef boost::unordered_map<std::string, CCI *, stringhash> TCCIMap;
-		typedef boost::unordered_map<DWORD, CCI*> TPIDCCIMap;
+		typedef std::unordered_map<std::string, CCI *, stringhash> TCCIMap;
+		typedef std::unordered_map<DWORD, CCI*> TPIDCCIMap;
 
-		TR1_NS::unordered_set<LPDESC> m_set_pkPeers;
+		std::unordered_set<LPDESC> m_set_pkPeers;
 		TCCIMap			m_map_pkCCI;
 		TPIDCCIMap		m_map_dwPID_pkCCI;
 		int			m_aiEmpireUserCount[EMPIRE_MAX_NUM];

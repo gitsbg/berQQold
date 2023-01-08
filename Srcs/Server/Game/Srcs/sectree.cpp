@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "../../libgame/include/attribute.h"
+#include "../../LibGame/Srcs/attribute.h"
 #include "sectree_manager.h"
 #include "char.h"
 #include "char_manager.h"
@@ -77,7 +77,7 @@ SECTREEID SECTREE::GetID()
 
 void SECTREE::IncreasePC()
 {
-	LPSECTREE_LIST::iterator it_tree = m_neighbor_list.begin();
+	auto it_tree = m_neighbor_list.begin();
 
 	while (it_tree != m_neighbor_list.end())
 	{
@@ -88,7 +88,7 @@ void SECTREE::IncreasePC()
 
 void SECTREE::DecreasePC()
 {
-	LPSECTREE_LIST::iterator it_tree = m_neighbor_list.begin();
+	auto it_tree = m_neighbor_list.begin();
 
 	while (it_tree != m_neighbor_list.end())
 	{
@@ -149,7 +149,7 @@ bool SECTREE::InsertEntity(LPENTITY pkEnt)
 			if (pkCurTree)
 				pkCurTree->DecreasePC();
 		}
-		else if (m_iPCCount > 0 && !pkChr->IsWarp() && !pkChr->IsGoto()) // PC°¡ ¾Æ´Ï°í ÀÌ °÷¿¡ PC°¡ ÀÖ´Ù¸é Idle event¸¦ ½ÃÀÛ ½ÃÅ²´Ù.
+		else if (m_iPCCount > 0 && !pkChr->IsWarp() && !pkChr->IsGoto()) // PCï¿½ï¿½ ï¿½Æ´Ï°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ PCï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ Idle eventï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å²ï¿½ï¿½.
 		{
 			pkChr->StartStateMachine();
 		}

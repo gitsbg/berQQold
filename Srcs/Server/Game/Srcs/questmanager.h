@@ -1,7 +1,7 @@
 #ifndef __METIN2_SERVER_QUEST_MANAGER__
 #define __METIN2_SERVER_QUEST_MANAGER__
 
-#include <boost/unordered_map.hpp>
+#include <unordered_map>
 
 #include "questnpc.h"
 
@@ -50,7 +50,7 @@ namespace quest
 			bool		RunState(QuestState& qs);
 
 			PC *		GetPC(unsigned int pc);
-			PC *		GetPCForce(unsigned int pc);	// ÇöÀç PC¸¦ ¹Ù²ÙÁö ¾Ê°í PC Æ÷ÀÎÅÍ¸¦ °¡Á®¿Â´Ù.
+			PC *		GetPCForce(unsigned int pc);	// ï¿½ï¿½ï¿½ï¿½ PCï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ PC ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 
 			unsigned int	GetCurrentNPCRace();
 			const string & 	GetCurrentQuestName();
@@ -100,7 +100,7 @@ namespace quest
 			void		Letter(DWORD pc);
 			void		Letter(DWORD pc, DWORD quest_index, int state);
 			
-			void		ItemInformer(unsigned int pc, unsigned int vnum);	//µ¶ÀÏ¼±¹°±â´É
+			void		ItemInformer(unsigned int pc, unsigned int vnum);	//ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 			//
 
@@ -234,8 +234,8 @@ namespace quest
 				}
 			};
 
-			typedef boost::unordered_map<string, int, stringhash> THashMapQuestName;
-			typedef boost::unordered_map<unsigned int, vector<char> > THashMapQuestStartScript;
+			typedef std::unordered_map<string, int, stringhash> THashMapQuestName;
+			typedef std::unordered_map<unsigned int, vector<char> > THashMapQuestStartScript;
 
 			THashMapQuestName			m_hmQuestName;
 			THashMapQuestStartScript	m_hmQuestStartScript;
@@ -248,7 +248,7 @@ namespace quest
 			static bool ExecuteQuestScript(PC& pc, DWORD quest_index, const int state, const char* code, const int code_size, vector<AArgScript*>* pChatScripts = NULL, bool bUseCache = true);
 		
 
-		// begin_other_pc_blcok, end_other_pc_blockÀ» À§ÇÑ °´Ã¼µé.
+		// begin_other_pc_blcok, end_other_pc_blockï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½.
 		public:
 			void		BeginOtherPCBlock(DWORD pid);
 			void		EndOtherPCBlock();

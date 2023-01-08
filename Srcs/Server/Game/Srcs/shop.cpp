@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "../../libgame/include/grid.h"
+#include "../../LibGame/Srcs/grid.h"
 #include "constants.h"
 #include "utils.h"
 #include "config.h"
@@ -159,8 +159,8 @@ void CShop::SetShopItems(TShopItemTable * pTable, BYTE bItemCount)
 		if (item.pkItem)
 		{
 			item.vnum = pkItem->GetVnum();
-			item.count = pkItem->GetCount(); // PC ¼¥ÀÇ °æ¿ì ¾ÆÀÌÅÛ °³¼ö´Â ÁøÂ¥ ¾ÆÀÌÅÛÀÇ °³¼ö¿©¾ß ÇÑ´Ù.
-			item.price = pTable->price; // °¡°Ýµµ »ç¿ëÀÚ°¡ Á¤ÇÑ´ë·Î..
+			item.count = pkItem->GetCount(); // PC ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
+			item.price = pTable->price; // ï¿½ï¿½ï¿½Ýµï¿½ ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½..
 			item.itemid	= pkItem->GetID();
 		}
 		else
@@ -246,7 +246,7 @@ int CShop::Buy(LPCHARACTER ch, BYTE pos)
 
 	LPITEM item;
 
-	if (m_pkPC) // ÇÇ¾¾°¡ ¿î¿µÇÏ´Â ¼¥Àº ÇÇ¾¾°¡ ½ÇÁ¦ ¾ÆÀÌÅÛÀ» °¡Áö°íÀÖ¾î¾ß ÇÑ´Ù.
+	if (m_pkPC) // ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½î¿µï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ ï¿½Ñ´ï¿½.
 		item = r_item.pkItem;
 	else
 		item = ITEM_MANAGER::instance().CreateItem(r_item.vnum, r_item.count);
@@ -258,7 +258,7 @@ int CShop::Buy(LPCHARACTER ch, BYTE pos)
 	{
 		if (quest::CQuestManager::instance().GetEventFlag("hivalue_item_sell") == 0)
 		{
-			//Ãàº¹ÀÇ ±¸½½ && ¸¸³âÇÑÃ¶ ÀÌº¥Æ® 
+			//ï¿½àº¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ && ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ ï¿½Ìºï¿½Æ® 
 			if (item->GetVnum() == 70024 || item->GetVnum() == 70035)
 			{
 				return SHOP_SUBHEADER_GC_END;
@@ -293,7 +293,7 @@ int CShop::Buy(LPCHARACTER ch, BYTE pos)
 
 	ch->PointChange(POINT_GOLD, -dwPrice, false);
 
-	//¼¼±Ý °è»ê
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	DWORD dwTax = 0;
 	int iVal = 0;
 
@@ -333,13 +333,13 @@ int CShop::Buy(LPCHARACTER ch, BYTE pos)
 		}
 	}
 
-	// »óÁ¡¿¡¼­ »ì‹š ¼¼±Ý 5%
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ì‹š ï¿½ï¿½ï¿½ï¿½ 5%
 	if (!m_pkPC) 
 	{
 		CMonarch::instance().SendtoDBAddMoney(dwTax, ch->GetEmpire(), ch);
 	}
 
-	// ±ºÁÖ ½Ã½ºÅÛ : ¼¼±Ý Â¡¼ö
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ Â¡ï¿½ï¿½
 	if (m_pkPC)
 	{
 		m_pkPC->SyncQuickslot(QUICKSLOT_TYPE_ITEM, item->GetCell(), 255);
@@ -381,7 +381,7 @@ int CShop::Buy(LPCHARACTER ch, BYTE pos)
 		m_pkPC->PointChange(POINT_GOLD, dwPrice, false);
 
 		if (iVal > 0)
-			m_pkPC->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÆÇ¸Å±Ý¾×ÀÇ %d %% °¡ ¼¼±ÝÀ¸·Î ³ª°¡°ÔµË´Ï´Ù"), iVal);
+			m_pkPC->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½Ç¸Å±Ý¾ï¿½ï¿½ï¿½ %d %% ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ÔµË´Ï´ï¿½"), iVal);
 
 		CMonarch::instance().SendtoDBAddMoney(dwTax, m_pkPC->GetEmpire(), m_pkPC);
 	}
@@ -442,7 +442,7 @@ bool CShop::AddGuest(LPCHARACTER ch, DWORD owner_vid, bool bOtherEmpire)
 		//HIVALUE_ITEM_EVENT
 		if (quest::CQuestManager::instance().GetEventFlag("hivalue_item_sell") == 0)
 		{
-			//Ãàº¹ÀÇ ±¸½½ && ¸¸³âÇÑÃ¶ ÀÌº¥Æ® 
+			//ï¿½àº¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ && ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ ï¿½Ìºï¿½Æ® 
 			if (item.vnum == 70024 || item.vnum == 70035)
 			{				
 				continue;

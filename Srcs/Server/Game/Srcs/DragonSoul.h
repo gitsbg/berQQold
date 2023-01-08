@@ -1,7 +1,7 @@
 #ifndef __INC_METIN_II_GAME_DRAGON_SOUL_H__
 #define __INC_METIN_II_GAME_DRAGON_SOUL_H__
 
-#include "../../common/length.h"
+#include "../../Common/length.h"
 
 class CHARACTER;
 class CItem;
@@ -16,23 +16,23 @@ public:
 	bool	ReadDragonSoulTableFile(const char * c_pszFileName);
 
 	void	GetDragonSoulInfo(DWORD dwVnum, OUT BYTE& bType, OUT BYTE& bGrade, OUT BYTE& bStep, OUT BYTE& bRefine) const;
-	// fixme : titempos·Î
+	// fixme : titemposï¿½ï¿½
 	WORD	GetBasePosition(const LPITEM pItem) const;
 	bool	IsValidCellForThisItem(const LPITEM pItem, const TItemPos& Cell) const;
 	int		GetDuration(const LPITEM pItem) const;
 	
-	// ¿ëÈ¥¼®À» ¹Þ¾Æ¼­ Æ¯Á¤ ¿ë½ÉÀ» ÃßÃâÇÏ´Â ÇÔ¼ö
+	// ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
 	bool	ExtractDragonHeart(LPCHARACTER ch, LPITEM pItem, LPITEM pExtractor = NULL);
 
-	// Æ¯Á¤ ¿ëÈ¥¼®(pItem)À» ÀåºñÃ¢¿¡¼­ Á¦°ÅÇÒ ¶§¿¡ ¼º°ø ¿©ºÎ¸¦ °áÁ¤ÇÏ°í, 
-	// ½ÇÆÐ½Ã ºÎ»ê¹°À» ÁÖ´Â ÇÔ¼ö.(ºÎ»ê¹°Àº dragon_soul_table.txt¿¡ Á¤ÀÇ)
-	// DestCell¿¡ invalidÇÑ °ªÀ» ³ÖÀ¸¸é ¼º°ø ½Ã, ¿ëÈ¥¼®À» ºó °ø°£¿¡ ÀÚµ¿ Ãß°¡.
-	// ½ÇÆÐ ½Ã, ¿ëÈ¥¼®(pItem)Àº deleteµÊ.
-	// ÃßÃâ¾ÆÀÌÅÛÀÌ ÀÖ´Ù¸é ÃßÃâ ¼º°ø È®·üÀÌ pExtractor->GetValue(0)%¸¸Å­ Áõ°¡ÇÔ.
-	// ºÎ»ê¹°Àº ¾ðÁ¦³ª ÀÚµ¿ Ãß°¡.
+	// Æ¯ï¿½ï¿½ ï¿½ï¿½È¥ï¿½ï¿½(pItem)ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½, 
+	// ï¿½ï¿½ï¿½Ð½ï¿½ ï¿½Î»ê¹°ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ô¼ï¿½.(ï¿½Î»ê¹°ï¿½ï¿½ dragon_soul_table.txtï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	// DestCellï¿½ï¿½ invalidï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ß°ï¿½.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½È¥ï¿½ï¿½(pItem)ï¿½ï¿½ deleteï¿½ï¿½.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ pExtractor->GetValue(0)%ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	// ï¿½Î»ê¹°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ß°ï¿½.
 	bool	PullOut(LPCHARACTER ch, TItemPos DestCell, IN OUT LPITEM& pItem, LPITEM pExtractor = NULL);
 
-	// ¿ëÈ¥¼® ¾÷±×·¹ÀÌµå ÇÔ¼ö
+	// ï¿½ï¿½È¥ï¿½ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½Ô¼ï¿½
 	bool	DoRefineGrade(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL_REFINE_GRID_SIZE]);
 	bool	DoRefineStep(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL_REFINE_GRID_SIZE]);
 	bool	DoRefineStrength(LPCHARACTER ch, TItemPos (&aItemPoses)[DRAGON_SOUL_REFINE_GRID_SIZE]);
@@ -47,7 +47,7 @@ public:
 private:
 	void	SendRefineResultPacket(LPCHARACTER ch, BYTE bSubHeader, const TItemPos& pos);
 
-	// Ä³¸¯ÅÍÀÇ ¿ëÈ¥¼® µ¦À» »ìÆìº¸°í, È°¼ºÈ­ µÈ ¿ëÈ¥¼®ÀÌ ¾ø´Ù¸é, Ä³¸¯ÅÍÀÇ ¿ëÈ¥¼® È°¼º »óÅÂ¸¦ off ½ÃÅ°´Â ÇÔ¼ö.
+	// Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ìº¸ï¿½ï¿½, È°ï¿½ï¿½È­ ï¿½ï¿½ ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½, Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¥ï¿½ï¿½ È°ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ off ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ô¼ï¿½.
 	void	RefreshDragonSoulState(LPCHARACTER ch);
 
 	DWORD	MakeDragonSoulVnum(BYTE bType, BYTE grade, BYTE step, BYTE refine);

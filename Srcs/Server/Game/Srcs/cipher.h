@@ -4,6 +4,7 @@
 #ifdef _IMPROVED_PACKET_ENCRYPTION_
 
 #include <cryptopp/cryptlib.h>
+using CryptoPP::byte;
 
 // Forward declaration
 class KeyAgreement;

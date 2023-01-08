@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "../../common/stl.h"
+#include "../../Common/stl.h"
 #include "group_text_parse_tree.h"
 
 CGroupTextParseTreeLoader::CGroupTextParseTreeLoader()
@@ -200,7 +200,7 @@ bool CGroupNode::GetRow(const std::string & c_rstrRowKey, OUT const CGroupNode::
 	return true;
 }
 
-// Âü°í·Î, idx¶û txt¿¡ ¾²¿©Áø ¼ø¼­¶û °ü°è ¾øÀ½.
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, idxï¿½ï¿½ txtï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 bool CGroupNode::GetRow(int idx, OUT const CGroupNode::CGroupNodeRow ** ppRow) const
 {
 	if (idx >= m_map_rows.size())
@@ -223,7 +223,7 @@ bool CGroupNode::GetGroupRow(const std::string& stGroupName, const std::string& 
 		if (pChildGroup->GetRow(stRow, ppRow))
 			return true;
 	}
-	// default groupÀ» »ìÆìº½.
+	// default groupï¿½ï¿½ ï¿½ï¿½ï¿½ìº½.
 	pChildGroup = GetChildNode("default");
 	if (NULL != pChildGroup)
 	{

@@ -43,7 +43,7 @@ void MessengerManager::Login(MessengerManager::keyA account)
 	if (m_set_loginAccount.find(account) != m_set_loginAccount.end())
 		return;
 
-	DBManager::instance().FuncQuery(std::bind1st(std::mem_fun(&MessengerManager::LoadList), this),
+	DBManager::instance().FuncQuery(std::bind(&MessengerManager::LoadList, this, std::placeholders::_1),
 			"SELECT account, companion FROM messenger_list%s WHERE account='%s'", get_table_postfix(), account.c_str());
 
 	m_set_loginAccount.insert(account);
@@ -119,7 +119,7 @@ void MessengerManager::RequestToAdd(LPCHARACTER ch, LPCHARACTER target)
 	
 	if (quest::CQuestManager::instance().GetPCForce(ch->GetPlayerID())->IsRunning() == true)
 	{
-	    ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("»ó´ë¹æÀÌ Ä£±¸ Ãß°¡¸¦ ¹ÞÀ» ¼ö ¾ø´Â »óÅÂÀÔ´Ï´Ù."));
+	    ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½."));
 	    return;
 	}
 
@@ -172,7 +172,7 @@ void MessengerManager::__AddToList(MessengerManager::keyA account, MessengerMana
 
 	if (d)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<¸Þ½ÅÁ®> %s ´ÔÀ» Ä£±¸·Î Ãß°¡ÇÏ¿´½À´Ï´Ù."), companion.c_str());
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<ï¿½Þ½ï¿½ï¿½ï¿½> %s ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."), companion.c_str());
 	}
 
 	LPCHARACTER tch = CHARACTER_MANAGER::instance().FindPC(companion.c_str());
@@ -214,7 +214,7 @@ void MessengerManager::__RemoveFromList(MessengerManager::keyA account, Messenge
 	LPDESC d = ch ? ch->GetDesc() : NULL;
 
 	if (d)
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<¸Þ½ÅÁ®> %s ´ÔÀ» ¸Þ½ÅÀú¿¡¼­ »èÁ¦ÇÏ¿´½À´Ï´Ù."), companion.c_str());
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<ï¿½Þ½ï¿½ï¿½ï¿½> %s ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."), companion.c_str());
 }
 
 void MessengerManager::RemoveFromList(MessengerManager::keyA account, MessengerManager::keyA companion)
@@ -240,11 +240,11 @@ void MessengerManager::RemoveAllList(keyA account)
 {
 	std::set<keyT>	company(m_Relation[account]);
 
-	/* SQL Data »èÁ¦ */
+	/* SQL Data ï¿½ï¿½ï¿½ï¿½ */
 	DBManager::instance().Query("DELETE FROM messenger_list%s WHERE account='%s' OR companion='%s'",
 			get_table_postfix(), account.c_str(), account.c_str());
 
-	/* ³»°¡ °¡Áö°íÀÖ´Â ¸®½ºÆ® »èÁ¦ */
+	/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ */
 	for (std::set<keyT>::iterator iter = company.begin();
 			iter != company.end();
 			iter++ )
@@ -252,7 +252,7 @@ void MessengerManager::RemoveAllList(keyA account)
 		this->RemoveFromList(account, *iter);
 	}
 
-	/* º¹»çÇÑ µ¥ÀÌÅ¸ »èÁ¦ */
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ */
 	for (std::set<keyT>::iterator iter = company.begin();
 			iter != company.end();
 			)

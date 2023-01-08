@@ -6,7 +6,7 @@ class SECTREE;
 class CEntity
 {
 	public:
-		typedef TR1_NS::unordered_map<LPENTITY, int> ENTITY_MAP;
+		typedef std::unordered_map<LPENTITY, int> ENTITY_MAP;
 
 	public:
 		CEntity();
@@ -28,7 +28,7 @@ class CEntity
 		void			ViewCleanup();
 		void			ViewInsert(LPENTITY entity, bool recursive = true);
 		void			ViewRemove(LPENTITY entity, bool recursive = true);
-		void			ViewReencode();	// ÁÖÀ§ Entity¿¡ ÆÐÅ¶À» ´Ù½Ã º¸³½´Ù.
+		void			ViewReencode();	// ï¿½ï¿½ï¿½ï¿½ Entityï¿½ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
 		int				GetViewAge() const	{ return m_iViewAge;	}
 

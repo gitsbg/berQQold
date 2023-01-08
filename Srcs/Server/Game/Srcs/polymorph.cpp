@@ -13,7 +13,7 @@ CPolymorphUtils::CPolymorphUtils()
 
 POLYMORPH_BONUS_TYPE CPolymorphUtils::GetBonusType(DWORD dwVnum)
 {
-	boost::unordered_map<DWORD, DWORD>::iterator iter;
+	std::unordered_map<DWORD, DWORD>::iterator iter;
 
 	iter = m_mapSPDType.find(dwVnum);
 
@@ -64,26 +64,26 @@ bool CPolymorphUtils::PolymorphCharacter(LPCHARACTER pChar, LPITEM pItem, const 
 
 	// dwDuration *= 60;
 
-	// º¯½Å È®·ü = Ä³¸¯ÅÍ ·¹º§ - ¸÷ ·¹º§ + µÐ°©¼­ ·¹º§ + 29 + µÐ°© ½ºÅ³ ·¹º§
+	// ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ = Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ + ï¿½Ð°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ + 29 + ï¿½Ð°ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 	iPolyPercent = pChar->GetLevel() - pMob->m_table.bLevel + pItem->GetSocket(2) + (29 + bySkillLevel);
 
 	if (iPolyPercent <= 0)
 	{
-		pChar->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("µÐ°©¿¡ ½ÇÆÐ ÇÏ¿´½À´Ï´Ù"));
+		pChar->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½Ð°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½"));
 		return false;
 	}
 	else
 	{
 		if (number(1, 100) > iPolyPercent)
 		{
-			pChar->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("µÐ°©¿¡ ½ÇÆÐ ÇÏ¿´½À´Ï´Ù"));
+			pChar->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½Ð°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½"));
 			return false;
 		}
 	}
 
 	pChar->AddAffect(AFFECT_POLYMORPH, POINT_POLYMORPH, pMob->m_table.dwVnum, AFF_POLYMORPH, dwDuration, 0, true);
 
-	// º¯½Å º¸³Ê½º = µÐ°© ½ºÅ³ ·¹º§ + µÐ°©¼­ ·¹º§
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½ = ï¿½Ð°ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ + ï¿½Ð°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	dwBonusPercent = bySkillLevel + pItem->GetSocket(2);
 
 	switch (GetBonusType(pMob->m_table.dwVnum))
@@ -116,15 +116,15 @@ bool CPolymorphUtils::UpdateBookPracticeGrade(LPCHARACTER pChar, LPITEM pItem)
 	if (pItem->GetSocket(1) > 0)
 		pItem->SetSocket(1, pItem->GetSocket(1) - 1);
 	else
-		pChar->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("µÐ°©¼­ ¼ö·ÃÀ» ¸¶Ãº½À´Ï´Ù. ½Å¼±¿¡°Ô Ã£¾Æ°¡¼¼¿ä."));
+		pChar->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½Ð°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ãºï¿½ï¿½ï¿½Ï´ï¿½. ï¿½Å¼ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ï¿½."));
 
 	return true;
 }
 
 bool CPolymorphUtils::GiveBook(LPCHARACTER pChar, DWORD dwMobVnum, DWORD dwPracticeCount, BYTE BookLevel, BYTE LevelLimit)
 {
-	// ¼ÒÄÏ0                ¼ÒÄÏ1       ¼ÒÄÏ2
-	// µÐ°©ÇÒ ¸ó½ºÅÍ ¹øÈ£   ¼ö·ÃÁ¤µµ    µÐ°©¼­ ·¹º§
+	// ï¿½ï¿½ï¿½ï¿½0                ï¿½ï¿½ï¿½ï¿½1       ï¿½ï¿½ï¿½ï¿½2
+	// ï¿½Ð°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    ï¿½Ð°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (pChar == NULL)
 		return false;
 
@@ -140,9 +140,9 @@ bool CPolymorphUtils::GiveBook(LPCHARACTER pChar, DWORD dwMobVnum, DWORD dwPract
 		return false;
 	}
 
-	pItem->SetSocket(0, dwMobVnum);			// µÐ°©ÇÒ ¸ó½ºÅÍ ¹øÈ£
-	pItem->SetSocket(1, dwPracticeCount);		// ¼ö·ÃÇØ¾ßÇÒ È½¼ö
-	pItem->SetSocket(2, BookLevel);			// ¼ö·Ã·¹º§
+	pItem->SetSocket(0, dwMobVnum);			// ï¿½Ð°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	pItem->SetSocket(1, dwPracticeCount);		// ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½ È½ï¿½ï¿½
+	pItem->SetSocket(2, BookLevel);			// ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½
 	return true;
 }
 

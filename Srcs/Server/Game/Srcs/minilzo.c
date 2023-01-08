@@ -554,7 +554,7 @@ extern "C" {
 #if !defined(MEMCPY8_DS)
 
 #define MEMCPY8_DS(dest,src,len) \
-	{ register lzo_uint __l = (len) / 8; \
+	{ lzo_uint __l = (len) / 8; \
 	do { \
 	*dest++ = *src++; \
 	*dest++ = *src++; \
@@ -1278,7 +1278,7 @@ _lzo_config_check(void)
 	{
 		static int x[3];
 		static unsigned xn = 3;
-		register unsigned j;
+		unsigned j;
 
 		for (j = 0; j < xn; ++j)
 			x[j] = (int)j - 3;
@@ -1646,9 +1646,9 @@ lzo_uint do_compress     ( const lzo_byte *in , lzo_uint  in_len,
 						  lzo_voidp wrkmem )
 {
 #if 0 && defined(__GNUC__) && defined(__i386__)
-	register const lzo_byte *ip __asm__("%esi");
+	const lzo_byte *ip __asm__("%esi");
 #else
-	register const lzo_byte *ip;
+	const lzo_byte *ip;
 #endif
 	lzo_byte *op;
 	const lzo_byte * const in_end = in + in_len;
@@ -1664,9 +1664,9 @@ lzo_uint do_compress     ( const lzo_byte *in , lzo_uint  in_len,
 	for (;;)
 	{
 #if 0 && defined(__GNUC__) && defined(__i386__)
-		register const lzo_byte *m_pos __asm__("%edi");
+		const lzo_byte *m_pos __asm__("%edi");
 #else
-		register const lzo_byte *m_pos;
+		const lzo_byte *m_pos;
 #endif
 		lzo_moff_t m_off;
 		lzo_uint m_len;
@@ -1724,7 +1724,7 @@ try_match:
 				if (m_off <= M1_MAX_OFFSET && lit == 3)
 #endif
 				{
-					register lzo_uint t;
+					lzo_uint t;
 
 					t = lit;
 					assert(op - 2 > out); op[-2] |= LZO_BYTE(t);
@@ -1753,7 +1753,7 @@ match:
 		UPDATE_I(dict,0,dindex,ip,in);
 		if (pd(ip,ii) > 0)
 		{
-			register lzo_uint t = pd(ip,ii);
+			lzo_uint t = pd(ip,ii);
 
 			if (t <= 3)
 			{
@@ -1764,7 +1764,7 @@ match:
 				*op++ = LZO_BYTE(t - 3);
 			else
 			{
-				register lzo_uint tt = t - 18;
+				lzo_uint tt = t - 18;
 
 				*op++ = 0;
 				while (tt > 255)
@@ -2054,14 +2054,14 @@ DO_DECOMPRESS  ( const lzo_byte *in , lzo_uint  in_len,
 				lzo_voidp wrkmem )
 #endif
 {
-	register lzo_byte *op;
-	register const lzo_byte *ip;
-	register lzo_uint t;
+	lzo_byte *op;
+	const lzo_byte *ip;
+	lzo_uint t;
 #if defined(COPY_DICT)
 	lzo_uint m_off;
 	const lzo_byte *dict_end;
 #else
-	register const lzo_byte *m_pos;
+	const lzo_byte *m_pos;
 #endif
 
 	const lzo_byte * const ip_end = in + in_len;
@@ -2546,14 +2546,14 @@ DO_DECOMPRESS  ( const lzo_byte *in , lzo_uint  in_len,
 				lzo_voidp wrkmem )
 #endif
 {
-	register lzo_byte *op;
-	register const lzo_byte *ip;
-	register lzo_uint t;
+	lzo_byte *op;
+	const lzo_byte *ip;
+	lzo_uint t;
 #if defined(COPY_DICT)
 	lzo_uint m_off;
 	const lzo_byte *dict_end;
 #else
-	register const lzo_byte *m_pos;
+	const lzo_byte *m_pos;
 #endif
 
 	const lzo_byte * const ip_end = in + in_len;

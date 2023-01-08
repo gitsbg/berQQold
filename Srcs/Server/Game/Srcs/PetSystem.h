@@ -4,7 +4,7 @@
 
 class CHARACTER;
 
-// TODO: ÆêÀ¸·Î¼­ÀÇ ´É·ÂÄ¡? ¶ó´ø°¡ Ä£¹Ðµµ, ¹è°íÇÄ ±âÅ¸µîµî... ¼öÄ¡
+// TODO: ï¿½ï¿½ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½É·ï¿½Ä¡? ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½Ðµï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½... ï¿½ï¿½Ä¡
 struct SPetAbility
 {
 };
@@ -34,8 +34,8 @@ protected:
 	virtual bool	Update(DWORD deltaTime);
 
 protected:
-	virtual bool	_UpdateFollowAI();				///< ÁÖÀÎÀ» µû¶ó´Ù´Ï´Â AI Ã³¸®
-	virtual bool	_UpdatAloneActionAI(float fMinDist, float fMaxDist);			///< ÁÖÀÎ ±ÙÃ³¿¡¼­ È¥ÀÚ ³ë´Â AI Ã³¸®
+	virtual bool	_UpdateFollowAI();				///< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ù´Ï´ï¿½ AI Ã³ï¿½ï¿½
+	virtual bool	_UpdatAloneActionAI(float fMinDist, float fMaxDist);			///< ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ È¥ï¿½ï¿½ ï¿½ï¿½ï¿½ AI Ã³ï¿½ï¿½
 
 	/// @TODO
 	//virtual bool	_UpdateCombatAI();
@@ -62,13 +62,13 @@ public:
 	bool			IsSummoned() const			{ return 0 != m_pkChar; }
 	void			SetSummonItem (LPITEM pItem);
 	DWORD			GetSummonItemVID () { return m_dwSummonItemVID; }
-	// ¹öÇÁ ÁÖ´Â ÇÔ¼ö¿Í °ÅµÎ´Â ÇÔ¼ö.
-	// ÀÌ°Ô Á» ±«¶öÇÑ°Ô, ¼­¹ö°¡ ¤´¶ó¼­, 
-	// POINT_MOV_SPEED, POINT_ATT_SPEED, POINT_CAST_SPEED´Â PointChange()¶õ ÇÔ¼ö¸¸ ½á¼­ º¯°æÇØ ºÁ¾ß ¼Ò¿ëÀÌ ¾ø´Â°Ô,
-	// PointChange() ÀÌÈÄ¿¡ ¾îµð¼±°¡ ComputePoints()¸¦ ÇÏ¸é ½Ï´Ù ÃÊ±âÈ­µÇ°í, 
-	// ´õ ¿ô±ä°Ç, ComputePoints()¸¦ ºÎ¸£Áö ¾ÊÀ¸¸é Å¬¶óÀÇ POINT´Â ÀüÇô º¯ÇÏÁö ¾Ê´Â´Ù´Â °Å´Ù.
-	// ±×·¡¼­ ¹öÇÁ¸¦ ÁÖ´Â °ÍÀº ComputePoints() ³»ºÎ¿¡¼­ petsystem->RefreshBuff()¸¦ ºÎ¸£µµ·Ï ÇÏ¿´°í,
-	// ¹öÇÁ¸¦ »©´Â °ÍÀº ClearBuff()¸¦ ºÎ¸£°í, ComputePoints¸¦ ÇÏ´Â °ÍÀ¸·Î ÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ÅµÎ´ï¿½ ï¿½Ô¼ï¿½.
+	// ï¿½Ì°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, 
+	// POINT_MOV_SPEED, POINT_ATT_SPEED, POINT_CAST_SPEEDï¿½ï¿½ PointChange()ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½á¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½,
+	// PointChange() ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ð¼±°ï¿½ ComputePoints()ï¿½ï¿½ ï¿½Ï¸ï¿½ ï¿½Ï´ï¿½ ï¿½Ê±ï¿½È­ï¿½Ç°ï¿½, 
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½, ComputePoints()ï¿½ï¿½ ï¿½Î¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ POINTï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´Ù´ï¿½ ï¿½Å´ï¿½.
+	// ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ComputePoints() ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ petsystem->RefreshBuff()ï¿½ï¿½ ï¿½Î¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ï¿½ï¿½,
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ClearBuff()ï¿½ï¿½ ï¿½Î¸ï¿½ï¿½ï¿½, ComputePointsï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 	void			GiveBuff();
 	void			ClearBuff();
 
@@ -87,7 +87,7 @@ private:
 	LPCHARACTER		m_pkChar;					// Instance of pet(CHARACTER)
 	LPCHARACTER		m_pkOwner;
 
-//	SPetAbility		m_petAbility;				// ´É·ÂÄ¡
+//	SPetAbility		m_petAbility;				// ï¿½É·ï¿½Ä¡
 };
 
 /**
@@ -95,7 +95,7 @@ private:
 class CPetSystem
 {
 public:
-	typedef	boost::unordered_map<DWORD,	CPetActor*>		TPetActorMap;		/// <VNUM, PetActor> map. (ÇÑ Ä³¸¯ÅÍ°¡ °°Àº vnumÀÇ ÆêÀ» ¿©·¯°³ °¡Áú ÀÏÀÌ ÀÖÀ»±î..??)
+	typedef	std::unordered_map<DWORD,	CPetActor*>		TPetActorMap;		/// <VNUM, PetActor> map. (ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ vnumï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½..??)
 
 public:
 	CPetSystem(LPCHARACTER owner);
@@ -107,7 +107,7 @@ public:
 	bool		Update(DWORD deltaTime);
 	void		Destroy();
 
-	size_t		CountSummoned() const;			///< ÇöÀç ¼ÒÈ¯µÈ(½ÇÃ¼È­ µÈ Ä³¸¯ÅÍ°¡ ÀÖ´Â) ÆêÀÇ °³¼ö
+	size_t		CountSummoned() const;			///< ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½(ï¿½ï¿½Ã¼È­ ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ö´ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 public:
 	void		SetUpdatePeriod(DWORD ms);
@@ -117,7 +117,7 @@ public:
 	void		Unsummon(DWORD mobVnum, bool bDeleteFromList = false);
 	void		Unsummon(CPetActor* petActor, bool bDeleteFromList = false);
 
-	// TODO: ÁøÂ¥ Æê ½Ã½ºÅÛÀÌ µé¾î°¥ ¶§ ±¸Çö. (Ä³¸¯ÅÍ°¡ º¸À¯ÇÑ ÆêÀÇ Á¤º¸¸¦ Ãß°¡ÇÒ ¶§ ¶ó´ø°¡...)
+	// TODO: ï¿½ï¿½Â¥ ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¥ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. (Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½...)
 	CPetActor*	AddPet(DWORD mobVnum, const char* petName, const SPetAbility& ability, DWORD options = CPetActor::EPetOption_Followable | CPetActor::EPetOption_Summonable | CPetActor::EPetOption_Combatable);
 
 	void		DeletePet(DWORD mobVnum);
@@ -126,8 +126,8 @@ public:
 
 private:
 	TPetActorMap	m_petActorMap;
-	LPCHARACTER		m_pkOwner;					///< Æê ½Ã½ºÅÛÀÇ Owner
-	DWORD			m_dwUpdatePeriod;			///< ¾÷µ¥ÀÌÆ® ÁÖ±â (ms´ÜÀ§)
+	LPCHARACTER		m_pkOwner;					///< ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ Owner
+	DWORD			m_dwUpdatePeriod;			///< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ö±ï¿½ (msï¿½ï¿½ï¿½ï¿½)
 	DWORD			m_dwLastUpdateTime;
 	LPEVENT			m_pkPetSystemUpdateEvent;
 };

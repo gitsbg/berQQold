@@ -3,7 +3,7 @@
 #include "banword.h"
 #include "config.h"
 
-extern void SendLog(const char * c_pszBuf);		// ¿î¿µÀÚ¿¡°Ô¸¸ °øÁö
+extern void SendLog(const char * c_pszBuf);		// ï¿½î¿µï¿½Ú¿ï¿½ï¿½Ô¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 CBanwordManager::CBanwordManager()
 {
@@ -36,7 +36,7 @@ bool CBanwordManager::CheckString(const char * c_pszString, size_t _len)
 	if (m_hashmap_words.empty())
 		return false;
 
-	typeof(m_hashmap_words.begin()) it = m_hashmap_words.begin();
+	__typeof(m_hashmap_words.begin()) it = m_hashmap_words.begin();
 
 	while (it != m_hashmap_words.end())
 	{
@@ -72,7 +72,7 @@ bool CBanwordManager::CheckString(const char * c_pszString, size_t _len)
 
 void CBanwordManager::ConvertString(char * c_pszString, size_t _len)
 {
-	typeof(m_hashmap_words.begin()) it = m_hashmap_words.begin();
+	__typeof(m_hashmap_words.begin()) it = m_hashmap_words.begin();
 
 	while (it != m_hashmap_words.end())
 	{

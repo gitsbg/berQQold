@@ -1278,10 +1278,10 @@ LDFLAGS  := $(strip $(CRYPTOPP_LDFLAGS)  $(LDFLAGS))
 ###########################################################
 #####                Targets and Recipes              #####
 ###########################################################
-
+berqq: clean_bin libcryptopp.a
 # Default builds program with static library only
-.PHONY: default
-default: cryptest.exe
+# .PHONY: default
+# default: cryptest.exe
 
 .PHONY: all static dynamic
 all: static dynamic cryptest.exe
@@ -1369,6 +1369,9 @@ docs html:
 	doxygen Doxyfile -d CRYPTOPP_DOXYGEN_PROCESSING
 	$(MV) $(DOXYGEN_DIRECTORY)/ $(DOCUMENT_DIRECTORY)/
 	zip -9 CryptoPPRef.zip -x ".*" -x "*/.*" -r $(DOCUMENT_DIRECTORY)/
+
+clean_bin:
+	@-$(RM) libcryptopp.a
 
 .PHONY: clean
 clean:
@@ -1476,6 +1479,14 @@ endif
 	@-$(RM) $(DESTDIR)$(LIBDIR)/libcryptopp.so$(SOLIB_COMPAT_SUFFIX)
 	@-$(RM) $(DESTDIR)$(LIBDIR)/pkgconfig/libcryptopp.pc
 	@-$(RM) -r $(DESTDIR)$(DATADIR)/cryptopp
+
+ARCHITECTURE  = $(shell uname -m)
+ifeq ($(ARCHITECTURE), i386)
+ARCHITECTURE  = x86
+else
+ARCHITECTURE  = x64
+endif
+FREEBSD_VERSION = $(shell uname -v 2>&1 | cut -d' ' -f2 | cut -d'-' -f1)
 
 libcryptopp.a: $(LIBOBJS) | osx_warning
 	$(AR) $(ARFLAGS) $@ $(LIBOBJS)

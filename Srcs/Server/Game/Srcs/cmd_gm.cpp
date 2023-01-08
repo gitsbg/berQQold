@@ -308,44 +308,44 @@ bool CHARACTER_GoToName(LPCHARACTER ch, BYTE empire, int mapIndex, const char* g
 
 /*
    = {
-   { "A1|¿µ¾ÈÀ¾¼º",		0, 1,  4693, 9642 },
-   { "A3|ÀÚ¾çÇö",		0, 3,  3608, 8776 },
+   { "A1|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",		0, 1,  4693, 9642 },
+   { "A3|ï¿½Ú¾ï¿½ï¿½ï¿½",		0, 3,  3608, 8776 },
 
-   { "B1|Á¶¾ÈÀ¾¼º",		0, 21,  557, 1579 },
-   { "B3|º¹Á¤Çö",		0, 23, 1385, 2349 },
+   { "B1|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",		0, 21,  557, 1579 },
+   { "B3|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",		0, 23, 1385, 2349 },
 
-   { "C1|Æò¹«À¾¼º",		0, 41, 9696, 2784 },
-   { "C3|¹Ú¶óÇö",		0, 43, 8731, 2426 },
+   { "C1|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",		0, 41, 9696, 2784 },
+   { "C3|ï¿½Ú¶ï¿½ï¿½ï¿½",		0, 43, 8731, 2426 },
 
 // Snow
-{ "Snow|¼­ÇÑ»ê",		1, 61, 4342, 2906 },
-{ "Snow|¼­ÇÑ»ê",		2, 61, 3752, 1749 },
-{ "Snow|¼­ÇÑ»ê",		3, 61, 4918, 1736 },
+{ "Snow|ï¿½ï¿½ï¿½Ñ»ï¿½",		1, 61, 4342, 2906 },
+{ "Snow|ï¿½ï¿½ï¿½Ñ»ï¿½",		2, 61, 3752, 1749 },
+{ "Snow|ï¿½ï¿½ï¿½Ñ»ï¿½",		3, 61, 4918, 1736 },
 
 // Flame
-{ "Flame|µµ¿°È­Áö|È­¿°",	1, 62, 5994, 7563 },
-{ "Flame|µµ¿°È­Áö|È­¿°",	2, 62, 5978, 6222 },
-{ "Flame|µµ¿°È­Áö|È­¿°",	3, 62, 7307, 6898 },
+{ "Flame|ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½|È­ï¿½ï¿½",	1, 62, 5994, 7563 },
+{ "Flame|ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½|È­ï¿½ï¿½",	2, 62, 5978, 6222 },
+{ "Flame|ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½|È­ï¿½ï¿½",	3, 62, 7307, 6898 },
 
 // Desert
-{ "Desert|¿µºñ»ç¸·|»ç¸·",	1, 63, 2178, 6272 },
-{ "Desert|¿µºñ»ç¸·|»ç¸·",	2, 63, 2219, 5027 },
-{ "Desert|¿µºñ»ç¸·|»ç¸·",	3, 63, 3440, 5025 },
+{ "Desert|ï¿½ï¿½ï¿½ï¿½ç¸·|ï¿½ç¸·",	1, 63, 2178, 6272 },
+{ "Desert|ï¿½ï¿½ï¿½ï¿½ç¸·|ï¿½ç¸·",	2, 63, 2219, 5027 },
+{ "Desert|ï¿½ï¿½ï¿½ï¿½ç¸·|ï¿½ç¸·",	3, 63, 3440, 5025 },
 
 // Threeway
-{ "Three|½Â·æ°î",		1, 64, 4021, 6739 },
-{ "Three|½Â·æ°î",		2, 64, 2704, 7399 },
-{ "Three|½Â·æ°î",		3, 64, 3213, 8080 },
+{ "Three|ï¿½Â·ï¿½ï¿½",		1, 64, 4021, 6739 },
+{ "Three|ï¿½Â·ï¿½ï¿½",		2, 64, 2704, 7399 },
+{ "Three|ï¿½Â·ï¿½ï¿½",		3, 64, 3213, 8080 },
 
-// ¹Ð±³»ç¿ø
-{ "Milgyo|¹Ð±³»ç¿ø",	1, 65, 5536, 1436 },
-{ "Milgyo|¹Ð±³»ç¿ø",	2, 65, 5536, 1436 },
-{ "Milgyo|¹Ð±³»ç¿ø",	3, 65, 5536, 1436 },
+// ï¿½Ð±ï¿½ï¿½ï¿½ï¿½
+{ "Milgyo|ï¿½Ð±ï¿½ï¿½ï¿½ï¿½",	1, 65, 5536, 1436 },
+{ "Milgyo|ï¿½Ð±ï¿½ï¿½ï¿½ï¿½",	2, 65, 5536, 1436 },
+{ "Milgyo|ï¿½Ð±ï¿½ï¿½ï¿½ï¿½",	3, 65, 5536, 1436 },
 
-// »ç±ÍÅ¸¿öÀÔ±¸
-{ "»ç±ÍÅ¸¿öÀÔ±¸",		1, 65, 5905, 1108 },
-{ "»ç±ÍÅ¸¿öÀÔ±¸",		2, 65, 5905, 1108 },
-{ "»ç±ÍÅ¸¿öÀÔ±¸",		3, 65, 5905, 1108 },
+// ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½Ô±ï¿½
+{ "ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½Ô±ï¿½",		1, 65, 5905, 1108 },
+{ "ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½Ô±ï¿½",		2, 65, 5905, 1108 },
+{ "ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½Ô±ï¿½",		3, 65, 5905, 1108 },
 
 { NULL,			0,  0,    0,    0 },
 };
@@ -547,7 +547,7 @@ ACMD(do_item)
 				M2_DESTROY_ITEM(item);
 				if (!ch->DragonSoul_IsQualified())
 				{
-					ch->ChatPacket(CHAT_TYPE_INFO, "ÀÎº¥ÀÌ È°¼ºÈ­ µÇÁö ¾ÊÀ½.");
+					ch->ChatPacket(CHAT_TYPE_INFO, "ï¿½Îºï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.");
 				}
 				else
 					ch->ChatPacket(CHAT_TYPE_INFO, "Not enough inventory space.");
@@ -889,7 +889,7 @@ struct FuncPurge
 
 		int iDist = DISTANCE_APPROX(pkChr->GetX() - m_pkGM->GetX(), pkChr->GetY() - m_pkGM->GetY());
 
-		if (!m_bAll && iDist >= 1000)	// 10¹ÌÅÍ ÀÌ»ó¿¡ ÀÖ´Â °ÍµéÀº purge ÇÏÁö ¾Ê´Â´Ù.
+		if (!m_bAll && iDist >= 1000)	// 10ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½Ö´ï¿½ ï¿½Íµï¿½ï¿½ï¿½ purge ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 			return;
 
 		sys_log(0, "PURGE: %s %d", pkChr->GetName(), iDist);
@@ -1263,7 +1263,7 @@ ACMD(do_monarch_notice)
 	}
 	else
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±ºÁÖ¸¸ÀÌ »ç¿ë °¡´ÉÇÑ ±â´ÉÀÔ´Ï´Ù"));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½"));
 	}
 }
 
@@ -1603,12 +1603,12 @@ ACMD(do_makeguild)
 
 	if (!check_name(cp.name))
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÀûÇÕÇÏÁö ¾ÊÀº ±æµå ÀÌ¸§ ÀÔ´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½Ô´Ï´ï¿½."));
 		return;
 	}
 
 	gm.CreateGuild(cp);
-	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("(%s) ±æµå°¡ »ý¼ºµÇ¾ú½À´Ï´Ù. [ÀÓ½Ã]"), cp.name);
+	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("(%s) ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. [ï¿½Ó½ï¿½]"), cp.name);
 }
 
 ACMD(do_deleteguild)
@@ -1813,7 +1813,7 @@ LPCHARACTER chHori, chForge, chLib, chTemple, chTraining, chTree, chPortal, chBa
 
 ACMD(do_b1)
 {
-	//È£¸®º´ 478 579
+	//È£ï¿½ï¿½ï¿½ï¿½ 478 579
 	chHori = CHARACTER_MANAGER::instance().SpawnMobRange(14017, ch->GetMapIndex(), 304222, 742858, 304222, 742858, true, false);
 	chHori->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_BUILDING_CONSTRUCTION_SMALL, 65535, 0, true);
 	chHori->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
@@ -1860,25 +1860,25 @@ ACMD(do_b2)
 
 ACMD(do_b3)
 {
-	// Æ÷Áö 492 547
+	// ï¿½ï¿½ï¿½ï¿½ 492 547
 	chForge = CHARACTER_MANAGER::instance().SpawnMobRange(14003, ch->GetMapIndex(), 307500, 746300, 307500, 746300, true, false);
 	chForge->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
-	//³ôÀºÅ¾ 509 589 -> µµ¼­°ü
+	//ï¿½ï¿½ï¿½ï¿½Å¾ 509 589 -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	chLib = CHARACTER_MANAGER::instance().SpawnMobRange(14007, ch->GetMapIndex(), 307900, 744500, 307900, 744500, true, false);
 	chLib->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
-	//¿åÁ¶ 513 606 -> ÈûÀÇ½ÅÀü
+	//ï¿½ï¿½ï¿½ï¿½ 513 606 -> ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½
 	chTemple = CHARACTER_MANAGER::instance().SpawnMobRange(14004, ch->GetMapIndex(), 307700, 741600, 307700, 741600, true, false);
 	chTemple->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
-	//±ÇÅõÀå 490 625
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 490 625
 	chTraining= CHARACTER_MANAGER::instance().SpawnMobRange(14010, ch->GetMapIndex(), 307100, 739500, 307100, 739500, true, false);
 	chTraining->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
-	//³ª¹« 466 614
+	//ï¿½ï¿½ï¿½ï¿½ 466 614
 	chTree= CHARACTER_MANAGER::instance().SpawnMobRange(14013, ch->GetMapIndex(), 300800, 741600, 300800, 741600, true, false);
 	chTree->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
-	//Æ÷Å» 439 615
+	//ï¿½ï¿½Å» 439 615
 	chPortal= CHARACTER_MANAGER::instance().SpawnMobRange(14001, ch->GetMapIndex(), 300900, 744500, 300900, 744500, true, false);
 	chPortal->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
-	// ±¸½½ 436 600
+	// ï¿½ï¿½ï¿½ï¿½ 436 600
 	chBall = CHARACTER_MANAGER::instance().SpawnMobRange(14012, ch->GetMapIndex(), 302500, 746600, 302500, 746600, true, false);
 	chBall->AddAffect(AFFECT_DUNGEON_UNIQUE, POINT_NONE, 0, AFF_DUNGEON_UNIQUE, 65535, 0, true);
 }
@@ -2122,7 +2122,7 @@ ACMD(do_reload)
 				break;
 				//END_RELOAD_ADMIN
 			case 'c':	// cube
-				// ·ÎÄÃ ÇÁ·Î¼¼½º¸¸ °»»êÇÑ´Ù.
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				Cube_init ();
 				break;
 		}
@@ -2166,7 +2166,7 @@ ACMD(do_level)
 
 ACMD(do_gwlist)
 {
-	ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ÇöÀç ÀüÀïÁßÀÎ ±æµå ÀÔ´Ï´Ù"));
+	ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½"));
 	CGuildManager::instance().ShowGuildWarList(ch);
 }
 
@@ -2224,7 +2224,7 @@ ACMD(do_guild_state)
 	}
 	else
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s: Á¸ÀçÇÏÁö ¾Ê´Â ±æµå ÀÔ´Ï´Ù."), arg1);
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("%s: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½."), arg1);
 	}
 }
 
@@ -2246,7 +2246,7 @@ struct FuncWeaken
 
 		int iDist = DISTANCE_APPROX(pkChr->GetX() - m_pkGM->GetX(), pkChr->GetY() - m_pkGM->GetY());
 
-		if (!m_bAll && iDist >= 1000)	// 10¹ÌÅÍ ÀÌ»ó¿¡ ÀÖ´Â °ÍµéÀº purge ÇÏÁö ¾Ê´Â´Ù.
+		if (!m_bAll && iDist >= 1000)	// 10ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½Ö´ï¿½ ï¿½Íµï¿½ï¿½ï¿½ purge ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 			return;
 
 		if (pkChr->IsNPC())
@@ -2528,7 +2528,7 @@ ACMD(do_priv_empire)
 	if (duration < 0)
 		goto USAGE;
 
-	// ½Ã°£ ´ÜÀ§·Î º¯°æ
+	// ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	duration = duration * (60*60);
 
 	sys_log(0, "_give_empire_privileage(empire=%d, type=%d, value=%d, duration=%d) by command", 
@@ -2545,8 +2545,8 @@ USAGE:
 }
 
 /**
- * @version 05/06/08	Bang2ni - ±æµå º¸³Ê½º Äù½ºÆ® ÁøÇà ¾ÈµÇ´Â ¹®Á¦ ¼öÁ¤.(½ºÅ©¸³Æ®°¡ ÀÛ¼º¾ÈµÊ.)
- * 			          quest/priv_guild.quest ·Î ºÎÅÍ ½ºÅ©¸³Æ® ÀÐ¾î¿À°Ô ¼öÁ¤µÊ
+ * @version 05/06/08	Bang2ni - ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.(ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Èµï¿½.)
+ * 			          quest/priv_guild.quest ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 ACMD(do_priv_guild)
 {
@@ -2567,7 +2567,7 @@ ACMD(do_priv_guild)
 		}
 
 		if (!g)
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±×·± ÀÌ¸§ ¶Ç´Â ¹øÈ£ÀÇ ±æµå°¡ ¾ø½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½×·ï¿½ ï¿½Ì¸ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 		else
 		{
 			char buf[1024+1];
@@ -2679,10 +2679,10 @@ ACMD(do_xmas)
 // BLOCK_CHAT
 ACMD(do_block_chat_list)
 {
-	// GMÀÌ ¾Æ´Ï°Å³ª block_chat_privilege°¡ ¾ø´Â »ç¶÷Àº ¸í·É¾î »ç¿ë ºÒ°¡
+	// GMï¿½ï¿½ ï¿½Æ´Ï°Å³ï¿½ block_chat_privilegeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¾ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 	if (!ch || (ch->GetGMLevel() < GM_HIGH_WIZARD && ch->GetQuestFlag("chat_privilege.block") <= 0))
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±×·± ¸í·É¾î´Â ¾ø½À´Ï´Ù"));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½×·ï¿½ ï¿½ï¿½ï¿½É¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½"));
 		return;
 	}
 
@@ -2745,10 +2745,10 @@ ACMD(do_vote_block_chat)
 
 ACMD(do_block_chat)
 {
-	// GMÀÌ ¾Æ´Ï°Å³ª block_chat_privilege°¡ ¾ø´Â »ç¶÷Àº ¸í·É¾î »ç¿ë ºÒ°¡
+	// GMï¿½ï¿½ ï¿½Æ´Ï°Å³ï¿½ block_chat_privilegeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¾ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 	if (ch && (ch->GetGMLevel() < GM_HIGH_WIZARD && ch->GetQuestFlag("chat_privilege.block") <= 0))
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("±×·± ¸í·É¾î´Â ¾ø½À´Ï´Ù"));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½×·ï¿½ ï¿½ï¿½ï¿½É¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½"));
 		return;
 	}
 
@@ -2770,8 +2770,8 @@ ACMD(do_block_chat)
 	{
 		if (ch)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, "Àß¸øµÈ Çü½ÄÀÇ ½Ã°£ÀÔ´Ï´Ù. h, m, s¸¦ ºÙ¿©¼­ ÁöÁ¤ÇØ ÁÖ½Ê½Ã¿À.");
-			ch->ChatPacket(CHAT_TYPE_INFO, "¿¹) 10s, 10m, 1m 30s");
+			ch->ChatPacket(CHAT_TYPE_INFO, "ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½Ô´Ï´ï¿½. h, m, sï¿½ï¿½ ï¿½Ù¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½Ê½Ã¿ï¿½.");
+			ch->ChatPacket(CHAT_TYPE_INFO, "ï¿½ï¿½) 10s, 10m, 1m 30s");
 		}
 		return;
 	}
@@ -2824,8 +2824,8 @@ ACMD(do_build)
 
 	CLand * pkLand = CManager::instance().FindLand(ch->GetMapIndex(), ch->GetX(), ch->GetY());
 
-	// NOTE: Á¶°Ç Ã¼Å©µéÀº Å¬¶óÀÌ¾ðÆ®¿Í ¼­¹ö°¡ ÇÔ²² ÇÏ±â ¶§¹®¿¡ ¹®Á¦°¡ ÀÖÀ» ¶§´Â
-	//       ¸Þ¼¼Áö¸¦ Àü¼ÛÇÏÁö ¾Ê°í ¿¡·¯¸¦ Ãâ·ÂÇÑ´Ù.
+	// NOTE: ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô²ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	//       ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	if (!pkLand)
 	{
 		sys_err("%s trying to build on not buildable area.", ch->GetName());
@@ -2838,17 +2838,17 @@ ACMD(do_build)
 		return;
 	}
 
-	// °Ç¼³ ±ÇÇÑ Ã¼Å©
+	// ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 	if (GMLevel == GM_PLAYER)
 	{
-		// ÇÃ·¹ÀÌ¾î°¡ ÁýÀ» ÁöÀ» ¶§´Â ¶¥ÀÌ ³»²«Áö È®ÀÎÇØ¾ß ÇÑ´Ù.
+		// ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Ñ´ï¿½.
 		if ((!ch->GetGuild() || ch->GetGuild()->GetID() != pkLand->GetOwner()))
 		{
 			sys_err("%s trying to build on not owned land.", ch->GetName());
 			return;
 		}
 
-		// ³»°¡ ±æ¸¶ÀÎ°¡?
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½æ¸¶ï¿½Î°ï¿½?
 		if (ch->GetGuild()->GetMasterPID() != ch->GetPlayerID())
 		{
 			sys_err("%s trying to build while not the guild master.", ch->GetName());
@@ -2879,7 +2879,7 @@ ACMD(do_build)
 				const TObjectProto * t = CManager::instance().GetObjectProto(dwVnum);
 				if (!t)
 				{
-					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Á¸ÀçÇÏÁö ¾Ê´Â °Ç¹°ÀÔ´Ï´Ù."));
+					ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½Ç¹ï¿½ï¿½Ô´Ï´ï¿½."));
 					return;
 				}
 
@@ -2889,21 +2889,21 @@ ACMD(do_build)
 				{
 					if (pkLand->FindObjectByGroup(t->dwGroupVnum))
 					{
-						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°°ÀÌ ÁöÀ» ¼ö ¾ø´Â Á¾·ùÀÇ °Ç¹°ÀÌ Áö¾îÁ® ÀÖ½À´Ï´Ù."));
+						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½."));
 						return;
 					}
 				}
 
-				// °Ç¹° Á¾¼Ó¼º Ã¼Å© (ÀÌ °Ç¹°ÀÌ Áö¾îÁ® ÀÖ¾î¾ßÇÔ)
+				// ï¿½Ç¹ï¿½ ï¿½ï¿½ï¿½Ó¼ï¿½ Ã¼Å© (ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½)
 				if (t->dwDependOnGroupVnum)
 				{
 					//		const TObjectProto * dependent = CManager::instance().GetObjectProto(dwVnum);
 					//		if (dependent)
 					{
-						// Áö¾îÁ®ÀÖ´Â°¡?
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´Â°ï¿½?
 						if (!pkLand->FindObjectByGroup(t->dwDependOnGroupVnum))
 						{
-							ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°Ç¼³¿¡ ÇÊ¿äÇÑ °Ç¹°ÀÌ Áö¾îÁ® ÀÖÁö ¾Ê½À´Ï´Ù."));
+							ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½Ç¼ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½."));
 							return;
 						}
 					}
@@ -2911,21 +2911,21 @@ ACMD(do_build)
 
 				if (test_server || GMLevel == GM_PLAYER)
 				{
-					// GMÀÌ ¾Æ´Ò°æ¿ì¸¸ (Å×¼·¿¡¼­´Â GMµµ ¼Ò¸ð)
-					// °Ç¼³ ºñ¿ë Ã¼Å©
+					// GMï¿½ï¿½ ï¿½Æ´Ò°ï¿½ì¸¸ (ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ GMï¿½ï¿½ ï¿½Ò¸ï¿½)
+					// ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ Ã¼Å©
 					if (t->dwPrice > BUILDING_MAX_PRICE)
 					{
-						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°Ç¹° ºñ¿ë Á¤º¸ ÀÌ»óÀ¸·Î °Ç¼³ ÀÛ¾÷¿¡ ½ÇÆÐÇß½À´Ï´Ù."));
+						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½Ç¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½."));
 						return;
 					}
 
 					if (ch->GetGold() < (int)t->dwPrice)
 					{
-						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°Ç¼³ ºñ¿ëÀÌ ºÎÁ·ÇÕ´Ï´Ù."));
+						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½."));
 						return;
 					}
 
-					// ¾ÆÀÌÅÛ ÀÚÀç °³¼ö Ã¼Å©
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 
 					int i;
 					for (i = 0; i < OBJECT_MATERIAL_MAX_NUM; ++i)
@@ -2938,7 +2938,7 @@ ACMD(do_build)
 
 						if ((int) dwItemCount > ch->CountSpecifyItem(dwItemVnum))
 						{
-							ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÀÚÀç°¡ ºÎÁ·ÇÏ¿© °Ç¼³ÇÒ ¼ö ¾ø½À´Ï´Ù."));
+							ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ç°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ç¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 							return;
 						}
 					}
@@ -2947,11 +2947,11 @@ ACMD(do_build)
 				float x_rot = atof(arg4);
 				float y_rot = atof(arg5);
 				float z_rot = atof(arg6);
-				// 20050811.myevan.°Ç¹° È¸Àü ±â´É ºÀÀÎ ÇØÁ¦
+				// 20050811.myevan.ï¿½Ç¹ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				/*
 				   if (x_rot != 0.0f || y_rot != 0.0f || z_rot != 0.0f)
 				   {
-				   ch->ChatPacket(CHAT_TYPE_INFO, "°Ç¹° È¸Àü ±â´ÉÀº ¾ÆÁ÷ Á¦°øµÇÁö ¾Ê½À´Ï´Ù");
+				   ch->ChatPacket(CHAT_TYPE_INFO, "ï¿½Ç¹ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½");
 				   return;
 				   }
 				 */
@@ -2972,17 +2972,17 @@ ACMD(do_build)
 				if (!isSuccess)
 				{
 					if (test_server)
-						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°Ç¹°À» ÁöÀ» ¼ö ¾ø´Â À§Ä¡ÀÔ´Ï´Ù."));
+						ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½Ç¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ô´Ï´ï¿½."));
 					return;
 				}
 
 				if (test_server || GMLevel == GM_PLAYER)
-					// °Ç¼³ Àç·á ¼Ò¸ðÇÏ±â (Å×¼·¿¡¼­´Â GMµµ ¼Ò¸ð)
+					// ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½Ï±ï¿½ (ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ GMï¿½ï¿½ ï¿½Ò¸ï¿½)
 				{
-					// °Ç¼³ ºñ¿ë ¼Ò¸ð
+					// ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½
 					ch->PointChange(POINT_GOLD, -t->dwPrice);
 
-					// ¾ÆÀÌÅÛ ÀÚÀç »ç¿ëÇÏ±â 
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ 
 					{
 						int i;
 						for (i = 0; i < OBJECT_MATERIAL_MAX_NUM; ++i)
@@ -3061,8 +3061,8 @@ ACMD(do_build)
 			break;
 
 		case 'W' :
-			// ´ãÀå ¼¼¿ì±â
-			// build (w)all ´ãÀå¹øÈ£ ´ãÀåÅ©±â ´ë¹®µ¿ ´ë¹®¼­ ´ë¹®³² ´ë¹®ºÏ
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+			// build (w)all ï¿½ï¿½ï¿½ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ë¹®ï¿½ï¿½ ï¿½ë¹®ï¿½ï¿½ ï¿½ë¹®ï¿½ï¿½ ï¿½ë¹®ï¿½ï¿½
 
 			if (GMLevel >  GM_PLAYER) 
 			{
@@ -3096,8 +3096,8 @@ ACMD(do_build)
 			break;
 
 		case 'E' :
-			// ´ãÀå Áö¿ì±â
-			// build (e)rase ´ãÀå¼ÂID
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+			// build (e)rase ï¿½ï¿½ï¿½ï¿½ï¿½ID
 			if (GMLevel > GM_PLAYER) 
 			{
 				one_argument(line, arg1, sizeof(arg1));
@@ -3154,7 +3154,7 @@ ACMD(do_horse_level)
 
 	if (NULL == victim)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Á¸ÀçÇÏÁö ¾Ê´Â Ä³¸¯ÅÍ ÀÔ´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½."));
 		return;
 	}
 
@@ -3338,17 +3338,17 @@ ACMD(do_end_duel)
 	LPCHARACTER pChar = CHARACTER_MANAGER::instance().FindPC(szName);
 	if (pChar == NULL)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("Á¸ÀçÇÏÁö ¾Ê´Â Ä³¸¯ÅÍ ÀÔ´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½."));
 		return;
 	}
 
 	if (CArenaManager::instance().EndDuel(pChar->GetPlayerID()) == false)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·Ã °­Á¦ Á¾·á ½ÇÆÐ"));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"));
 	}
 	else
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·Ã °­Á¦ Á¾·á ¼º°ø"));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"));
 	}
 }
 
@@ -3371,7 +3371,7 @@ ACMD(do_duel)
 
 	if (!str_to_number(minute, szMinute))
 	{
-		// Ä³³ª´Ù´Â ±âº» 10ºÐ.
+		// Ä³ï¿½ï¿½ï¿½Ù´ï¿½ ï¿½âº» 10ï¿½ï¿½.
 		if (LC_IsCanada() == true)
 		{
 			minute = 10;
@@ -3404,7 +3404,7 @@ ACMD(do_duel)
 			}
 			else
 			{
-				pChar1->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<ÆÄÆ¼> ÆÄÆ¼¿¡¼­ ³ª°¡¼Ì½À´Ï´Ù."));
+				pChar1->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<ï¿½ï¿½Æ¼> ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½Ï´ï¿½."));
 				pParty->Quit(pChar1->GetPlayerID());
 			}
 		}
@@ -3418,23 +3418,23 @@ ACMD(do_duel)
 			}
 			else
 			{
-				pChar2->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<ÆÄÆ¼> ÆÄÆ¼¿¡¼­ ³ª°¡¼Ì½À´Ï´Ù."));
+				pChar2->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("<ï¿½ï¿½Æ¼> ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½Ï´ï¿½."));
 				pParty->Quit(pChar2->GetPlayerID());
 			}
 		}
 		
 		if (CArenaManager::instance().StartDuel(pChar1, pChar2, set, minute) == true)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·ÃÀÌ ¼º°øÀûÀ¸·Î ½ÃÀÛ µÇ¾ú½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 		}
 		else
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·Ã ½ÃÀÛ¿¡ ¹®Á¦°¡ ÀÖ½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½."));
 		}
 	}
 	else
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("´ë·ÃÀÚ°¡ ¾ø½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 	}
 }
 
@@ -3449,7 +3449,7 @@ ACMD(do_stat_plus_amount)
 
 	if (ch->IsPolymorphed())
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("µÐ°© Áß¿¡´Â ´É·ÂÀ» ¿Ã¸± ¼ö ¾ø½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½Ð°ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½É·ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 		return;
 	}
 
@@ -3457,7 +3457,7 @@ ACMD(do_stat_plus_amount)
 
 	if (nRemainPoint <= 0)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("³²Àº ½ºÅÈ Æ÷ÀÎÆ®°¡ ¾ø½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 		return;
 	}
 
@@ -3466,40 +3466,40 @@ ACMD(do_stat_plus_amount)
 
 	if (nRemainPoint < nPoint)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("³²Àº ½ºÅÈ Æ÷ÀÎÆ®°¡ Àû½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 		return;
 	}
 
 	if (nPoint < 0)
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°ªÀ» Àß¸ø ÀÔ·ÂÇÏ¿´½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½ ï¿½Ô·ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 		return;
 	}
 	
 	switch (subcmd)
 	{
-		case POINT_HT : // Ã¼·Â
+		case POINT_HT : // Ã¼ï¿½ï¿½
 			if (nPoint + ch->GetPoint(POINT_HT) > 90)
 			{
 				nPoint = 90 - ch->GetPoint(POINT_HT);
 			}
 			break;
 
-		case POINT_IQ : // Áö´É
+		case POINT_IQ : // ï¿½ï¿½ï¿½ï¿½
 			if (nPoint + ch->GetPoint(POINT_IQ) > 90)
 			{
 				nPoint = 90 - ch->GetPoint(POINT_IQ);
 			}
 			break;
 			
-		case POINT_ST : // ±Ù·Â
+		case POINT_ST : // ï¿½Ù·ï¿½
 			if (nPoint + ch->GetPoint(POINT_ST) > 90)
 			{
 				nPoint = 90 - ch->GetPoint(POINT_ST);
 			}
 			break;
 			
-		case POINT_DX : // ¹ÎÃ¸
+		case POINT_DX : // ï¿½ï¿½Ã¸
 			if (nPoint + ch->GetPoint(POINT_DX) > 90)
 			{
 				nPoint = 90 - ch->GetPoint(POINT_DX);
@@ -3507,7 +3507,7 @@ ACMD(do_stat_plus_amount)
 			break;
 
 		default :
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¸í·É¾îÀÇ ¼­ºê Ä¿¸Çµå°¡ Àß¸ø µÇ¾ú½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½Çµå°¡ ï¿½ß¸ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 			return;
 			break;
 	}
@@ -3540,7 +3540,7 @@ ACMD(do_break_marriage)
 	str_to_number(pids.pid1, arg1);
 	str_to_number(pids.pid2, arg2);
 	
-	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ÇÃ·¹ÀÌ¾î %d ¿Í ÇÃ·¹ÀÌ¾î  %d¸¦ ÆÄÈ¥½ÃÅµ´Ï´Ù.."), pids.pid1, pids.pid2);
+	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ %d ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½  %dï¿½ï¿½ ï¿½ï¿½È¥ï¿½ï¿½Åµï¿½Ï´ï¿½.."), pids.pid1, pids.pid2);
 	db_clientdesc->DBPacket(HEADER_GD_BREAK_MARRIAGE, 0, &pids, sizeof(pids));
 }
 
@@ -3574,8 +3574,8 @@ struct FCountInMap
 
 ACMD(do_threeway_war_info)
 {
-	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("°¢Á¦±¹ ÁøÇà Á¤º¸"));
-	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¼±ÅÃ ¸Ê Á¤º¸ ¼ºÁö %d Åë·Î %d %d %d"), GetSungziMapIndex(), GetPassMapIndex(1), GetPassMapIndex(2), GetPassMapIndex(3)); 
+	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"));
+	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ %d ï¿½ï¿½ï¿½ %d %d %d"), GetSungziMapIndex(), GetPassMapIndex(1), GetPassMapIndex(2), GetPassMapIndex(3)); 
 	ch->ChatPacket(CHAT_TYPE_INFO, "ThreewayPhase %d", CThreeWayWar::instance().GetRegenFlag());
 
 	for (int n = 1; n < 4; ++n)
@@ -3598,7 +3598,7 @@ ACMD(do_threeway_war_info)
 
 ACMD(do_threeway_war_myinfo)
 {
-	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("³ªÀÇ »ï°Å¸® ÁøÇàÁ¤º¸"));
+	ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"));
 	ch->ChatPacket(CHAT_TYPE_INFO, "Deadcount %d",
 			CThreeWayWar::instance().GetReviveTokenForPlayer(ch->GetPlayerID()));
 }
@@ -3680,7 +3680,7 @@ ACMD(do_check_monarch_money)
 	str_to_number(empire, arg1);
 	int NationMoney = CMonarch::instance().GetMoney(empire);
 
-	ch->ChatPacket(CHAT_TYPE_INFO, "±¹°í: %d ¿ø", NationMoney);
+	ch->ChatPacket(CHAT_TYPE_INFO, "ï¿½ï¿½ï¿½ï¿½: %d ï¿½ï¿½", NationMoney);
 }
 
 ACMD(do_reset_subskill)
@@ -3932,7 +3932,7 @@ ACMD(do_set_stat)
 
 	two_arguments (argument, szName, sizeof (szName), szChangeAmount, sizeof(szChangeAmount));
 
-	if (*szName == NULL || *szChangeAmount == '\0')
+	if (!*szName || *szChangeAmount == '\0')
 	{
 		ch->ChatPacket (CHAT_TYPE_INFO, "Invalid argument.");
 		return;
@@ -3959,13 +3959,13 @@ ACMD(do_set_stat)
 	{
 		if (tch->IsPolymorphed())
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("µÐ°© Áß¿¡´Â ´É·ÂÀ» ¿Ã¸± ¼ö ¾ø½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½Ð°ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½É·ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 			return;
 		}
 
 		if (subcmd != POINT_HT && subcmd != POINT_IQ && subcmd != POINT_ST && subcmd != POINT_DX)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("¸í·É¾îÀÇ ¼­ºê Ä¿¸Çµå°¡ Àß¸ø µÇ¾ú½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½Çµå°¡ ï¿½ß¸ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 			return;
 		}
 		int nRemainPoint = tch->GetPoint(POINT_STAT);
@@ -4019,7 +4019,7 @@ ACMD(do_set_stat)
 
 		if (nRemainPoint < nChangeAmount)
 		{
-			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("³²Àº ½ºÅÈ Æ÷ÀÎÆ®°¡ Àû½À´Ï´Ù."));
+			ch->ChatPacket(CHAT_TYPE_INFO, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 			return;
 		}
 
@@ -4256,8 +4256,8 @@ ACMD (do_attr_full_set)
 	case JOB_SURA:
 	case JOB_SHAMAN:
 		{
-			// ¹«»ç ¸ö»§ ¼ÂÆÃ.
-			// ÀÌ°Í¸¸ ³ª¿Í ÀÖ¾î¼­ ÀÓ½Ã·Î ¸ðµç Á÷±º ´Ù ÀÌ·± ¼Ó¼º µû¸§.
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+			// ï¿½Ì°Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾î¼­ ï¿½Ó½Ã·ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì·ï¿½ ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			item = ch->GetWear(WEAR_HEAD);
 			if (item != NULL)
 			{
@@ -4364,7 +4364,7 @@ ACMD (do_use_item)
 	}
 	else
 	{
-		ch->ChatPacket(CHAT_TYPE_INFO, "¾ÆÀÌÅÛÀÌ ¾ø¾î¼­ Âø¿ëÇÒ ¼ö ¾ø¾î.");
+		ch->ChatPacket(CHAT_TYPE_INFO, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.");
 	}
 }
 

@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "../../common/stl.h"
+#include "../../Common/stl.h"
 
 #include "constants.h"
 #include "skill.h"
@@ -297,7 +297,7 @@ bool CSkillManager::Initialize(TSkillTable * pTab, int iSize)
 
 	if (!bError)
 	{
-		// ±âÁ¸ Å×ÀÌºíÀÇ ³»¿ëÀ» Áö¿î´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 		itertype(m_map_pkSkillProto) it = m_map_pkSkillProto.begin();
 
 		while (it != m_map_pkSkillProto.end()) {
@@ -307,7 +307,7 @@ bool CSkillManager::Initialize(TSkillTable * pTab, int iSize)
 
 		m_map_pkSkillProto.clear();
 
-		// »õ·Î¿î ³»¿ëÀ» »ðÀÔ
+		// ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		it = map_pkSkillProto.begin();
 
 		while (it != map_pkSkillProto.end())

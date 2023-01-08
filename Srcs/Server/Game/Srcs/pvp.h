@@ -3,8 +3,8 @@
 
 class CHARACTER;
 
-// CPVP¿¡´Â DWORD ¾ÆÀÌµð µÎ°³¸¦ ¹Þ¾Æ¼­ m_dwCRC¸¦ ¸¸µé¾î¼­ °¡Áö°í ÀÖ´Â´Ù.
-// CPVPManager¿¡¼­ ÀÌ·¸°Ô ¸¸µç CRC¸¦ ÅëÇØ °Ë»öÇÑ´Ù.
+// CPVPï¿½ï¿½ï¿½ï¿½ DWORD ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Î°ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ m_dwCRCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½î¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â´ï¿½.
+// CPVPManagerï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ CRCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ñ´ï¿½.
 class CPVP
 {
 	public:
@@ -26,8 +26,8 @@ class CPVP
 		CPVP(CPVP & v);
 		~CPVP();
 
-		void	Win(DWORD dwPID); // dwPID°¡ ÀÌ°å´Ù!
-		bool	CanRevenge(DWORD dwPID); // dwPID°¡ º¹¼öÇÒ ¼ö ÀÖ¾î?
+		void	Win(DWORD dwPID); // dwPIDï¿½ï¿½ ï¿½Ì°ï¿½ï¿½!
+		bool	CanRevenge(DWORD dwPID); // dwPIDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö¾ï¿½?
 		bool	IsFight();
 		bool	Agree(DWORD dwPID);
 
@@ -49,7 +49,7 @@ class CPVP
 
 class CPVPManager : public singleton<CPVPManager>
 {
-	typedef std::map<DWORD, TR1_NS::unordered_set<CPVP*> > CPVPSetMap;
+	typedef std::map<DWORD, std::unordered_set<CPVP*> > CPVPSetMap;
 
 	public:
 	CPVPManager();
@@ -57,7 +57,7 @@ class CPVPManager : public singleton<CPVPManager>
 
 	void			Insert(LPCHARACTER pkChr, LPCHARACTER pkVictim);
 	bool			CanAttack(LPCHARACTER pkChr, LPCHARACTER pkVictim);
-	bool			Dead(LPCHARACTER pkChr, DWORD dwKillerPID);	// PVP¿¡ ÀÖ¾ú³ª ¾ø¾ú³ª¸¦ ¸®ÅÏ
+	bool			Dead(LPCHARACTER pkChr, DWORD dwKillerPID);	// PVPï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void			GiveUp(LPCHARACTER pkChr, DWORD dwKillerPID);
 	void			Connect(LPCHARACTER pkChr);
 	void			Disconnect(LPCHARACTER pkChr);

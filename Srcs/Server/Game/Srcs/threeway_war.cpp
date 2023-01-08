@@ -2,8 +2,8 @@
 
 #include "threeway_war.h"
 
-#include "../../common/length.h"
-#include "../../common/tables.h"
+#include "../../Common/length.h"
+#include "../../Common/tables.h"
 #include "p2p.h"
 #include "locale_service.h"
 #include "packet.h"
@@ -245,7 +245,7 @@ void CThreeWayWar::RandomEventMapSet()
 
 bool CThreeWayWar::IsRegisteredUser(DWORD PlayerID) const
 {
-	boost::unordered_map<DWORD, DWORD>::const_iterator iter = RegisterUserMap_.find(PlayerID);
+	std::unordered_map<DWORD, DWORD>::const_iterator iter = RegisterUserMap_.find(PlayerID);
 
 	if (iter == RegisterUserMap_.end())
 	{
@@ -323,13 +323,13 @@ void CThreeWayWar::onDead(LPCHARACTER pChar, LPCHARACTER pkKiller)
 	if (NULL == pkKiller || true != pkKiller->IsPC())
 		return;
 
-	// °°Àº Á¦±¹Àº °è»êÇÏÁö ¾ÊÀ½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (pChar->GetEmpire() == pkKiller->GetEmpire())
 		return;
 
 	int nKillScore = GetKillScore(pkKiller->GetEmpire());
 
-	// Á¦±¹ Å³ ½ºÄÚ¾î°¡ -1ÀÏ°æ¿ì´Â Å»¶ô±¹°¡ÀÌ±â¶§¹®¿¡ Á¡¼ö Ã¼Å©¸¦ ÇÏ¸é ¾ÈµÈ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ Å³ ï¿½ï¿½ï¿½Ú¾î°¡ -1ï¿½Ï°ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì±â¶§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½Ï¸ï¿½ ï¿½ÈµÈ´ï¿½.
 	if (nKillScore >= 0)
 	{
 		nKillScore += GetKillValue(pChar->GetLevel());
@@ -340,7 +340,7 @@ void CThreeWayWar::onDead(LPCHARACTER pChar, LPCHARACTER pkKiller)
 	{
 		char szBuf[64 + 1];
 
-		snprintf(szBuf, sizeof(szBuf), LC_TEXT("ÇöÀç ½ºÄÚ¾î ½Å¼ö±¹:%d ÃµÁ¶±¹:%d Áø³ë±¹:%d"),
+		snprintf(szBuf, sizeof(szBuf), LC_TEXT("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¾ï¿½ ï¿½Å¼ï¿½ï¿½ï¿½:%d Ãµï¿½ï¿½ï¿½ï¿½:%d ï¿½ï¿½ï¿½ë±¹:%d"),
 				GetKillScore(1), GetKillScore(2), GetKillScore(3));
 
 		SendNoticeMap(szBuf, GetSungziMapIndex(), false);
@@ -366,7 +366,7 @@ void CThreeWayWar::onDead(LPCHARACTER pChar, LPCHARACTER pkKiller)
 			return;
 
 		//----------------------
-		//Ä«¿îÆ® ÃÊ±âÈ­ 
+		//Ä«ï¿½ï¿½Æ® ï¿½Ê±ï¿½È­ 
 		//----------------------
 		SetKillScore(1, 0);
 		SetKillScore(2, 0);
@@ -376,7 +376,7 @@ void CThreeWayWar::onDead(LPCHARACTER pChar, LPCHARACTER pkKiller)
 		quest::warp_all_to_map_my_empire_event_info * info;
 
 		//----------------------
-		//Å»¶ô±¹°¡ ÅðÀå ½ÃÅ°±â : ¼ºÁö¿¡¼­ 
+		//Å»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 		//----------------------
 		info = AllocEventInfo<quest::warp_all_to_map_my_empire_event_info>();
 
@@ -389,7 +389,7 @@ void CThreeWayWar::onDead(LPCHARACTER pChar, LPCHARACTER pkKiller)
 		event_create(quest::warp_all_to_map_my_empire_event, info, PASSES_PER_SEC(10));
 
 		//----------------------
-		//Å»¶ô±¹°¡ ÅðÀå ½ÃÅ°±â : Åë·Î¿¡¼­ 
+		//Å»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ : ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ 
 		//----------------------
 		info = AllocEventInfo<quest::warp_all_to_map_my_empire_event_info>();
 
@@ -402,30 +402,30 @@ void CThreeWayWar::onDead(LPCHARACTER pChar, LPCHARACTER pkKiller)
 		event_create(quest::warp_all_to_map_my_empire_event, info, PASSES_PER_SEC(10));
 
 		//----------------------
-		//¼ºÁö¿¡ ÆÃ±â´Â ±¹°¡¿¡ ´ëÇÑ ÀÌ¾ß±â¸¦ ¸¶¿ÕÀÌ ÇÔ!
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾ß±â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½!
 		//----------------------
 		const std::string Nation(EMPIRE_NAME(bLoseEmpire));
 		const std::string Script(
-				LC_TEXT("¼ºÁöÀÇ ¸¶¿Õ: ³ÊÈñ ") +
+				LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ ") +
 				Nation +
-				LC_TEXT("³à¼®µéÀº ÀÌ°÷ ¼ºÁö¿¡ ÀÖÀ» ÀÚ°ÝÀ» ÀÒ¾ú´Ù. ¸ðµÎ ¼ºÁö¿¡¼­ ¹°·¯³ª°Å¶ó~~[ENTER][ENTER] 10ÃÊ ÈÄ¿¡ ¸ðµÎ ¸¶À»·Î ÀÌµ¿ÇÏ°Ô µË´Ï´Ù. ") +
+				LC_TEXT("ï¿½à¼®ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú°ï¿½ï¿½ï¿½ ï¿½Ò¾ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½~~[ENTER][ENTER] 10ï¿½ï¿½ ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï°ï¿½ ï¿½Ë´Ï´ï¿½. ") +
 				"[ENTER][DONE]"
 				);
 
 		CHARACTER_MANAGER::instance().SendScriptToMap(pChar->GetMapIndex(), Script);
 
 		//----------------------
-		// °øÁö ÇÑ¹æ ³¯·ÁÁÜ.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 		//----------------------
 		char szNotice[512+1];
-		snprintf(szNotice, sizeof(szNotice), LC_TEXT("»ï°Å¸® ÀüÅõ¿¡¼­ %s ±¹°¡°¡ °¡Àå¸ÕÀú Å»¶ôÀ» ÇÏ¿´½À´Ï´Ù"), Nation.c_str());
+		snprintf(szNotice, sizeof(szNotice), LC_TEXT("ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½"), Nation.c_str());
 		BroadcastNotice(szNotice);
 
 		snprintf(szNotice, sizeof(szNotice), "First Step: %s exclusion", Nation.c_str());
 		LogManager::instance().CharLog(0, 0, 0, 0, "THREEWAY", szNotice, NULL);
 
 		//----------------------
-		// ¸÷À» ¸®Á¨ÇÑ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		//----------------------
 		regen_mob_event_info* regen_info = AllocEventInfo<regen_mob_event_info>();
 
@@ -464,7 +464,7 @@ void CThreeWayWar::onDead(LPCHARACTER pChar, LPCHARACTER pkKiller)
 				quest::warp_all_to_map_my_empire_event_info * info;
 
 				//----------------------
-				//Å»¶ô±¹°¡ ÅðÀå ½ÃÅ°±â : ¼ºÁö¿¡¼­ 
+				//Å»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 				//----------------------
 				info = AllocEventInfo<quest::warp_all_to_map_my_empire_event_info>();
 
@@ -477,7 +477,7 @@ void CThreeWayWar::onDead(LPCHARACTER pChar, LPCHARACTER pkKiller)
 				event_create(quest::warp_all_to_map_my_empire_event, info, PASSES_PER_SEC(5));
 
 				//----------------------
-				//Å»¶ô±¹°¡ ÅðÀå ½ÃÅ°±â : Åë·Î¿¡¼­ 
+				//Å»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ : ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ 
 				//----------------------
 				info = AllocEventInfo<quest::warp_all_to_map_my_empire_event_info>();
 
@@ -492,17 +492,17 @@ void CThreeWayWar::onDead(LPCHARACTER pChar, LPCHARACTER pkKiller)
 		}
 
 		//------------------------------
-		// ÃÖÁ¾ ½ºÄÚ¾î Ç¥½Ã 
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¾ï¿½ Ç¥ï¿½ï¿½ 
 		//------------------------------
 		{
 			char szBuf[64 + 1];
-			snprintf(szBuf, sizeof(szBuf), LC_TEXT("ÇöÀç ½ºÄÚ¾î ½Å¼ö±¹:%d ÃµÁ¶±¹:%d Áø³ë±¹:%d"),
+			snprintf(szBuf, sizeof(szBuf), LC_TEXT("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¾ï¿½ ï¿½Å¼ï¿½ï¿½ï¿½:%d Ãµï¿½ï¿½ï¿½ï¿½:%d ï¿½ï¿½ï¿½ë±¹:%d"),
 					GetKillScore(1), GetKillScore(2), GetKillScore(3));
 
 			SendNoticeMap(szBuf, GetSungziMapIndex(), false);
 		}
 
-		// ¸Þ¼¼Áö¸¦ ¶ç¿öÁØ´Ù.
+		// ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 		LPSECTREE_MAP pSecMap = SECTREE_MANAGER::instance().GetMap(pChar->GetMapIndex());
 
 		if (NULL != pSecMap)
@@ -510,7 +510,7 @@ void CThreeWayWar::onDead(LPCHARACTER pChar, LPCHARACTER pkKiller)
 			const std::string EmpireName(EMPIRE_NAME(nVictoryEmpireIndex));
 			const std::string Script(
 					EmpireName +
-					LC_TEXT(". ³ÊÈñ°¡ ¼ºÁöÀÇ ¼öÈ£ÀÚ¸¦ Àâ°Ô µÈ´Ù¸é ³ÊÈñ´Â ¼ºÁöÀÇ ÁÖÀÎÀÌ µÈ´Ù.[ENTER][ENTER] ") +
+					LC_TEXT(". ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ ï¿½È´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È´ï¿½.[ENTER][ENTER] ") +
 					"[ENTER][DONE]");
 
 			struct packet_script pack_script;
@@ -534,7 +534,7 @@ void CThreeWayWar::onDead(LPCHARACTER pChar, LPCHARACTER pkKiller)
 		}
 
 		//------------------------------
-		// ¸¶Áö¸· º¸»ó : Áø±¸¹ÌÈ£ ¼ÒÈ¯ 
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ ï¿½ï¿½È¯ 
 		//-----------------------------	
 		for (int n = 0; n < quest::CQuestManager::instance().GetEventFlag("threeway_war_boss_count");)
 		{

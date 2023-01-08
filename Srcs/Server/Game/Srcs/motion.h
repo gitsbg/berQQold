@@ -1,7 +1,7 @@
 #ifndef __INC_GAME_MOTION_H__
 #define __INC_GAME_MOTION_H__
 
-#include "../../common/d3dtype.h"
+#include "../../Common/d3dtype.h"
 
 enum EMotionMode
 {
@@ -18,40 +18,40 @@ enum EMotionMode
 
 enum EPublicMotion
 {
-	MOTION_NONE,                // 0 ¾øÀ½
-	MOTION_WAIT,                // 1 ´ë±â          (00.msa)
-	MOTION_WALK,                // 2 °È±â          (02.msa)
-	MOTION_RUN,                 // 3 ¶Ù±â          (03.msa)
-	MOTION_CHANGE_WEAPON,       // 4 ¹«±â¹Ù²Ù±â
-	MOTION_DAMAGE,              // 5 Á¤¸é¸Â±â      (30.msa)
-	MOTION_DAMAGE_FLYING,       // 6 Á¤¸é³¯¾Æ°¡±â  (32.msa)
-	MOTION_STAND_UP,            // 7 Á¤¸éÀÏ¾î³ª±â  (33.msa)
-	MOTION_DAMAGE_BACK,         // 8 ÈÄ¸é¸Â±â      (34.msa)
-	MOTION_DAMAGE_FLYING_BACK,  // 9 ÈÄ¸é³¯¾Æ°¡±â  (35.msa)
-	MOTION_STAND_UP_BACK,       // 10 ÈÄ¸éÀÏ¾î³ª±â (26.msa)
-	MOTION_DEAD,                // 11 Á×±â         (31.msa)
-	MOTION_DEAD_BACK,           // 12 ÈÄ¸éÁ×±â     (37.msa)
-	MOTION_NORMAL_ATTACK,		// 13 ±âº» °ø°Ý
-	MOTION_COMBO_ATTACK_1,		// 14 ÄÞº¸ °ø°Ý
-	MOTION_COMBO_ATTACK_2,      // 15 ÄÞº¸ °ø°Ý
-	MOTION_COMBO_ATTACK_3,      // 16 ÄÞº¸ °ø°Ý
-	MOTION_COMBO_ATTACK_4,      // 17 ÄÞº¸ °ø°Ý
-	MOTION_COMBO_ATTACK_5,      // 18 ÄÞº¸ °ø°Ý
-	MOTION_COMBO_ATTACK_6,      // 19 ÄÞº¸ °ø°Ý
-	MOTION_COMBO_ATTACK_7,      // 20 ÄÞº¸ °ø°Ý
-	MOTION_COMBO_ATTACK_8,      // 21 ÄÞº¸ °ø°Ý
-	MOTION_INTRO_WAIT,          // 22 ¼±ÅÃÈ­¸é ´ë±â
-	MOTION_INTRO_SELECTED,      // 23 ¼±ÅÃÈ­¸é ¼±ÅÃ
-	MOTION_INTRO_NOT_SELECTED,  // 24 ¼±ÅÃÈ­¸é ºñ¼±ÅÃ
-	MOTION_SPAWN,               // 25 ¼ÒÈ¯
-	MOTION_FISHING_THROW,       // 26 ³¬½Ã ´øÁö±â
-	MOTION_FISHING_WAIT,        // 27 ³¬½Ã ´ë±â
-	MOTION_FISHING_STOP,        // 28 ³¬½Ã ±×¸¸µÎ±â
-	MOTION_FISHING_REACT,       // 29 ³¬½Ã ¹ÝÀÀ
-	MOTION_FISHING_CATCH,       // 30 ³¬½Ã Àâ±â
-	MOTION_FISHING_FAIL,        // 31 ³¬½Ã ½ÇÆÐ
-	MOTION_STOP,                // 32 ¸» ¸ØÃß±â
-	MOTION_SPECIAL_1,           // 33 ¸ó½ºÅÍ ½ºÅ³
+	MOTION_NONE,                // 0 ï¿½ï¿½ï¿½ï¿½
+	MOTION_WAIT,                // 1 ï¿½ï¿½ï¿½          (00.msa)
+	MOTION_WALK,                // 2 ï¿½È±ï¿½          (02.msa)
+	MOTION_RUN,                 // 3 ï¿½Ù±ï¿½          (03.msa)
+	MOTION_CHANGE_WEAPON,       // 4 ï¿½ï¿½ï¿½ï¿½Ù²Ù±ï¿½
+	MOTION_DAMAGE,              // 5 ï¿½ï¿½ï¿½ï¿½Â±ï¿½      (30.msa)
+	MOTION_DAMAGE_FLYING,       // 6 ï¿½ï¿½ï¿½é³¯ï¿½Æ°ï¿½ï¿½ï¿½  (32.msa)
+	MOTION_STAND_UP,            // 7 ï¿½ï¿½ï¿½ï¿½ï¿½Ï¾î³ªï¿½ï¿½  (33.msa)
+	MOTION_DAMAGE_BACK,         // 8 ï¿½Ä¸ï¿½Â±ï¿½      (34.msa)
+	MOTION_DAMAGE_FLYING_BACK,  // 9 ï¿½Ä¸é³¯ï¿½Æ°ï¿½ï¿½ï¿½  (35.msa)
+	MOTION_STAND_UP_BACK,       // 10 ï¿½Ä¸ï¿½ï¿½Ï¾î³ªï¿½ï¿½ (26.msa)
+	MOTION_DEAD,                // 11 ï¿½×±ï¿½         (31.msa)
+	MOTION_DEAD_BACK,           // 12 ï¿½Ä¸ï¿½ï¿½×±ï¿½     (37.msa)
+	MOTION_NORMAL_ATTACK,		// 13 ï¿½âº» ï¿½ï¿½ï¿½ï¿½
+	MOTION_COMBO_ATTACK_1,		// 14 ï¿½Þºï¿½ ï¿½ï¿½ï¿½ï¿½
+	MOTION_COMBO_ATTACK_2,      // 15 ï¿½Þºï¿½ ï¿½ï¿½ï¿½ï¿½
+	MOTION_COMBO_ATTACK_3,      // 16 ï¿½Þºï¿½ ï¿½ï¿½ï¿½ï¿½
+	MOTION_COMBO_ATTACK_4,      // 17 ï¿½Þºï¿½ ï¿½ï¿½ï¿½ï¿½
+	MOTION_COMBO_ATTACK_5,      // 18 ï¿½Þºï¿½ ï¿½ï¿½ï¿½ï¿½
+	MOTION_COMBO_ATTACK_6,      // 19 ï¿½Þºï¿½ ï¿½ï¿½ï¿½ï¿½
+	MOTION_COMBO_ATTACK_7,      // 20 ï¿½Þºï¿½ ï¿½ï¿½ï¿½ï¿½
+	MOTION_COMBO_ATTACK_8,      // 21 ï¿½Þºï¿½ ï¿½ï¿½ï¿½ï¿½
+	MOTION_INTRO_WAIT,          // 22 ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MOTION_INTRO_SELECTED,      // 23 ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MOTION_INTRO_NOT_SELECTED,  // 24 ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MOTION_SPAWN,               // 25 ï¿½ï¿½È¯
+	MOTION_FISHING_THROW,       // 26 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MOTION_FISHING_WAIT,        // 27 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MOTION_FISHING_STOP,        // 28 ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½Î±ï¿½
+	MOTION_FISHING_REACT,       // 29 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MOTION_FISHING_CATCH,       // 30 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MOTION_FISHING_FAIL,        // 31 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MOTION_STOP,                // 32 ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
+	MOTION_SPECIAL_1,           // 33 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
 	MOTION_SPECIAL_2,           // 34 
 	MOTION_SPECIAL_3,			// 35
 	MOTION_SPECIAL_4,			// 36

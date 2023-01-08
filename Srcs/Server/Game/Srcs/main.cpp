@@ -58,10 +58,10 @@
 #include "threeway_war.h"
 #include "auth_brazil.h"
 #include "DragonLair.h"
-#include "HackShield.h"
+// #include "HackShield.h"
 #include "skill_power.h"
 #include "SpeedServer.h"
-#include "XTrapManager.h"
+// #include "XTrapManager.h"
 #include "DragonSoul.h"
 #include <boost/bind.hpp>
 #ifndef __WIN32__
@@ -78,19 +78,19 @@
 #include "auction_manager.h"
 #endif
 
-#ifndef __WIN32__
-#include <gtest/gtest.h>
-#endif
+// #ifndef __WIN32__
+// #include <gtest/gtest.h>
+// #endif
 
 #ifdef USE_STACKTRACE
 #include <execinfo.h>
 #endif
 
-// À©µµ¿ì¿¡¼­ Å×½ºÆ®ÇÒ ¶§´Â Ç×»ó ¼­¹öÅ° Ã¼Å©
+// ï¿½ï¿½ï¿½ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½×½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×»ï¿½ ï¿½ï¿½ï¿½ï¿½Å° Ã¼Å©
 #ifdef _WIN32
 	//#define _USE_SERVER_KEY_
 #endif
-#include "check_server.h"
+// #include "check_server.h"
 
 extern void WriteVersion();
 //extern const char * _malloc_options;
@@ -108,10 +108,10 @@ void WriteMallocMessage(const char* p1, const char* p2, const char* p3, const ch
 #endif
 
 // TRAFFIC_PROFILER
-static const DWORD	TRAFFIC_PROFILE_FLUSH_CYCLE = 3600;	///< TrafficProfiler ÀÇ Flush cycle. 1½Ã°£ °£°Ý
+static const DWORD	TRAFFIC_PROFILE_FLUSH_CYCLE = 3600;	///< TrafficProfiler ï¿½ï¿½ Flush cycle. 1ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
 // END_OF_TRAFFIC_PROFILER
 
-// °ÔÀÓ°ú ¿¬°áµÇ´Â ¼ÒÄÏ
+// ï¿½ï¿½ï¿½Ó°ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½
 volatile int	num_events_called = 0;
 int             max_bytes_written = 0;
 int             current_bytes_written = 0;
@@ -186,11 +186,11 @@ void ShutdownOnFatalError()
 		{
 			char buf[256];
 
-			strlcpy(buf, LC_TEXT("¼­¹ö¿¡ Ä¡¸íÀûÀÎ ¿À·ù°¡ ¹ß»ýÇÏ¿© ÀÚµ¿À¸·Î ÀçºÎÆÃµË´Ï´Ù."), sizeof(buf));
+			strlcpy(buf, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ÃµË´Ï´ï¿½."), sizeof(buf));
 			SendNotice(buf);
-			strlcpy(buf, LC_TEXT("10ÃÊÈÄ ÀÚµ¿À¸·Î Á¢¼ÓÀÌ Á¾·áµÇ¸ç,"), sizeof(buf));
+			strlcpy(buf, LC_TEXT("10ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½,"), sizeof(buf));
 			SendNotice(buf);
-			strlcpy(buf, LC_TEXT("5ºÐ ÈÄ¿¡ Á¤»óÀûÀ¸·Î Á¢¼ÓÇÏ½Ç¼ö ÀÖ½À´Ï´Ù."), sizeof(buf));
+			strlcpy(buf, LC_TEXT("5ï¿½ï¿½ ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ç¼ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½."), sizeof(buf));
 			SendNotice(buf);
 		}
 
@@ -247,7 +247,7 @@ void heartbeat(LPHEART ht, int pulse)
 
 	t = get_dword_time();
 
-	// 1ÃÊ¸¶´Ù
+	// 1ï¿½Ê¸ï¿½ï¿½ï¿½
 	if (!(pulse % ht->passes_per_sec))
 	{
 #ifdef ENABLE_LIMIT_TIME
@@ -309,14 +309,14 @@ void heartbeat(LPHEART ht, int pulse)
 	}
 
 	//
-	// 25 PPS(Pulse per second) ¶ó°í °¡Á¤ÇÒ ¶§
+	// 25 PPS(Pulse per second) ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	//
 
-	// ¾à 1.16ÃÊ¸¶´Ù
+	// ï¿½ï¿½ 1.16ï¿½Ê¸ï¿½ï¿½ï¿½
 	if (!(pulse % (passes_per_sec + 4)))
 		CHARACTER_MANAGER::instance().ProcessDelayedSave();
 
-	//4ÃÊ ¸¶´Ù
+	//4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #if defined (__FreeBSD__) && defined(__FILEMONITOR__)
 	if (!(pulse % (passes_per_sec * 5)))
 	{
@@ -324,7 +324,7 @@ void heartbeat(LPHEART ht, int pulse)
 	}
 #endif
 
-	// ¾à 5.08ÃÊ¸¶´Ù
+	// ï¿½ï¿½ 5.08ï¿½Ê¸ï¿½ï¿½ï¿½
 	if (!(pulse % (passes_per_sec * 5 + 2)))
 	{
 		ITEM_MANAGER::instance().Update();
@@ -368,28 +368,28 @@ void Metin2Server_Check()
 {
 #ifdef _SERVER_CHECK_
 
-#ifdef _USE_SERVER_KEY_
-	if (false == CheckServer::CheckIp(g_szPublicIP))
-	{
-#ifdef _WIN32
-		fprintf(stderr, "check ip failed\n");
-#endif
-		g_isInvalidServer = true;
-	}
-	return;
-#endif
+// #ifdef _USE_SERVER_KEY_
+// 	if (false == CheckServer::CheckIp(g_szPublicIP))
+// 	{
+// #ifdef _WIN32
+// 		fprintf(stderr, "check ip failed\n");
+// #endif
+// 		g_isInvalidServer = true;
+// 	}
+// 	return;
+// #endif
 
 	if (LC_IsEurope() || test_server)
 		return;
 
 
-	// ºê¶óÁú ip
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ip
 	if (strncmp (g_szPublicIP, "189.112.1", 9) == 0)
 	{
 		return;
 	}
 
-	// Ä³³ª´Ù ip
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ip
 	if (strncmp (g_szPublicIP, "74.200.6", 8) == 0)
 	{
 		return;
@@ -413,7 +413,7 @@ void Metin2Server_Check()
 
 	if (0 > sockConnector)
 	{
-		if (true != LC_IsEurope()) // À¯·´Àº Á¢¼ÓÀ» ÇÏÁö ¸øÇÏ¸é ÀÎÁõµÈ °ÍÀ¸·Î °£ÁÖ
+		if (true != LC_IsEurope()) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			g_isInvalidServer = true;
 
 		return;
@@ -448,21 +448,21 @@ int main(int argc, char **argv)
 	DebugAllocator::StaticSetUp();
 #endif
 
-#ifndef __WIN32__
-	// <Factor> start unit tests if option is set
-	if ( argc > 1 ) 
-	{
-		if ( strcmp( argv[1], "unittest" ) == 0 )
-		{
-			::testing::InitGoogleTest(&argc, argv);
-			return RUN_ALL_TESTS();
-		}
-	}
-#endif
+// #ifndef __WIN32__
+// 	// <Factor> start unit tests if option is set
+// 	if ( argc > 1 ) 
+// 	{
+// 		if ( strcmp( argv[1], "unittest" ) == 0 )
+// 		{
+// 			::testing::InitGoogleTest(&argc, argv);
+// 			return RUN_ALL_TESTS();
+// 		}
+// 	}
+// #endif
 
 	ilInit(); // DevIL Initialize
 
-	WriteVersion();
+	// WriteVersion();
 	
 	SECTREE_MANAGER	sectree_manager;
 	CHARACTER_MANAGER	char_manager;
@@ -511,8 +511,8 @@ int main(int argc, char **argv)
 	CThreeWayWar	threeway_war;
 	CDragonLairManager	dl_manager;
 
-	CHackShieldManager	HSManager;
-	CXTrapManager		XTManager;
+	// CHackShieldManager	HSManager;
+	// CXTrapManager		XTManager;
 
 	CSpeedServerManager SSManager;
 	DSManager dsManager;
@@ -547,12 +547,12 @@ int main(int argc, char **argv)
 
 	Metin2Server_Check();
 
-#if defined(_WIN32) && defined(_USE_SERVER_KEY_)
-	if (CheckServer::IsFail())
-	{
-		return 1;
-	}
-#endif
+// #if defined(_WIN32) && defined(_USE_SERVER_KEY_)
+// 	if (CheckServer::IsFail())
+// 	{
+// 		return 1;
+// 	}
+// #endif
 
 	if ( g_bTrafficProfileOn )
 		TrafficProfiler::instance().Initialize( TRAFFIC_PROFILE_FLUSH_CYCLE, "ProfileLog" );
@@ -561,35 +561,34 @@ int main(int argc, char **argv)
 	if (!g_bAuthServer)
 	{
 		//hackshield
-		if (isHackShieldEnable)
-		{
-			if (!HSManager.Initialize())
-			{
-				fprintf(stderr, "Failed To Initialize HS");
-				CleanUpForEarlyExit();
-				return 0;
-			}
-		}
+		// if (isHackShieldEnable)
+		// {
+		// 	if (!HSManager.Initialize())
+		// 	{
+		// 		fprintf(stderr, "Failed To Initialize HS");
+		// 		CleanUpForEarlyExit();
+		// 		return 0;
+		// 	}
+		// }
 
 		//xtrap
-		if(bXTrapEnabled)
-		{
-			if (!XTManager.LoadXTrapModule())
-			{
-				CleanUpForEarlyExit();
-				return 0;
-			}
-#if defined (__FreeBSD__) && defined(__FILEMONITOR__)
-			//PFN_FileChangeListener pNotifyFunc = boost::bind( &CXTrapManager::NotifyMapFileChanged, CXTrapManager::instance(), _1 );
-			PFN_FileChangeListener pNotifyFunc = &(CXTrapManager::NotifyMapFileChanged);
+// 		if(bXTrapEnabled)
+// 		{
+// 			if (!XTManager.LoadXTrapModule())
+// 			{
+// 				CleanUpForEarlyExit();
+// 				return 0;
+// 			}
+// #if defined (__FreeBSD__) && defined(__FILEMONITOR__)
+// 			PFN_FileChangeListener pNotifyFunc = &(CXTrapManager::NotifyMapFileChanged);
 
-			const std::string strMap1Name = "map1.CS3";
-			const std::string strMap2Name = "map2.CS3";
+// 			const std::string strMap1Name = "map1.CS3";
+// 			const std::string strMap2Name = "map2.CS3";
 
-			FileMonitorFreeBSD::Instance().AddWatch( strMap1Name, pNotifyFunc );
-			FileMonitorFreeBSD::Instance().AddWatch( strMap2Name, pNotifyFunc );
-#endif
-		}
+// 			FileMonitorFreeBSD::Instance().AddWatch( strMap1Name, pNotifyFunc );
+// 			FileMonitorFreeBSD::Instance().AddWatch( strMap2Name, pNotifyFunc );
+// #endif
+// 		}
 	}
 
 	// Client PackageCrypt
@@ -666,14 +665,14 @@ int main(int argc, char **argv)
 	sys_log(0, "<shutdown> Destroying building::CManager...");
 	building_manager.Destroy();
 
-	if (!g_bAuthServer)
-	{
-		if (isHackShieldEnable)
-		{
-			sys_log(0, "<shutdown> Releasing HackShield manager...");
-			HSManager.Release();
-		}
-	}
+	// if (!g_bAuthServer)
+	// {
+	// 	if (isHackShieldEnable)
+	// 	{
+	// 		sys_log(0, "<shutdown> Releasing HackShield manager...");
+	// 		HSManager.Release();
+	// 	}
+	// }
 
 	sys_log(0, "<shutdown> Flushing TrafficProfiler...");
 	trafficProfiler.Flush();
@@ -1004,7 +1003,7 @@ int io_loop(LPFDWATCH fdw)
 	LPDESC	d;
 	int		num_events, event_idx;
 
-	DESC_MANAGER::instance().DestroyClosed(); // PHASE_CLOSEÀÎ Á¢¼ÓµéÀ» ²÷¾îÁØ´Ù.
+	DESC_MANAGER::instance().DestroyClosed(); // PHASE_CLOSEï¿½ï¿½ ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 	DESC_MANAGER::instance().TryConnect();
 
 	if ((num_events = fdwatch(fdw, 0)) < 0)

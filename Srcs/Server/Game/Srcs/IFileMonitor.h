@@ -2,7 +2,7 @@
 #define IFILEMONITOR_INCLUDED
 
 //#include <boost/function.hpp>
-#include <boost/unordered_map.hpp>
+#include <unordered_map>
 
 enum eFileUpdatedOptions
 {

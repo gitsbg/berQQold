@@ -1,7 +1,7 @@
 
 #include "stdafx.h"
 
-#include "../../common/length.h"
+#include "../../Common/length.h"
 
 #include "skill_power.h"
 

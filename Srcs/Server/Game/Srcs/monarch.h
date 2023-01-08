@@ -1,7 +1,7 @@
 #ifndef __INC_METIN_II_MONARCH_H__
 #define __INC_METIN_II_MONARCH_H__
 
-#include "../../common/tables.h"
+#include "../../Common/tables.h"
 
 class CMonarch : public singleton<CMonarch>
 {
@@ -49,11 +49,11 @@ class CMonarch : public singleton<CMonarch>
 	private:
 		TMonarchInfo m_MonarchInfo;	
 
-		int m_PowerUp[4]; ///< ±ºÁÖÀÇ »çÀÚÈÄ
-		int m_DefenseUp[4]; ///< ±ºÁÖÀÇ ±Ý°­±Ç
+		int m_PowerUp[4]; ///< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		int m_DefenseUp[4]; ///< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý°ï¿½ï¿½ï¿½
 
-		int m_PowerUpCT[4]; ///< ±ºÁÖÀÇ »çÀÚÈÄ
-		int m_DefenseUpCT[4]; ///< ±ºÁÖÀÇ ±Ý°­±Ç
+		int m_PowerUpCT[4]; ///< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		int m_DefenseUpCT[4]; ///< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý°ï¿½ï¿½ï¿½
 };
 
 bool IsMonarchWarpZone (int map_idx);

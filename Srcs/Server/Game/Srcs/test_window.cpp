@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "../../libgame/include/attribute.h"
-#include "../../libgame/include/targa.h"
-#include "../../common/d3dtype.h"
+#include "../../LibGame/Srcs/attribute.h"
+#include "../../LibGame/Srcs/targa.h"
+#include "../../Common/d3dtype.h"
 #include "utils.h"
 #include "minilzo.h"
 #include "sectree.h"
@@ -120,7 +120,7 @@ int main(int argc, char ** argv)
 	SECTREE_MANAGER	sectree_manager;
 	DESC_MANAGER desc_manager;
 	CHARACTER_MANAGER char_manager;
-	quest::CQuestManager quest_manager; // CHARACTER::Intiailize¿¡¼­ ÇÊ¿äÇÔ
+	quest::CQuestManager quest_manager; // CHARACTER::Intiailizeï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½
 	CArenaManager arena_manager;
 	CPVPManager pvp_manager;
 	LZOManager lzo;
@@ -186,7 +186,7 @@ int main(int argc, char ** argv)
 					// Buffer overflow test (must use with valgrind or gdb at least)
                     LPCHARACTER ch = CHARACTER_MANAGER::instance().CreateCharacter("test");
 
-					// ½ºÅÃ¿¡ ÇÒ´çÇÏ¸é valgrind°¡ Á¦´ë·Î ¿À·ù¸¦ ÀâÁö ¸øÇÔ
+					// ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½Ò´ï¿½ï¿½Ï¸ï¿½ valgrindï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					size_t bufsize = 512 + 1;
 					size_t linesize = 1024 + 1;
 
@@ -289,11 +289,11 @@ bool ReadMapAttribute(DWORD dwAreaX, DWORD dwAreaY, const char * c_pszFileName)
 	fclose(fp);	// close file
 
 	// 
-	// ÇÏ³ªÀÇ SECTREE´Â 6400 PIXELÀ» Â÷Áö 100ÇÈ¼¿ÀÌ 1¹ÌÅÍ ÀÌ¹Ç·Î 
+	// ï¿½Ï³ï¿½ï¿½ï¿½ SECTREEï¿½ï¿½ 6400 PIXELï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 100ï¿½È¼ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹Ç·ï¿½ 
 	// 1 SECTREE = 64m = 6400px
 	//
-	// Å¬¶óÀÌ¾ðÆ®ÀÇ ÇÏ³ªÀÇ Area´Â 256m¸¦ Â÷ÁöÇÏ¹Ç·Î SECTREE ³×°³¸¦ Ã³¸®ÇØ¾ß 
-	// ÇÑ´Ù.
+	// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ Areaï¿½ï¿½ 256mï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ SECTREE ï¿½×°ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ø¾ï¿½ 
+	// ï¿½Ñ´ï¿½.
 	//
 	DWORD dwStartX, dwStartY, dwEndX, dwEndY;
 
@@ -325,9 +325,9 @@ bool ReadMapAttribute(DWORD dwAreaX, DWORD dwAreaY, const char * c_pszFileName)
 			{
 				for (int ax = region[x - dwStartX][0], px = 0; ax < region[x - dwStartX][1]; ++ax, px += 2)
 				{
-					// AREAÀÇ °æ¿ì ¼Ó¼º ÇØ»óµµ°¡ 1m ÀÌ¹Ç·Î
-					// CELL 1°³°¡ 50x50cmÀÎ SECTREE¿¡¼­´Â
-					// AREAÀÇ ¼Ó¼º ÇÑ°³°¡ 2x2°³¸¦ Â÷Áö ÇÑ´Ù.
+					// AREAï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ ï¿½Ø»óµµ°ï¿½ 1m ï¿½Ì¹Ç·ï¿½
+					// CELL 1ï¿½ï¿½ï¿½ï¿½ 50x50cmï¿½ï¿½ SECTREEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+					// AREAï¿½ï¿½ ï¿½Ó¼ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ 2x2ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 					BYTE bAttr = pbAttr[ay * wHeight + ax];
 
 					if (bAttr & ATTR_OBJECT)
@@ -367,7 +367,7 @@ void GetFindFileList(LPCTSTR pszDirectory, LPCTSTR pszFilter, std::vector <std::
 	for(;hHandle!=INVALID_HANDLE_VALUE;)
 	{		
 		if( ( FindFileData.cFileName[0]!=_T('.') || lstrlen(FindFileData.cFileName)>2) &&
-			( 0 != _stricmp( FindFileData.cFileName, "Replay"))) //  Replay Æú´õ´Â Áö¿ìÁö ¾Ê´Â´Ù
+			( 0 != _stricmp( FindFileData.cFileName, "Replay"))) //  Replay ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½
 		{
 			lstrcpy(buf,pszDirectory);
 			lstrcat(buf,_T("\\"));
@@ -541,7 +541,7 @@ void ProcessLine(int sx, int sy, int ex, int ey, _f f)
 	else
 		h = ey - sy;
 
-	// distance = (w * w) + (h * h); // °Å¸®
+	// distance = (w * w) + (h * h); // ï¿½Å¸ï¿½
 	if (w > h)
 	{
 		d = (h << 1) - w;
@@ -570,7 +570,7 @@ void ProcessLine(int sx, int sy, int ex, int ey, _f f)
 				default: return;
 			}
 
-			if (!f(px, py))	// false °¡ ¸®ÅÏ µÇ¸é Áß´Ü ÇÑ´Ù.
+			if (!f(px, py))	// false ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ß´ï¿½ ï¿½Ñ´ï¿½.
 			{
 				printf("putting error %d %d", px, py);
 				return;
@@ -604,7 +604,7 @@ void ProcessLine(int sx, int sy, int ex, int ey, _f f)
 				default: return;
 			}
 
-			if (!f(px, py))	// false °¡ ¸®ÅÏ µÇ¸é Áß´Ü ÇÑ´Ù.
+			if (!f(px, py))	// false ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ß´ï¿½ ï¿½Ñ´ï¿½.
 			{
 				printf("putting error %d %d", px, py);
 				return;
@@ -756,10 +756,10 @@ void ReadCollisionData(const char * c_pszFileName, int iBaseX, int iBaseY)
 
 								}
 							}
-							// »ç°¢Çü Ã¤¿ì±âµµ ÇÕ½Ã´Ù
-							// 0 1 2 3 ¼ø¼­´ë·Î
+							// ï¿½ç°¢ï¿½ï¿½ Ã¤ï¿½ï¿½âµµ ï¿½Õ½Ã´ï¿½
+							// 0 1 2 3 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 							// -- +- -+ ++
-							// ±Ùµ¥ y ´Â ¸¶ÀÌ³Ê½º ÃëÇÏ´Â°Å È®ÀÎÇÏ½Ã±æ
+							// ï¿½Ùµï¿½ y ï¿½ï¿½ ï¿½ï¿½ï¿½Ì³Ê½ï¿½ ï¿½ï¿½ï¿½Ï´Â°ï¿½ È®ï¿½ï¿½ï¿½Ï½Ã±ï¿½
 							// TODO
 						}
 						break;
@@ -831,7 +831,7 @@ void ConvertAttribute(const char * c_pszCollisionDataFileName, const char * c_ps
 	printf("bx by %d %d\n", bx, by);
 	int x, y;
 
-	// ÀÏ´Ü ¼Ó¼º ÃÊ±âÈ­
+	// ï¿½Ï´ï¿½ ï¿½Ó¼ï¿½ ï¿½Ê±ï¿½È­
 	for (y = 0; y < iMapHeight * (25600 / SECTREE_SIZE); ++y)
 	{
 		for (x = 0; x < iMapWidth * (25600 / SECTREE_SIZE); ++x)

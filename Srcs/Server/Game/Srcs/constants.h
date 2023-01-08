@@ -1,7 +1,7 @@
 #ifndef __INC_METIN_II_GAME_CONSTANTS_H__
 #define __INC_METIN_II_GAME_CONSTANTS_H__
 
-#include "../../common/tables.h"
+#include "../../Common/tables.h"
 
 enum EMonsterChatState
 {
@@ -13,7 +13,7 @@ enum EMonsterChatState
 
 typedef struct SMobRankStat
 {
-	int iGoldPercent;   // µ·ÀÌ ³ª¿Ã È®·ü
+	int iGoldPercent;   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 } TMobRankStat;
 
 typedef struct SMobStat
@@ -124,7 +124,7 @@ extern const int		aiMobResistsApplyIdx[MOB_RESISTS_MAX_NUM];
 
 extern const int		aSkillAttackAffectProbByRank[MOB_RANK_MAX_NUM];
 
-extern const int aiItemMagicAttributePercentHigh[ITEM_ATTRIBUTE_MAX_LEVEL]; // 1°³±îÁö
+extern const int aiItemMagicAttributePercentHigh[ITEM_ATTRIBUTE_MAX_LEVEL]; // 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 extern const int aiItemMagicAttributePercentLow[ITEM_ATTRIBUTE_MAX_LEVEL];
 
 extern const int aiItemAttributeAddPercent[ITEM_ATTRIBUTE_MAX_NUM];

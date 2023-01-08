@@ -1,5 +1,5 @@
 
-#include "../../common/stl.h"
+#include "../../Common/stl.h"
 
 class CMapLocation : public singleton<CMapLocation>
 {

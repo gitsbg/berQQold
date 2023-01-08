@@ -9,12 +9,12 @@
 
 /*
    Return Value
-		0 : ¾Ë ¼ö ¾ø´Â ¿¡·¯ or Äõ¸® ¿¡·¯
-		1 : µ¿ÀÏÇÑ Á¦±¹À¸·Î ¹Ù²Ù·Á°íÇÔ
-		2 : ±æµå °¡ÀÔÇÑ Ä³¸¯ÅÍ°¡ ÀÖÀ½
-		3 : °áÈ¥ÇÑ Ä³¸¯ÅÍ°¡ ÀÖÀ½
+		0 : ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ or ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		1 : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù·ï¿½ï¿½ï¿½ï¿½ï¿½
+		2 : ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½
+		3 : ï¿½ï¿½È¥ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-		999 : Á¦±¹ ÀÌµ¿ ¼º°ø
+		999 : ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 */
 int CHARACTER::ChangeEmpire(BYTE empire)
 {
@@ -27,12 +27,12 @@ int CHARACTER::ChangeEmpire(BYTE empire)
 	memset(dwPID, 0, sizeof(dwPID));
 
 	{
-		// 1. ³» °èÁ¤ÀÇ ¸ðµç pid¸¦ ¾ò¾î ¿Â´Ù
+		// 1. ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ pidï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Â´ï¿½
 		snprintf(szQuery, sizeof(szQuery), 
 				"SELECT id, pid1, pid2, pid3, pid4 FROM player_index%s WHERE pid1=%u OR pid2=%u OR pid3=%u OR pid4=%u AND empire=%u", 
 				get_table_postfix(), GetPlayerID(), GetPlayerID(), GetPlayerID(), GetPlayerID(), GetEmpire());
 
-		std::auto_ptr<SQLMsg> msg(DBManager::instance().DirectQuery(szQuery));
+		std::unique_ptr<SQLMsg> msg(DBManager::instance().DirectQuery(szQuery));
 
 		if (msg->Get()->uiNumRows == 0)
 		{
@@ -51,8 +51,8 @@ int CHARACTER::ChangeEmpire(BYTE empire)
 	const int loop = 4;
 
 	{
-		// 2. °¢ Ä³¸¯ÅÍÀÇ ±æµå Á¤º¸¸¦ ¾ò¾î¿Â´Ù.
-		//   ÇÑ Ä³¸¯ÅÍ¶óµµ ±æµå¿¡ °¡ÀÔ µÇ¾î ÀÖ´Ù¸é, Á¦±¹ ÀÌµ¿À» ÇÒ ¼ö ¾ø´Ù.
+		// 2. ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
+		//   ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¶ï¿½ ï¿½ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½Ö´Ù¸ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		DWORD dwGuildID[4];
 		CGuild * pGuild[4];
 		SQLMsg * pMsg = NULL;
@@ -91,8 +91,8 @@ int CHARACTER::ChangeEmpire(BYTE empire)
 	}
 
 	{
-		// 3. °¢ Ä³¸¯ÅÍÀÇ °áÈ¥ Á¤º¸¸¦ ¾ò¾î¿Â´Ù.
-		//   ÇÑ Ä³¸¯ÅÍ¶óµµ °áÈ¥ »óÅÂ¶ó¸é Á¦±¹ ÀÌµ¿À» ÇÒ ¼ö ¾ø´Ù.
+		// 3. ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
+		//   ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¶ï¿½ ï¿½ï¿½È¥ ï¿½ï¿½ï¿½Â¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		for (int i = 0; i < loop; ++i)
 		{
 			if (marriage::CManager::instance().IsEngagedOrMarried(dwPID[i]) == true)
@@ -101,15 +101,15 @@ int CHARACTER::ChangeEmpire(BYTE empire)
 	}
 	
 	{
-		// 4. dbÀÇ Á¦±¹ Á¤º¸¸¦ ¾÷µ¥ÀÌÆ® ÇÑ´Ù.
+		// 4. dbï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ñ´ï¿½.
 		snprintf(szQuery, sizeof(szQuery), "UPDATE player_index%s SET empire=%u WHERE pid1=%u OR pid2=%u OR pid3=%u OR pid4=%u AND empire=%u", 
 				get_table_postfix(), empire, GetPlayerID(), GetPlayerID(), GetPlayerID(), GetPlayerID(), GetEmpire());
 
-		std::auto_ptr<SQLMsg> msg(DBManager::instance().DirectQuery(szQuery));
+		std::unique_ptr<SQLMsg> msg(DBManager::instance().DirectQuery(szQuery));
 
 		if (msg->Get()->uiAffectedRows > 0)
 		{
-			// 5. Á¦±¹ º¯°æ ÀÌ·ÂÀ» Ãß°¡ÇÑ´Ù.
+			// 5. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ñ´ï¿½.
 			SetChangeEmpireCount();
 
 			return 999;
@@ -173,7 +173,7 @@ void CHARACTER::SetChangeEmpireCount()
 		snprintf(szQuery, sizeof(szQuery), "UPDATE change_empire SET change_count=%d WHERE account_id=%u", count, dwAID);
 	}
 
-	std::auto_ptr<SQLMsg> pmsg(DBManager::instance().DirectQuery(szQuery));
+	std::unique_ptr<SQLMsg> pmsg(DBManager::instance().DirectQuery(szQuery));
 }
 
 DWORD CHARACTER::GetAID() const

@@ -9,7 +9,7 @@
 
 #include "stdafx.h" 
 #include "constants.h"
-#include "../../common/teen_packet.h"
+#include "../../Common/teen_packet.h"
 #include "input.h"
 #include "desc.h"
 #include "desc_manager.h"
@@ -96,32 +96,32 @@ static void __proc_teen_notice(char *login, int hour)
 		case 1:
 		case 2:
 			{
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("´ç½ÅÀÇ ´©Àû ¿Â¶óÀÎ ½Ã°£ÀÌ ÀÌ¹Ì %d½Ã°£ÀÌ Áö³µ½À´Ï´Ù."), hour);
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Â¶ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ %dï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."), hour);
 				SET_OVER_TIME(ch, OT_NONE);
 			}
 			break;
 		case 3:
 			{
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("´ç½ÅÀÇ ´©Àû ¿Â¶óÀÎ ½Ã°£ÀÌ ÀÌ¹Ì %d½Ã°£ÀÌ µÇ¾ú½À´Ï´Ù,"), hour);
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("Á¶¼ÓÈ÷ Á¢¼ÓÀ» Á¾·áÇÏ½Å ÈÄ °Ç°­À» À§ÇØ ÈÞ½ÄÀ» ÃëÇØÁÖ½Ã±â¹Ù¶ø´Ï´Ù."));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Â¶ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ %dï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½,"), hour);
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ ï¿½Ç°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö½Ã±ï¿½Ù¶ï¿½ï¿½Ï´ï¿½."));
 				SET_OVER_TIME(ch, OT_3HOUR);
 			}
 			break;
 		case 4:
 			{
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("´ç½ÅÀº ÀÌ¹Ì °ÔÀÓ ÇÇ·Î »óÅÂ¿¡ µé¾î¼¹À¸¸ç,"));
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("°ÔÀÓ ³»ÀÇ ¼öÀÍÀÌ Á¤»óÄ¡ÀÇ 50%·Î ÇÏÇâµË´Ï´Ù."));
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("´ç½ÅÀÇ °Ç°­À» À§ÇØ Á¶¼ÓÈ÷ Á¢¼ÓÀ» Á¾·áÇÏ½Ã°í"));
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ÈÞ½Ä ¹× ÇÐ¾÷¿¡ ¿­ÁßÇØÁÖ½Ê½Ã¿À."));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½î¼¹ï¿½ï¿½ï¿½ï¿½,"));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ 50%ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ë´Ï´ï¿½."));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã°ï¿½"));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ï¿½Þ½ï¿½ ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö½Ê½Ã¿ï¿½."));
 				SET_OVER_TIME(ch, OT_3HOUR);
 			}
 			break;
 		default:
 			{
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("´ç½ÅÀº ÀÌ¹Ì ¿ÂÀüÇÏÁö ¸øÇÑ °ÔÀÓ ½Ã°£¿¡ µé¾î¼¹½À´Ï´Ù."));
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("°Ç°­À» À§ÇØ Á¶¼ÓÈ÷ Á¢¼ÓÀ» Á¾·áÇÏ½Å ÈÄ ÈÞ½ÄÀ» ÃëÇØÁÖ½Ê½Ã¿À,"));
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("±×·¸Áö ¾ÊÀ¸¸é °Ç°­ »ó¿¡ ÇÇÇØ¸¦ ÀÔÀ» ¼ö ÀÖÀ¸¸ç °ÔÀÓ ³»ÀÇ ¼öÄ¡´Â 0ÀÌ µË´Ï´Ù."));
-				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("´©Àû ¿ÀÇÁ¶óÀÎ ½Ã°£ÀÌ 5½Ã°£ÀÌ µÇ¸é Á¤»óÀ¸·Î µ¹¾Æ¿É´Ï´Ù."));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½î¼¹ï¿½ï¿½ï¿½Ï´ï¿½."));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ï¿½Ç°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö½Ê½Ã¿ï¿½,"));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ 0ï¿½ï¿½ ï¿½Ë´Ï´ï¿½."));
+				ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ 5ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¿É´Ï´ï¿½."));
 				SET_OVER_TIME(ch, OT_5HOUR);
 			}
 			break;
@@ -134,9 +134,9 @@ static inline void __sec_to_timestring(int sec, char *buf, size_t buflen)
 	int min		= (sec/60);
 
 	if (hour>0)
-		snprintf(buf, buflen, LC_TEXT("%d½Ã°£"), hour);
+		snprintf(buf, buflen, LC_TEXT("%dï¿½Ã°ï¿½"), hour);
 	else
-		snprintf(buf, buflen, LC_TEXT("%dºÐ"), min);
+		snprintf(buf, buflen, LC_TEXT("%dï¿½ï¿½"), min);
 }
 
 static void __proc_login_notice(char *login, int on_time, int off_time)
@@ -157,13 +157,13 @@ static void __proc_login_notice(char *login, int on_time, int off_time)
 
 	if (0==on_time)
 	{
-		ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("´ç½ÅÀÇ ´©Àû ¿ÀÇÁ¶óÀÎ ½Ã°£Àº %sÀÔ´Ï´Ù."), off_time_string);
-		ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("´ç½ÅÀÇ ´©Àû ¿Â¶óÀÎ ½Ã°£Àº 0ÀÌ µÇ¾ú½À´Ï´Ù. 100% È¿°ú¸¦ ¾òÀ¸½Ç ¼ö ÀÖ½À´Ï´Ù."));
+		ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ %sï¿½Ô´Ï´ï¿½."), off_time_string);
+		ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Â¶ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ 0ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. 100% È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½."));
 		return;
 	}
 	else
 	{
-		ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("´ç½ÅÀÇ ´©Àû ¿ÀÇÁ¶óÀÎ ½Ã°£Àº %sÀÌ¸ç, ´©Àû ¿Â¶óÀÎ ½Ã°£Àº %sÀÔ´Ï´Ù."),
+		ch->ChatPacket(CHAT_TYPE_NOTICE, LC_TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ %sï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Â¶ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ %sï¿½Ô´Ï´ï¿½."),
 				off_time_string, on_time_string);
 	}
 }

@@ -87,7 +87,7 @@ class SECTREE
 
 		template <class _Func> LPENTITY	find_if (_Func & func) const
 		{
-			LPSECTREE_LIST::iterator it_tree = m_neighbor_list.begin();
+			auto it_tree = m_neighbor_list.begin();
 
 			while (it_tree != m_neighbor_list.end())
 			{
@@ -111,7 +111,7 @@ class SECTREE
 		{
 			// <Factor> Using snapshot copy to avoid side-effects
 			FCollectEntity collector;
-			LPSECTREE_LIST::iterator it = m_neighbor_list.begin();
+			auto it = m_neighbor_list.begin();
 			for ( ; it != m_neighbor_list.end(); ++it)
 			{
 				LPSECTREE sectree = *it;
@@ -119,7 +119,7 @@ class SECTREE
 			}
 			collector.ForEach(func);
 			/*
-			LPSECTREE_LIST::iterator it_tree = m_neighbor_list.begin();
+			auto it_tree = m_neighbor_list.begin();
 			for ( ; it_tree != m_neighbor_list.end(); ++it_tree) {
 				(*it_tree)->for_each_entity(func);
 			}
@@ -128,11 +128,11 @@ class SECTREE
 
 		template <class _Func> void for_each_for_find_victim(_Func & func)
 		{
-			LPSECTREE_LIST::iterator it_tree = m_neighbor_list.begin();
+			auto it_tree = m_neighbor_list.begin();
 
 			while (it_tree != m_neighbor_list.end())
 			{
-				//Ã¹¹øÂ°¸¦ Ã£À¸¸é ¹Ù·Î ¸®ÅÏ
+				//Ã¹ï¿½ï¿½Â°ï¿½ï¿½ Ã£ï¿½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if ( (*(it_tree++))->for_each_entity_for_find_victim(func) )
 					return;
 			}
@@ -143,7 +143,7 @@ class SECTREE
 
 			while (it != m_set_entity.end())
 			{
-				//Á¤»óÀûÀ¸·Î Ã£À¸¸é ¹Ù·Î ¸®ÅÏ
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if ( func(*it++) )
 					return true;
 			}
@@ -176,9 +176,9 @@ class SECTREE
 		DWORD				GetAttribute(long x, long y);
 		bool				IsAttr(long x, long y, DWORD dwFlag);
 
-		void				CloneAttribute(LPSECTREE tree); // private map Ã³¸®½Ã »ç¿ë
+		void				CloneAttribute(LPSECTREE tree); // private map Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
-		int				GetEventAttribute(long x, long y); // 20050313 ÇöÀç´Â »ç¿ëÇÏÁö ¾ÊÀ½
+		int				GetEventAttribute(long x, long y); // 20050313 ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		void				SetAttribute(DWORD x, DWORD y, DWORD dwAttr);
 		void				RemoveAttribute(DWORD x, DWORD y, DWORD dwAttr);

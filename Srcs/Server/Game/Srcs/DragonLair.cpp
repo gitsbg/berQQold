@@ -91,7 +91,7 @@ EVENTFUNC( DragonLair_Collapse_Event )
 	if (0 == pInfo->step)
 	{
 		char buf[512];
-		snprintf(buf, 512, LC_TEXT("¿ë°¡¸®°¡ %d ÃÊ¸¸¿¡ Á×¾î½áÈ¿¤Ð¤Ð"), pInfo->pLair->GetEstimatedTime());
+		snprintf(buf, 512, LC_TEXT("ï¿½ë°¡ï¿½ï¿½ï¿½ï¿½ %d ï¿½Ê¸ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ï¿½È¿ï¿½Ð¤ï¿½"), pInfo->pLair->GetEstimatedTime());
 		SendNoticeMap(buf, pInfo->InstanceMapIndex, true);
 
 		pInfo->step++;
@@ -146,7 +146,7 @@ DWORD CDragonLair::GetEstimatedTime() const
 
 void CDragonLair::OnDragonDead(LPCHARACTER pDragon)
 {
-	sys_log(0, "DragonLair: µµ¶ó°ïÀÌ Á×¾î½áÈ¿");
+	sys_log(0, "DragonLair: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ï¿½È¿");
 
 	LogManager::instance().DragonSlayLog(  GuildID_, pDragon->GetMobTable().dwVnum, StartTime_, get_global_time() );
 }
@@ -222,7 +222,7 @@ void CDragonLairManager::OnDragonDead(LPCHARACTER pDragon, DWORD KillerGuildID)
 	if (false == pDragon->IsMonster())
 		return;
 
-	boost::unordered_map<DWORD, CDragonLair*>::iterator iter = LairMap_.find( KillerGuildID );
+	std::unordered_map<DWORD, CDragonLair*>::iterator iter = LairMap_.find( KillerGuildID );
 
 	if (LairMap_.end() == iter)
 	{
@@ -239,7 +239,7 @@ void CDragonLairManager::OnDragonDead(LPCHARACTER pDragon, DWORD KillerGuildID)
 
 	iter->second->OnDragonDead( pDragon );
 
-	// ¾Öµé ´Ù ÁýÀ¸·Î º¸³»°í ¸Ê ¾ø¾Ö±â
+	// ï¿½Öµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ö±ï¿½
 
 	tag_DragonLair_Collapse_EventInfo* info;
 	info = AllocEventInfo<tag_DragonLair_Collapse_EventInfo>();

@@ -1,8 +1,8 @@
 #ifndef __INC_METIN_II_GROUP_TEXT_PARSE_TREE_H__
 #define __INC_METIN_II_GROUP_TEXT_PARSE_TREE_H__
 
-#include "../../common/d3dtype.h"
-#include "../../common/pool.h"
+#include "../../Common/d3dtype.h"
+#include "../../Common/pool.h"
 #include "file_loader.h"
 #include <sstream>
 typedef std::map<std::string, TTokenVector>	TTokenVectorMap;
@@ -45,15 +45,15 @@ public:
 	int GetRowCount();
 	
 	template <typename T>
-	bool GetValue(size_t i, const std::string & c_rstrColKey, T& tValue) const;	// n¹øÂ°(map¿¡ µé¾îÀÖ´Â ¼ø¼­ÀÏ »Ó, txtÀÇ ¼ø¼­¿Í´Â °ü°è ¾øÀ½) rowÀÇ Æ¯Á¤ ÄÃ·³ÀÇ °ªÀ» ¹ÝÈ¯ÇÏ´Â ÇÔ¼ö. 
-																				// ÀÌÁúÀûÀÌ±ä ÇÏÁö¸¸, ÆíÀÇ¸¦ À§ÇÑ ÇÔ¼ö.
+	bool GetValue(size_t i, const std::string & c_rstrColKey, T& tValue) const;	// nï¿½ï¿½Â°(mapï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, txtï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) rowï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½. 
+																				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½.
 	template <typename T>
 	bool GetValue(const std::string & c_rstrRowKey, const std::string & c_rstrColKey, T& tValue) const;
 	template <typename T>
 	bool GetValue(const std::string & c_rstrRowKey, int index, T& tValue) const;
 
 	bool GetRow(const std::string & c_rstrKey, OUT const CGroupNodeRow ** ppRow) const;
-	// Âü°í·Î, idx¶û txt¿¡ ¾²¿©Áø ¼ø¼­¶û °ü°è ¾øÀ½.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, idxï¿½ï¿½ txtï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	bool GetRow(int idx, OUT const CGroupNodeRow ** ppRow) const;
 	bool GetGroupRow(const std::string& stGroupName, const std::string& stRow, OUT const CGroupNode::CGroupNodeRow ** ppRow) const;
 
@@ -184,7 +184,7 @@ bool CGroupNode::GetGroupValue(const std::string& stGroupName, const std::string
 		if (pChildGroup->GetValue(stRow, iCol, tValue))
 			return true;
 	}
-	// default groupÀ» »ìÆìº½.
+	// default groupï¿½ï¿½ ï¿½ï¿½ï¿½ìº½.
 	pChildGroup = GetChildNode("default");
 	if (NULL != pChildGroup)
 	{
@@ -203,7 +203,7 @@ bool CGroupNode::GetGroupValue(const std::string& stGroupName, const std::string
 		if (pChildGroup->GetValue(stRow, stCol, tValue))
 			return true;
 	}
-	// default groupÀ» »ìÆìº½.
+	// default groupï¿½ï¿½ ï¿½ï¿½ï¿½ìº½.
 	pChildGroup = GetChildNode("default");
 	if (NULL != pChildGroup)
 	{

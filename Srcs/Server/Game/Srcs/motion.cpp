@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "../../common/stl.h"
+#include "../../Common/stl.h"
 #include "constants.h"
 #include "motion.h"
 #include "text_file_loader.h"
@@ -476,7 +476,7 @@ bool CMotion::LoadMobSkillFromFile(const char * c_pszFileName, CMob* pMob, int i
 						continue;
 
 					case MOTION_EVENT_TYPE_SPECIAL_ATTACKING:
-						// ±¸ µ¥ÀÌÅÍ´Â ÇÏ³ª ¶ó°í °¡Á¤
+						// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½ ï¿½Ï³ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						if (!rkTextFileLoader.SetChildNode("spheredata", 0))
 						{
 							sys_err("Motion: no sphere data %s", c_pszFileName);

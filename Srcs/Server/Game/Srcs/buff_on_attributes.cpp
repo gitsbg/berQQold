@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "../../common/tables.h"
+#include "../../Common/tables.h"
 #include "item.h"
 #include "char.h"
 #include "buff_on_attributes.h"
@@ -39,8 +39,8 @@ void CBuffOnAttributes::RemoveBuffFromItem(LPITEM pItem)
 		{
 			TPlayerItemAttribute attr = pItem->GetAttribute(j);
 			TMapAttr::iterator it = m_map_additional_attrs.find(attr.bType);
-			// m_map_additional_attrs¿¡¼­ ÇØ´ç attribute type¿¡ ´ëÇÑ °ªÀ» Á¦°ÅÇÏ°í,
-			// º¯°æµÈ °ªÀÇ (m_bBuffValue)%¸¸Å­ÀÇ ¹öÇÁ È¿°ú °¨¼Ò
+			// m_map_additional_attrsï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ attribute typeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½,
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (m_bBuffValue)%ï¿½ï¿½Å­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if (it != m_map_additional_attrs.end())
 			{
 				int& sum_of_attr_value = it->second;
@@ -76,15 +76,15 @@ void CBuffOnAttributes::AddBuffFromItem(LPITEM pItem)
 			TPlayerItemAttribute attr = pItem->GetAttribute(j);
 			TMapAttr::iterator it = m_map_additional_attrs.find(attr.bType);
 			
-			// m_map_additional_attrs¿¡¼­ ÇØ´ç attribute type¿¡ ´ëÇÑ °ªÀÌ ¾ø´Ù¸é Ãß°¡.
-			// Ãß°¡µÈ °ªÀÇ (m_bBuffValue)%¸¸Å­ÀÇ ¹öÇÁ È¿°ú Ãß°¡
+			// m_map_additional_attrsï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ attribute typeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ß°ï¿½.
+			// ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (m_bBuffValue)%ï¿½ï¿½Å­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ ï¿½ß°ï¿½
 			if (it == m_map_additional_attrs.end())
 			{
 				m_pBuffOwner->ApplyPoint(attr.bType, attr.sValue * m_bBuffValue / 100);
 				m_map_additional_attrs.insert(TMapAttr::value_type(attr.bType, attr.sValue));
 			}
-			// m_map_additional_attrs¿¡¼­ ÇØ´ç attribute type¿¡ ´ëÇÑ °ªÀÌ ÀÖ´Ù¸é, ±× °ªÀ» Áõ°¡½ÃÅ°°í,
-			// º¯°æµÈ °ªÀÇ (m_bBuffValue)%¸¸Å­ÀÇ ¹öÇÁ È¿°ú Ãß°¡
+			// m_map_additional_attrsï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ attribute typeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½,
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (m_bBuffValue)%ï¿½ï¿½Å­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ ï¿½ß°ï¿½
 			else
 			{
 				int& sum_of_attr_value = it->second;
@@ -105,8 +105,8 @@ void CBuffOnAttributes::ChangeBuffValue(BYTE bNewValue)
 		Off();
 	else
 	{
-		// ±âÁ¸¿¡, m_map_additional_attrsÀÇ °ªÀÇ (m_bBuffValue)%¸¸Å­ÀÌ ¹öÇÁ·Î µé¾î°¡ ÀÖ¾úÀ¸¹Ç·Î,
-		// (bNewValue)%¸¸Å­À¸·Î °ªÀ» º¯°æÇÔ.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, m_map_additional_attrsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (m_bBuffValue)%ï¿½ï¿½Å­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½Ç·ï¿½,
+		// (bNewValue)%ï¿½ï¿½Å­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 		for (TMapAttr::iterator it = m_map_additional_attrs.begin(); it != m_map_additional_attrs.end(); it++)
 		{
 			int& sum_of_attr_value = it->second;

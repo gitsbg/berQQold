@@ -93,15 +93,15 @@ namespace std
 			a.clear();
 		}
 
-	template <typename T> T MIN(T a, T b)
-	{
-		return a < b ? a : b;
-	}
+	// template <typename T> T MIN(T a, T b)
+	// {
+	// 	return a < b ? a : b;
+	// }
 
-	template <typename T> T MAX(T a, T b)
-	{
-		return a > b ? a : b;
-	}
+	// template <typename T> T MAX(T a, T b)
+	// {
+	// 	return a > b ? a : b;
+	// }
 
 	template <typename T> T MINMAX(T min, T value, T max)
 	{
