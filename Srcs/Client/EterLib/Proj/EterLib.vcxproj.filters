@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{f62e5f95-a699-4d27-9a8c-2470def1aece}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{6ba04406-6baa-441a-b304-3515b9bf2455}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Culling">
+      <UniqueIdentifier>{6eb24184-451a-4ce9-a69d-cb0f436f8799}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic">
+      <UniqueIdentifier>{9bc6b739-4f12-4916-8855-a45588cab249}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{9fecb9a2-de41-4df9-b88c-9011c556cbeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Image">
+      <UniqueIdentifier>{16f27a95-a4d5-491d-ab1d-625c1e5070a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{23e23b7d-edc6-4d2b-b848-bc62f1505cf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Font">
+      <UniqueIdentifier>{a1a8b3af-daca-4ec2-a015-8067435e29aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Font_New">
+      <UniqueIdentifier>{729b803e-9062-4437-96eb-2ba621754543}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IME">
+      <UniqueIdentifier>{74961a93-38fb-4c5d-a089-9636ad91d2cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text">
+      <UniqueIdentifier>{7b92309c-5e76-44b7-bb2f-e4de8b9657f7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Srcs\CullingManager.cpp">
+      <Filter>Culling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpFontTexture.cpp">
+      <Filter>Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpText.cpp">
+      <Filter>Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpTextInstance.cpp">
+      <Filter>Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\TextTag.cpp">
+      <Filter>Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\BlockTexture.cpp">
+      <Filter>Font_New</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\DibBar.cpp">
+      <Filter>Font_New</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\TextBar.cpp">
+      <Filter>Font_New</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpBase.cpp">
+      <Filter>Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpDetector.cpp">
+      <Filter>Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpDevice.cpp">
+      <Filter>Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpMath.cpp">
+      <Filter>Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpScreen.cpp">
+      <Filter>Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\JpegFile.cpp">
+      <Filter>Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\StateManager.cpp">
+      <Filter>Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpExpandedImageInstance.cpp">
+      <Filter>Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpImage.cpp">
+      <Filter>Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpImageInstance.cpp">
+      <Filter>Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpImageTexture.cpp">
+      <Filter>Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpMarkInstance.cpp">
+      <Filter>Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpSubImage.cpp">
+      <Filter>Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpTexture.cpp">
+      <Filter>Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\IME.cpp">
+      <Filter>IME</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\NetAddress.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\NetDatagram.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\NetDatagramReceiver.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\NetDatagramSender.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\NetDevice.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\NetStream.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\NetPacketHeaderMap.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Resource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ResourceManager.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\AttributeData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\AttributeInstance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\CollisionData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ColorTransitionHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Decal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\EnvironmentMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\FileLoaderThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpCollisionObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpD3DXBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpDIB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpIndexBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpLightManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpObjectInstance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpPixelShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpRatioInstance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpShadowTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpVertexBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpVertexBufferDynamic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpVertexBufferStatic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpVertexShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\LensFlare.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\lineintersect_utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MSApplication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MSWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Mutex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PathStack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ReferenceObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ScreenFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\SkyBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\TargaResource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Thread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpColor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GrpColorInstance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\TextFileLoader.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\StdAfx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Srcs\CullingManager.h">
+      <Filter>Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpFontTexture.h">
+      <Filter>Font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpText.h">
+      <Filter>Font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpTextInstance.h">
+      <Filter>Font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\TextTag.h">
+      <Filter>Font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\BlockTexture.h">
+      <Filter>Font_New</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\DibBar.h">
+      <Filter>Font_New</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\TextBar.h">
+      <Filter>Font_New</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpBase.h">
+      <Filter>Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpDetector.h">
+      <Filter>Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpDevice.h">
+      <Filter>Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpMath.h">
+      <Filter>Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpScreen.h">
+      <Filter>Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\JpegFile.h">
+      <Filter>Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\StateManager.h">
+      <Filter>Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\AttributeData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\AttributeInstance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\CollisionData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\ColorTransitionHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Decal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Dynamic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\EnvironmentMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\FileLoaderThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\FuncObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpCollisionObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpColor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpColorInstance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpD3DXBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpDIB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpIndexBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpLightManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpObjectInstance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpPixelShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpRatioInstance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpShadowTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpVertexBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpVertexBufferDynamic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpVertexBufferStatic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpVertexShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\LensFlare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\lineintersect_utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\MSApplication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\MSWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Mutex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PathStack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Pool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Profiler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Ray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Ref.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\ReferenceObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\ScreenFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\SkyBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\TargaResource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Thread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpExpandedImageInstance.h">
+      <Filter>Image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpImage.h">
+      <Filter>Image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpImageInstance.h">
+      <Filter>Image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpImageTexture.h">
+      <Filter>Image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpMarkInstance.h">
+      <Filter>Image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpSubImage.h">
+      <Filter>Image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GrpTexture.h">
+      <Filter>Image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Dimm.h">
+      <Filter>IME</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\IME.h">
+      <Filter>IME</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\msctf.h">
+      <Filter>IME</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\NetAddress.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\NetDatagram.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\NetDatagramReceiver.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\NetDatagramSender.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\NetDevice.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\NetPacketHeaderMap.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\NetStream.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Resource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\ResourceManager.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\TextFileLoader.h">
+      <Filter>Text</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\StdAfx.h" />
+  </ItemGroup>
+</Project>

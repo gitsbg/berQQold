@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{a111c22c-3eb3-4322-924e-42aead9a45d3}</UniqueIdentifier>
+      <Extensions>*.cpp;*.h;</Extensions>
+    </Filter>
+    <Filter Include="Graphic Files">
+      <UniqueIdentifier>{33625dd3-1e0e-4609-ae24-51276716c103}</UniqueIdentifier>
+      <Extensions>*.cpp; *.h;</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Srcs\PythonGraphic.cpp">
+      <Filter>Graphic Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonGraphicImageModule.cpp">
+      <Filter>Graphic Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonGraphicModule.cpp">
+      <Filter>Graphic Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonGraphicTextModule.cpp">
+      <Filter>Graphic Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonGraphicThingModule.cpp">
+      <Filter>Graphic Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonGridSlotWindow.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonSlotWindow.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonWindow.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonWindowManager.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonWindowManagerModule.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\StdAfx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Srcs\PythonGraphic.h">
+      <Filter>Graphic Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonGridSlotWindow.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonSlotWindow.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonWindow.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonWindowManager.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\StdAfx.h" />
+  </ItemGroup>
+</Project>

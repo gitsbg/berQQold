@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Actor">
+      <UniqueIdentifier>{c5aed44d-a8a9-4873-ba97-4b2590a5a135}</UniqueIdentifier>
+      <Extensions>*.cpp; *.h;</Extensions>
+    </Filter>
+    <Filter Include="Map">
+      <UniqueIdentifier>{295c1793-cbbe-46db-90dd-a747972a0330}</UniqueIdentifier>
+      <Extensions>*.cpp; *.h;</Extensions>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{66f91f76-5dbf-4e05-bd6d-919cde4dbf2b}</UniqueIdentifier>
+      <Extensions>*.cpp; *.h;</Extensions>
+    </Filter>
+    <Filter Include="Item">
+      <UniqueIdentifier>{4c1a67dc-626d-49d4-a81c-dad609f068aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fly">
+      <UniqueIdentifier>{3425ad5c-ed71-4108-a785-31bee9b74173}</UniqueIdentifier>
+      <Extensions>*.cpp;*.h;</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Srcs\ActorInstance.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ActorInstanceAttach.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ActorInstanceBattle.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ActorInstanceBlend.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ActorInstanceCollisionDetection.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ActorInstanceData.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ActorInstanceEvent.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ActorInstanceFly.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ActorInstanceMotion.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ActorInstanceMotionEvent.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ActorInstancePosition.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ActorInstanceRender.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ActorInstanceRotation.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ActorInstanceSync.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ActorInstanceWeaponTrace.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\DungeonBlock.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PhysicsObject.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\RaceData.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\RaceDataFile.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\RaceManager.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\RaceMotionData.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\WeaponTrace.cpp">
+      <Filter>Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\FlyingData.cpp">
+      <Filter>Fly</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\FlyingInstance.cpp">
+      <Filter>Fly</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\FlyingObjectManager.cpp">
+      <Filter>Fly</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\FlyTarget.cpp">
+      <Filter>Fly</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\FlyTrace.cpp">
+      <Filter>Fly</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GameEventManager.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GameType.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GameUtil.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ItemData.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ItemManager.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Area.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\AreaLoaderThread.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\AreaTerrain.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MapBase.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MapManager.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MapOutdoor.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MapOutdoorCharacterShadow.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MapOutdoorIndexBuffer.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MapOutdoorLoad.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MapOutdoorQuadtree.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MapOutdoorRender.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MapOutdoorRenderHTP.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MapOutdoorRenderSTP.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MapOutdoorUpdate.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MapOutdoorWater.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MapType.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MonsterAreaInfo.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Property.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PropertyLoader.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PropertyManager.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\SnowEnvironment.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\SnowParticle.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\TerrainDecal.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\TerrainPatch.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\TerrainQuadtree.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MapUtil.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\StdAfx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Srcs\ActorInstance.h">
+      <Filter>Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\ActorInstanceInterface.h">
+      <Filter>Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PhysicsObject.h">
+      <Filter>Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\RaceData.h">
+      <Filter>Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\RaceManager.h">
+      <Filter>Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\RaceMotionData.h">
+      <Filter>Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\WeaponTrace.h">
+      <Filter>Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\RaceMotionDataEvent.h">
+      <Filter>Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\FlyHandler.h">
+      <Filter>Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\FlyingData.h">
+      <Filter>Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\FlyingInstance.h">
+      <Filter>Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\FlyingObjectManager.h">
+      <Filter>Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\FlyTarget.h">
+      <Filter>Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\FlyTrace.h">
+      <Filter>Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GameEventManager.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GameType.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GameUtil.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\ItemData.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\ItemManager.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Area.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\AreaLoaderThread.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\AreaTerrain.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\DungeonBlock.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\MapBase.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\MapManager.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\MapOutdoor.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\MapType.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\MapUtil.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\MonsterAreaInfo.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Property.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PropertyLoader.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PropertyManager.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\SnowEnvironment.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\SnowParticle.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\TerrainDecal.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\TerrainPatch.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\TerrainQuadtree.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Interface.h" />
+    <ClInclude Include="..\Srcs\StdAfx.h" />
+  </ItemGroup>
+</Project>

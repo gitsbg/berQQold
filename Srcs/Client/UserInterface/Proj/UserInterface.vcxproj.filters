@@ -1,0 +1,897 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="InstanceBase">
+      <UniqueIdentifier>{f89c0d95-d900-4972-b24b-4b50ff707732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{a4a04891-b31d-4e3b-a08d-37163a2bbe55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{3350012f-8cf3-4edb-9824-85b313b921d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pack">
+      <UniqueIdentifier>{369a0772-90fa-4a89-a88f-f70a6632f3d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{1561dbc1-6a2c-4e2d-9735-b840f6ceb370}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GuildMark">
+      <UniqueIdentifier>{88804f2a-dd61-4864-904a-cd55f32bece8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script Files">
+      <UniqueIdentifier>{17fef59b-cf10-456e-aea7-33468d5b4384}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script Files\UIScript">
+      <UniqueIdentifier>{591ab900-0bed-432c-ad65-57a8dd0ef376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{af763c15-ab3e-4f92-aae4-21412b4fdc28}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Abstract">
+      <UniqueIdentifier>{205d0b2b-d207-45c9-8b58-6b3303d3bf87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Locale">
+      <UniqueIdentifier>{b11ef620-4447-4e99-b737-adc79bda9da5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{06e45864-883c-4e84-b988-dad844a19e2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Security">
+      <UniqueIdentifier>{3f53bf18-1d74-4121-b83c-55a6734ebc48}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Srcs\GameType.cpp" />
+    <ClCompile Include="..\Srcs\MovieMan.cpp" />
+    <ClCompile Include="..\Srcs\StdAfx.cpp" />
+    <ClCompile Include="..\Srcs\UserInterface.cpp" />
+    <ClCompile Include="..\Srcs\CameraProcedure.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonBackground.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonBackgroundModule.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonCharacterManager.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonCharacterManagerModule.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonCharacterModule.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonEffectModule.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonEventManager.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonEventManagerMoudle.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonGameEventManagerModule.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonItem.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonItemModule.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNonPlayer.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNonPlayerModule.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonPlayer.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonPlayerEventHandler.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonPlayerInput.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonPlayerInputKeyboard.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonPlayerInputMouse.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonPlayerModule.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonPlayerSkill.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonQuest.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonSkill.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GuildMarkDownloader.cpp">
+      <Filter>GuildMark</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\GuildMarkUploader.cpp">
+      <Filter>GuildMark</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MarkImage.cpp">
+      <Filter>GuildMark</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MarkManager.cpp">
+      <Filter>GuildMark</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\AffectFlagContainer.cpp">
+      <Filter>InstanceBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\InstanceBase.cpp">
+      <Filter>InstanceBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\InstanceBaseBattle.cpp">
+      <Filter>InstanceBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\InstanceBaseEffect.cpp">
+      <Filter>InstanceBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\InstanceBaseEvent.cpp">
+      <Filter>InstanceBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\InstanceBaseMotion.cpp">
+      <Filter>InstanceBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\InstanceBaseMovement.cpp">
+      <Filter>InstanceBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\InstanceBaseTransform.cpp">
+      <Filter>InstanceBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonChat.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonChatModule.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonExchange.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonExchangeModule.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonFlyModule.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonGuild.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonMessenger.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonMiniMap.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonMiniMapModule.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonSafeBox.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonShop.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonTextTail.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonTextTailModule.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Locale.cpp">
+      <Filter>Locale</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\AccountConnector.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\InsultChecker.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\NetworkActorManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ProcessCRC.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonExceptionSender.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNetworkDatagram.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNetworkDatagramModule.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNetworkStream.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNetworkStreamCommand.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNetworkStreamEvent.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNetworkStreamModule.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNetworkStreamPhaseGame.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNetworkStreamPhaseGameActor.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNetworkStreamPhaseGameItem.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNetworkStreamPhaseHandShake.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNetworkStreamPhaseLoading.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNetworkStreamPhaseLogin.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNetworkStreamPhaseOffline.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonNetworkStreamPhaseSelect.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ServerStateChecker.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ServerStateCheckerModule.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonPackModule.cpp">
+      <Filter>Pack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\CheckLatestFiles.cpp">
+      <Filter>Security</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\ProcessScanner.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonApplication.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonApplicationCamera.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonApplicationCursor.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonApplicationEvent.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonApplicationLogo.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonApplicationModule.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonApplicationProcedure.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonApplicationWebPage.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonIME.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonIMEModule.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonProfilerModule.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonSoundManagerModule.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonSystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\PythonSystemModule.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Srcs\GameType.h" />
+    <ClInclude Include="..\Srcs\MovieMan.h" />
+    <ClInclude Include="..\Srcs\StdAfx.h" />
+    <ClInclude Include="..\Srcs\Test.h" />
+    <ClInclude Include="..\Srcs\resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\AbstractApplication.h">
+      <Filter>Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\AbstractCharacterManager.h">
+      <Filter>Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\AbstractChat.h">
+      <Filter>Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\AbstractPlayer.h">
+      <Filter>Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\AbstractSingleton.h">
+      <Filter>Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonBackground.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonCharacterManager.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonEventManager.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonItem.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonNonPlayer.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonPlayer.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonPlayerEventHandler.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonQuest.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonSkill.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GuildMarkDownloader.h">
+      <Filter>GuildMark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\GuildMarkUploader.h">
+      <Filter>GuildMark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\MarkImage.h">
+      <Filter>GuildMark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\MarkManager.h">
+      <Filter>GuildMark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\AffectFlagContainer.h">
+      <Filter>InstanceBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\InstanceBase.h">
+      <Filter>InstanceBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonChat.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonExchange.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonGuild.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonMessenger.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonMiniMap.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonSafeBox.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonShop.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonTextTail.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Locale.h">
+      <Filter>Locale</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Locale_inc.h">
+      <Filter>Locale</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Locale_inc_BR.h">
+      <Filter>Locale</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Locale_inc_CA.h">
+      <Filter>Locale</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Locale_inc_dev.h">
+      <Filter>Locale</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Locale_inc_EU.h">
+      <Filter>Locale</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Locale_inc_EU2.h">
+      <Filter>Locale</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Locale_inc_GB.h">
+      <Filter>Locale</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Locale_inc_HK.h">
+      <Filter>Locale</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Locale_inc_JP.h">
+      <Filter>Locale</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Locale_inc_KO.h">
+      <Filter>Locale</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Locale_inc_KO_DEV.h">
+      <Filter>Locale</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Locale_inc_NEWCIBN.h">
+      <Filter>Locale</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Locale_inc_SG.h">
+      <Filter>Locale</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\AccountConnector.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\InsultChecker.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\NetworkActorManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Packet.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\ProcessCRC.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonExceptionSender.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonNetworkDatagram.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonNetworkStream.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\ServerStateChecker.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\CheckLatestFiles.h">
+      <Filter>Security</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\ProcessScanner.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonApplication.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonIME.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\PythonSystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Locale_inc_VI.h">
+      <Filter>Locale</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cursors\cursor.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Cursors\cursor_attack.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Cursors\cursor_buy.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Cursors\cursor_camera_rotate.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Cursors\cursor_chair.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Cursors\cursor_door.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Cursors\cursor_hsize.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Cursors\cursor_hvsize.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Cursors\cursor_no.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Cursors\cursor_pick.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Cursors\cursor_sell.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Cursors\cursor_talk.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Cursors\cursor_vsize.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\colorInfo.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\consoleModule.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\constInfo.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\debugInfo.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\exception.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\game.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\interfaceModule.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\introCreate.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\introEmpire.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\introLoading.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\introLogin.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\introLogo.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\introSelect.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\locale.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\mouseModule.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\musicInfo.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\networkModule.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\playerSettingModule.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\Prototype.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\serverInfo.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\system.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\ui.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiAffectShower.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiAttachMetin.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiCandidate.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiCharacter.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiChat.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiCommon.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiCube.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiDragonSoul.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiEx.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiExchange.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiGameButton.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiGameOption.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiGuild.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiHelp.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiInventory.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiMapNameShower.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiMessenger.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiMiniMap.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiOption.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiParty.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiPhaseCurtain.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiPickMoney.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiPlayerGauge.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiPointReset.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiPrivateShopBuilder.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiQuest.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiRefine.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiRestart.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiSafebox.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiScriptLocale.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiShop.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiSystem.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiSystemOption.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiTarget.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiTaskBar.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiTest.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiTip.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiToolTip.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiUploadMark.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\uiWhisper.py">
+      <Filter>Script Files</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\936_LoginWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\949_LoginWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\AtlasWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\AttachStoneDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\AuctionWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\AuctionWindow_ListPage.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\AuctionWindow_RegisterPage.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\AuctionWindow_UniqueAuctionPage.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\ChangeGradeNameDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\ChangePasswordDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\CharacterWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\ConnectingDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\CostumeWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\CreateCharacterWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\ExchangeDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\FishingWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\GameOptionDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\GameWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\GuildWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\GuildWindow_BaseInfoPage.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\GuildWindow_BoardPage.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\GuildWindow_GradePage.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\GuildWindow_GuildInfoPage.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\GuildWindow_GuildSkillPage.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\GuildWindow_MemberPage.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\HelpWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\IMEKOR.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\InputDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\InputDialogWithDescription.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\InventoryWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\LoadingWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\MarkListWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\MessengerWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\MiniMap.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\MouseButtonWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\PartyMemberInfoBoard.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\PasswordDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\PickMoneyDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\PopupDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\PrivateShopBuilder.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\QuestDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\QuestionDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\QuestionDialog2.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\RefineDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\RestartDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\RightMouseButtonWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\SafeboxWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\SelectCharacterWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\SelectEmpireWindow.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\ShopDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\SkillPointResetDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\SystemDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\SystemDialog_ForPortal.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\SystemOptionDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\TaskBar.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+    <None Include="Resources\Scripts\UIScript\WhisperDialog.py">
+      <Filter>Script Files\UIScript</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources\UserInterface.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Icons\metin2.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

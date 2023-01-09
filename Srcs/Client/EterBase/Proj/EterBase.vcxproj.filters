@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Poly">
+      <UniqueIdentifier>{213dc841-8650-4470-8c92-3721b9e8916c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code">
+      <UniqueIdentifier>{cd6c569b-c01c-40b9-bdb8-c4212c1e40ef}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Srcs\cipher.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\CPostIt.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\CRC32.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Debug.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\error.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\FileBase.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\FileDir.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\FileLoader.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\lzo.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\MappedFile.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Random.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Stl.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\tea.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\TempFile.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Timer.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Utils.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Poly\Base.cpp">
+      <Filter>Poly</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Poly\Poly.cpp">
+      <Filter>Poly</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Poly\Symbol.cpp">
+      <Filter>Poly</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\Poly\SymTable.cpp">
+      <Filter>Poly</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Srcs\StdAfx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Srcs\cipher.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\CPostIt.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\CRC32.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Debug.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\error.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\FileBase.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\FileDir.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\FileLoader.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Filename.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\lzo.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\MappedFile.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Random.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\ServiceDefs.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Singleton.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Stl.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\tea.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\TempFile.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Timer.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Utils.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\vk.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Poly\Base.h">
+      <Filter>Poly</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Poly\Poly.h">
+      <Filter>Poly</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Poly\Symbol.h">
+      <Filter>Poly</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\Poly\SymTable.h">
+      <Filter>Poly</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Srcs\StdAfx.h" />
+  </ItemGroup>
+</Project>
